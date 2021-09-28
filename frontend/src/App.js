@@ -9,6 +9,7 @@ import MainPage from "./pages/MainPage"
 import RankingPage from './pages/RankingPage';
 import ResultPage from './pages/ResultPage';
 import TestPage from './pages/TestPage';
+import AboutPage from './pages/AboutPage';
 function App() {
   return (
     <div className="App">
@@ -19,6 +20,7 @@ function App() {
             <Route exact path="/ranking" component={RankingPage} />
             <Route exact path="/result" component={ResultPage} />
             <Route exact path="/test" component={TestPage} />
+            <Route exact path="/about" component={AboutPage} />
             
 
           </Switch>

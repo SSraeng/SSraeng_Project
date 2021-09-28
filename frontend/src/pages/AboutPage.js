@@ -1,13 +1,13 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
-function ResultPage() {
-
+function AboutPage() {
+    
     return (
         <div >
             <NavBar />
-            결과페이지입니다
+            어바웃페이지입니다
         </div>
     )
 }
 
-export default ResultPage;
+export default AboutPage;

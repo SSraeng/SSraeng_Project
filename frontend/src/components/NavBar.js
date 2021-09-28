@@ -8,10 +8,11 @@ function NavBar() {
         <div>
             <header className="Basic-Bar">
                 <div >
-                    <div style={{ paddingLeft: "50px", fontSize: "30px" }} onClick={() => history.push("/")}>쓰랭</div></div>
+                    <div style={{ paddingLeft: "50px", fontSize: "30px" , height:"10vh",paddingTop:"5vh"}} onClick={() => history.push("/")}>쓰랭</div></div>
                 <div style={{ display: "flex", justifyContent: "space-evenly"}}>
                     <div onClick={() => history.push("/test")}>테스트하기</div>
                     <div onClick={() => history.push("/ranking")}>랭킹보기</div>
+                    <div onClick={() => history.push("/about")}>About</div>
                 </div>
             </header>
             <hr style={{
