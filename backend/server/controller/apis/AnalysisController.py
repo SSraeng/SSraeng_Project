@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from apis.AnalysisAPI import analysis, test_result
+from service.Analysis import analysis, test_result
 
 analysis_bp = Blueprint('analysis', __name__, url_prefix='/api')
 

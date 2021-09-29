@@ -3,7 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from flask_migrate import Migrate
 
-from controller.AnalysisController import analysis_bp
+from controller.apis.AnalysisController import analysis_bp
+from controller.apis.DataApiController import data_api_bp
 
 from db_connect import db
 import config
@@ -11,6 +12,7 @@ import config
 def create_app():
   app = Flask(__name__)
   app.register_blueprint(analysis_bp)
+  app.register_blueprint(data_api_bp)
   app.config.from_object(config)
   
   db.init_app(app)
