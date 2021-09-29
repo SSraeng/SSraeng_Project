@@ -8,7 +8,11 @@ function TestPage() {
         <div >
             <NavBar />
             {
-                axios.post({ name: store.getState.name, submit: [1, 2, 1, 2] })
+                axios.post({
+                    method: "post",
+                    url: "/api/test/test",
+                    data: { name: store.getState().name, submit: [1, 2, 1, 2] }
+                })
                 .then((res)=>{console.log(res)})
                 .catch((e)=>alert(e))
             }
@@ -17,4 +21,3 @@ function TestPage() {
 }
 
 export default TestPage;
-//{"answer":[],'submit:[]}
