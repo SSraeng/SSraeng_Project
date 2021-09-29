@@ -16,4 +16,4 @@ def test():
   submit = request.json['submit']
 
   result = test_result(answer, submit)
-  return result
+  return result, 200
