@@ -10,9 +10,9 @@ def get_analysis_result():
 
 
 # 테스트 결과 받고 전달
-@analysis_bp.route('/test', methods=['POST'])
+@analysis_bp.route('/test/test', methods=['POST'])
 def test():
-  answer = request.json['answer']
+  answer = request.json['name']
   submit = request.json['submit']
 
   result = test_result(answer, submit)
