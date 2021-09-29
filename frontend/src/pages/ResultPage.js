@@ -1,11 +1,12 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
+import store from '../store';
 function ResultPage() {
 
     return (
         <div >
             <NavBar />
-            결과페이지입니다
+            {store.getState().name}
         </div>
     )
 }
