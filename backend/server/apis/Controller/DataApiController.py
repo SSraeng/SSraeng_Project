@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 
-from controller.dto.response_dto import temp_data_response_dto
+from apis.dto.responseDto import temp_data_response_dto
 from service.Ranking import get_rank
 
 data_api_bp = Blueprint('data_api', __name__, url_prefix='/api')
