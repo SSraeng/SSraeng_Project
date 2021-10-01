@@ -1,13 +1,14 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
-import store from '../store';
-import { first,second,third,fourth,fifth } from '../tests/level';
+import test_store,{reset} from '../redux_store/test_store';
+import { first, second, third, fourth, fifth } from '../tests/level';
+import PlasticCal from '../components/PlasticCal';
 function ResultPage() {
     const result = []
     let index = 0
     const answer = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     let src = ""
-    for (let i of store.getState()[0].submit) {
+    for (let i of test_store.getState()[0].submit) {
         if (answer[index] == i)
             result.push(1)
         else
@@ -21,7 +22,8 @@ function ResultPage() {
             <NavBar />
             <p>나의  점수</p>
             <div>{score}</div>
-            <img src={src}></img>
+            <img src={src} width="300px"></img>
+        <PlasticCal/>
         </div>
     )
 }
