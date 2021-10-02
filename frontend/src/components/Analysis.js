@@ -59,7 +59,8 @@ function Analysis (){
                 datasets: [
                     {
                         label: "월별 격리자 현황",
-                        border: "black",
+                        backgroundColor: "red",
+                        color:"black",
                         fill: false,
                         data: arr.map(a=>a.active)
                     },
@@ -123,7 +124,7 @@ const options = {
     },
     "DoughnutChart":{
         plugins: {
-            title: { display: true, text: `누적 확진, 사망 비율 (${new Date().getMonth + 1}월)`, fontSize: 16 },
+            title: { display: true, text: `누적 확진, 사망 비율 (${new Date().getFullYear()}년 ${new Date().getMonth() + 1}월 기준)`, fontSize: 16 },
             legend: { display: true, position: "bottom" },
             maintainAspectRatio: false,
         }
