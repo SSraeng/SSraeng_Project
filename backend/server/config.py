@@ -1,7 +1,6 @@
 from secret import db_pw, secret_key
 
-DATABASE_NAME = ''
-SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:'+db_pw+'@localhost/' + DATABASE_NAME +'?charset=utf8'
+SQLALCHEMY_DATABASE_URI = 'mssql+pymssql://ssraeng:'+db_pw+'@ssraeng-db-server.database.windows.net/SsraengDB'
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 SECRET_KEY = secret_key

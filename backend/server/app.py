@@ -3,8 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from flask_migrate import Migrate
 
-from apis.Controller.AnalysisController import analysis_bp
-from apis.Controller.DataApiController import data_api_bp
+from apis.Controller.analysisController import analysis_bp
+from apis.Controller.dataAccessController import data_api_bp
 
 from db_connect import db
 import config
@@ -19,6 +19,7 @@ def create_app():
   
   migrate = Migrate()
   migrate.init_app(app, db, compare_type=True)
+  from domain.models import user
   
   CORS(app)  
   
