@@ -7,3 +7,6 @@ def temp_data_response_dto(temp_data):
     response.append({'id':data['id'], 'name':data['name']})
     
   return jsonify(response)
+
+def user_response_dto(user):
+  return jsonify(user),200
