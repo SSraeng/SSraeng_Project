@@ -19,7 +19,7 @@ def create_app():
   
   migrate = Migrate()
   migrate.init_app(app, db, compare_type=True)
-  from domain.models import user
+  from domain.models import user, quiz, answerslist
   
   CORS(app)  
   
