@@ -3,22 +3,22 @@ import NavBar from '../components/NavBar';
 
 function Intro(props){
     return(
-      <div class="about_people_box" id={props.id}>
-        <div class='about_people_box_image'>
+      <div className="about_people_box" id={props.id}>
+        <div className='about_people_box_image'>
             {/* 이미지 태그로 바뀌는 부분입니다. */}
-            <p class='iabout_people_box_image_item'
+            <p className='iabout_people_box_image_item'
                 alt={props.id}
                 style={{height:'100px'}}>
                 이미지 파일
             </p>
         </div>
-        <div class='about_people_box_content'>
-            <p class='about_people_box_content_header'>
-                <span class='about_people_box_content_header_name'>{props.name}</span>
-                <span class='about_people_box_content_header_position'>개발자</span>
+        <div className='about_people_box_content'>
+            <p className='about_people_box_content_header'>
+                <span className='about_people_box_content_header_name'>{props.name}</span>
+                <span className='about_people_box_content_header_position'>개발자</span>
             </p>
-            <p class='about_people_box_content_email'>abc123@gmail.com</p>
-            <p class='about_people_box_content_description'>엘리서 AI 트랙 2기 레이서 입니다. 만나서 반가워요! </p>
+            <p className='about_people_box_content_email'>abc123@gmail.com</p>
+            <p className='about_people_box_content_description'>엘리서 AI 트랙 2기 레이서 입니다. 만나서 반가워요! </p>
         </div>
       </div>
     )

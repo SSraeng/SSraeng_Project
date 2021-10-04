@@ -1,14 +1,26 @@
-import React from 'react';
+import React from "react";
 import NavBar from '../components/NavBar';
 import { useHistory } from 'react-router';
+import Analysis from "../components/Analysis";
 
 function MainPage() {
-    const history = useHistory();
+    const history = useHistory()
+    
     return (
-        <div >
+        <div className='mainpage'>
             <NavBar />
-            <div>메인페이지입니다</div>
-            <button onClick={()=>history.push("/test/userinfo")}>테스트하기</button>
+            <div className="accumulate_box">
+                <h2>누적 사용자 수</h2>
+                <p>12,345,678명</p>
+                {/* GET으로 누적 확진자 수 받아오는 Section */}
+            </div>
+            <section className="data_analysis_box">
+                <h2>데이터 분석</h2>
+                <div className="data_analysis_box_chart_list">
+                    <Analysis />
+                </div>
+            </section>
+            <button onClick={() => history.push("/test")}>테스트하기</button>
         </div>
     )
 }
