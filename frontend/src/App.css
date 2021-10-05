@@ -1,10 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-}
-
-.App {
-  text-align: center;
+  font-family: "Elice_Regular";
 }
 
 .App-header {
@@ -21,6 +18,17 @@
 .App-link {
   color: #61dafb;
 }
+/* 폰트 모음 */
+@font-face {
+  font-family: "Elice_Bold";
+  src: url("./fonts/EliceDigitalBaeum_Bold.ttf");
+}
+
+@font-face {
+  font-family: "Elice_Regular";
+  src: url("./fonts/EliceDigitalBaeum_Regular.ttf");
+}
+
 /* Analysis 컴포넌트 */
 .data_analysis {
   display: flex;
@@ -71,19 +79,21 @@
   border-radius: 30px;
   height: 100%;
   overflow: hidden;
-  box-shadow: 0 2px 28px 0 rgb(68 87 101 / 10%);
-  background-color: #fcfcfc;
+  box-shadow: 0 5px 28px 0 rgb(68 87 101 / 10%);
+  background-color: #ffffff;
   transition: background-color 0.4s;
   cursor: pointer;
 }
 .about_people_wrap_box:hover {
   box-shadow: 0 2px 28px 0 rgb(68 87 101 / 30%);
+  background-color: #fcfcfc;
   transform: scale(1.01);
 }
 
 .about_people_wrap_box_image {
   margin-top: 10px;
   position: relative;
+  text-align: center;
 }
 .about_people_wrap_box_image_item_stop {
   height: 300px;
@@ -119,10 +129,17 @@
   padding-right: 20px;
 }
 .about_people_wrap_box_content_position {
-  color: rgb(68 87 101 / 50%);
+  color: rgb(68 87 101 / 65%);
+  font-weight: 700;
 }
 
 .about_people_wrap_box_content_ssrank_wrap {
   font-size: 20px;
   font-weight: 700;
+}
+
+.about_people_wrap_box_content_description {
+  font-size: 19px;
+  font-weight: 600;
+  color: rgb(68 87 101 / 60%);
 }

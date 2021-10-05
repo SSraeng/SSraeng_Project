@@ -9,8 +9,8 @@ function AboutPage() {
             <NavBar />
             <div class='about'>
                 <div class='about_people'>
-                    <div class='about_people_title'>만든이들</div>
-                    <div class='about_people_subtitle'>환경문제 서비스 쓰랭을 만든 사람들입니다.</div>
+                    <p class='about_people_title'>만든이들</p>
+                    <p class='about_people_subtitle'>환경문제 서비스 쓰랭을 만든 사람들입니다.</p>
                 </div>
                 <div class='about_people_list'>
                     {memberList.map(info=> <Introduce id={info.id}
