@@ -1,9 +1,12 @@
 import React,{useEffect, useState} from 'react';
 import PlusMinusButton from './PlusMinusButton';
-import plastic_store,{reset} from '../redux_store/plastic_store';
+import store,{reset} from '../redux_store/store';
+import {useSelector} from "react-redux";
+
+
 function PlasticCal() {
     const [sum, setSum] = useState(0)
-    const [result, setResult] = useState(0)
+    const plastic = useSelector(state=>state.plastic)
     return (
         <div>
             <div>플라스틱 계산기</div>
@@ -11,11 +14,11 @@ function PlasticCal() {
             <PlusMinusButton title="배달용기" addNumber={44} />
             <PlusMinusButton title="일회용컵" addNumber={14} />
             <PlusMinusButton title="PET" addNumber={15} />
-            <button onClick={() => { setResult(plastic_store.getState()[0]);}}>결과보기</button>
+            {/* <button onClick={() => { setResult(store.getState()[0]);}}>결과보기</button> */}
             <p></p>
             당신이 일주일간 배달로 소비하는 플라스틱의 양은
             <p></p>
-            {result}g입니다.
+            {plastic}g입니다.
         </div>
     );
 }
