@@ -2,8 +2,7 @@ import React, { useEffect,useState } from 'react';
 import { useHistory } from 'react-router';
 import NavBar from '../components/NavBar';
 import axios from 'axios';
-import test_store, { submit, user,reset } from '../redux_store/test_store';
-import plastic_store, {plastic_reset} from '../redux_store/plastic_store'
+import store, { submit, user,reset, plastic_reset} from '../redux_store/store';
 
 
 function UserInfoPage() {   
@@ -32,10 +31,10 @@ function UserInfoPage() {
             <p></p>
             <button onClick={
                 () => {
-                    test_store.dispatch(reset())
-                    plastic_store.dispatch(plastic_reset())
-                    test_store.dispatch(user({ name: nickname, times: times, }));
-                    console.log(test_store.getState())
+                    store.dispatch(reset())
+                    store.dispatch(plastic_reset())
+                    store.dispatch(user({ name: nickname, times: times, }));
+                    console.log(store.getState())
                     history.push("/test/test");
             }
             }>테스트 시작</button>
