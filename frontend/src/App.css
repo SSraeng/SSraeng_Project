@@ -1,16 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -27,20 +21,108 @@
 .App-link {
   color: #61dafb;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
+/* Analysis 컴포넌트 */
 .data_analysis {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 1000px;
   width: 1000px;
+  height: 1000px;
+}
+
+/* About 페이지 */
+.about {
+  width: 1200px;
+  margin: auto;
+}
+.about_people_title {
+  margin-top: 20px;
+  text-align: left;
+  font-size: 40px;
+  font-weight: 900;
+}
+.about_people_subtitle {
+  text-align: left;
+  font-size: 30px;
+  margin-bottom: 80px;
+}
+
+.about_people_list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1200px;
+  height: 1180px;
+  margin: auto;
+  margin-bottom: 100px;
+  padding: 0 40px;
+}
+
+.about_people_wrap {
+  padding-right: 40px;
+  margin-bottom: 40px;
+  height: 550px;
+  max-width: 30%;
+  width: 100%;
+}
+
+.about_people_wrap_box {
+  border: 1px solid #eaebef;
+  box-sizing: border-box;
+  border-radius: 30px;
+  height: 100%;
+  overflow: hidden;
+  box-shadow: 0 2px 28px 0 rgb(68 87 101 / 10%);
+  background-color: #fcfcfc;
+  transition: background-color 0.4s;
+  cursor: pointer;
+}
+.about_people_wrap_box:hover {
+  box-shadow: 0 2px 28px 0 rgb(68 87 101 / 30%);
+  transform: scale(1.01);
+}
+
+.about_people_wrap_box_image {
+  margin-top: 10px;
+  position: relative;
+}
+.about_people_wrap_box_image_item_stop {
+  height: 300px;
+}
+.about_people_wrap_box_image_item_motion {
+  position: absolute;
+  top: 0;
+  left: 29px;
+  opacity: 0;
+  transition: all 0.1s;
+  height: 300px;
+  padding-bottom: 240px;
+}
+.about_people_wrap_box_image_item_motion:hover {
+  opacity: 1;
+}
+
+.about_people_wrap_box_content {
+  padding: 15px 40px 20px;
+  text-align: left;
+  font-size: 17px;
+  height: 190px;
+}
+.about_people_wrap_box_content_header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.about_people_wrap_box_content_header_name {
+  font-size: 28px;
+  font-weight: 700;
+  padding-right: 20px;
+}
+.about_people_wrap_box_content_position {
+  color: rgb(68 87 101 / 50%);
+}
+
+.about_people_wrap_box_content_ssrank_wrap {
+  font-size: 20px;
+  font-weight: 700;
 }
