@@ -1,8 +1,8 @@
 from flask import Blueprint, request
 
 from apis.dto.responseDto import user_response_dto, quiz_response_dto
-from service.Users import get_user
-from service.Quizzes import get_quiz
+from service.userService import get_user
+from service.quizService import get_quiz
 
 data_api_bp = Blueprint('data_api', __name__, url_prefix='/api')
 
