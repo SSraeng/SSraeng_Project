@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from apis.dto.requestDto import answer_request_dto
 from apis.dto.responseDto import analysis_response_dto
-from service.Analysis import analysis_service
+from service.analysisService import analysis_service
 
 analysis_bp = Blueprint('analysis', __name__, url_prefix='/api')
 
