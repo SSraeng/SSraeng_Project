@@ -1,19 +1,13 @@
-from flask import Blueprint, request
-from service.Analysis import analysis, test_result
+from flask import Blueprint, request, jsonify
+from apis.dto.requestDto import answer_request_dto
+from apis.dto.responseDto import analysis_response_dto
+from service.Analysis import analysis_service
 
 analysis_bp = Blueprint('analysis', __name__, url_prefix='/api')
 
-@analysis_bp.route('/analysis', methods=['GET'])
+@analysis_bp.route('/analysis', methods=['POST'])
 def get_analysis_result():
-  result = analysis()
-  return result
-
-
-# 테스트 결과 받고 전달
-@analysis_bp.route('/test/test', methods=['POST'])
-def test():
-  answer = request.json['name']
-  submit = request.json['submit']
-
-  result = test_result(answer, submit)
-  return result, 200
+  total = answer_request_dto(request.get_json())
+  user_id = analysis_service(total)
+  
+  return analysis_response_dto(user_id)
