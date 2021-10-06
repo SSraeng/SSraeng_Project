@@ -20,7 +20,7 @@ function MainPage() {
                     <Analysis />
                 </div>
             </section>
-            <button onClick={() => history.push("/test/test")}>테스트하기</button>
+            <button onClick={() => history.push("/test/userinfo")}>테스트하기</button>
         </div>
     )
 }

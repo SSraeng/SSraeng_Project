@@ -9,7 +9,6 @@ function ResultPage() {
     let index = 0
     const answer = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     let src = ""
-    console.log(store.getState())
     for (let i of store.getState().test[0].submit) {
         if (answer[index] == i)
             result.push(1)
