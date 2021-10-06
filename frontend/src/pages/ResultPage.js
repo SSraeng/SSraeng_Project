@@ -3,7 +3,6 @@ import NavBar from '../components/NavBar';
 import store,{reset} from '../redux_store/store';
 import { first, second, third, fourth, fifth } from '../tests/level';
 import PlasticCal from '../components/PlasticCal';
-import { Provider } from 'react-redux';
 
 function ResultPage() {
     const result = []
@@ -26,9 +25,7 @@ function ResultPage() {
             <p>나의  점수</p>
             <div>{score}</div>
             <img src={src} width="300px"></img>
-        <Provider store={store}>
             <PlasticCal/>
-        </Provider>
         </div>
     )
 }
