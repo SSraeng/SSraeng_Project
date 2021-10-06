@@ -3,17 +3,16 @@ from domain.dao.exampleDao import all_examples
 
 def get_quiz():
   quiz_data = all_quiz()
-  result = {}
+  result = []
   for quiz in quiz_data:
-    quiz_number = "Q" + str(quiz.id)
 
     example_list = all_examples(quiz.id)
     examples = []
     for example in example_list:
       examples.append(example.content)
 
-    result[quiz_number] = {
+    result.append({
         "question":quiz.question,
         "examples":examples
-    }
+    })
   return result
