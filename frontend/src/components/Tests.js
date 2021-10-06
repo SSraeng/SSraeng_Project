@@ -1,6 +1,6 @@
 import React from 'react';
 import test from "../tests/test.json"
-import test_store, { add } from '../redux_store/test_store';
+import store, { add } from '../redux_store/store';
 
 function Tests({num}) {
 
@@ -11,7 +11,7 @@ function Tests({num}) {
             {questions}
             <p></p>
             {answers.map((answer, index)=>
-                <div key={index} onClick={() => { test_store.dispatch(add(index + 1)); console.log(test_store.getState()[0].submit)}}>{`${index+1}.`}{answer}</div>)}
+                <div key={index} onClick={() => { store.dispatch(add(index + 1)); console.log(store.getState().test[0].submit)}}>{`${index+1}.`}{answer}</div>)}
         </div>
     );
 }

@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from 'react';
-import plastic_store,{plastic_add,plastic_minus} from '../redux_store/plastic_store';
+import store,{plastic_add,plastic_minus} from '../redux_store/store';
 function PlusMinusButton({title,addNumber}) {
     const [times, setTimes] = useState(0)
     
@@ -9,13 +9,13 @@ function PlusMinusButton({title,addNumber}) {
             <input value={times} type="number" onChange={(e) => setTimes(parseInt(e.target.value))} />
             <button onClick={() => {
                 setTimes(parseInt(times + 1));
-                plastic_store.dispatch(plastic_add(addNumber));
+                store.dispatch(plastic_add(addNumber));
             }}>
                 +
             </button>
             <button onClick={times >= 1 ? () => {
                 setTimes(times - 1);
-                plastic_store.dispatch(plastic_minus(addNumber));
+                store.dispatch(plastic_minus(addNumber));
             }
                 : null}>
                 -
