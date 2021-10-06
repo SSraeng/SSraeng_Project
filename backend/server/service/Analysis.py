@@ -1,35 +1,33 @@
 from flask.json import jsonify
+from domain.dao.userDao import new_user
+from domain.dao.resultDao import new_result
+from domain.dao.quizDao import all_quiz
+from domain.dao.answerslistDao import count_answer
 
 def analysis_service(result):
-  score = (count_service(result['answers']) * 8) + times/100
-
   #new 유저
-  user = User(result['name'])
-  db.session.add(user)
-  db.session.commit()
-
+  user = new_user(result['name'])
+  score = score_service(result['answers'])
   #user_id, score, times, delivery_count
-  result = Result(score)
+  # result = new_result(user.id, score,result['times'], result['delivery_count'])
 
   return user.id
 
-def count_service():
+def score_service(answers):
+  quizzes = all_quiz()
+  score = 0
+  for quiz, answer in zip(quizzes, answers):
+    if quiz.answer == answer:
+      score += 1
+      count_answer(quiz.id, answer)
 
-  origin_answers = [1, 2, 3, 4, 1, 2, 3, 4, 1, 2]
-  count = 0
-
-  for i, j in zip(answers, origin_answers):
-      if i == j:
-          count += 1
-
-  return count
+  return score
 
 
 def trash_service():
-  delivery_count = request.json['delivery_count']
-  total = (14 + 15 + 44 + 10) * 3/4 * delivery_count
+  
 
-  return jsonify({"trash": trash}, 200)
+  return 
 
 
 def test_result(name, submit):
