@@ -8,3 +8,6 @@ def quiz_response_dto(quiz):
 
 def analysis_response_dto(user_id):
   return jsonify(user_id), 200
+
+def user_ranking_response_dto(ranks):
+  return jsonify(ranks), 200
