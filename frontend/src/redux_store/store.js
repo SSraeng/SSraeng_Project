@@ -29,7 +29,7 @@ export const Test = createSlice({
             state[0].end = new Date().getTime() / 1000
         },
         add: (state, action) => {
-            state[0].submit.push(action.payload)
+            state[0].submit[action.payload.index]=action.payload.submit
         },
         reset: (state, action) => {
             return []
