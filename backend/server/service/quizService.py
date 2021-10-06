@@ -5,7 +5,7 @@ def get_quiz():
   quiz_data = all_quiz()
   result = {}
   for quiz in quiz_data:
-    quiz_number = "문" + str(quiz.id)
+    quiz_number = "Q" + str(quiz.id)
 
     example_list = all_examples(quiz.id)
     examples = []
