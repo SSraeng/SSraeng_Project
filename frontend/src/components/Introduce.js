@@ -1,8 +1,8 @@
 import React from "react"
 
 export function Introduce(props){
-    const stopImg = "images/"+props.name+".png"
-    const motionImg = "images/"+props.name+"_motion.gif"
+    const stopImg = `images/${props.name}.png`
+    const motionImg = `images/${props.name}_motion.gif`
     return(
       <div className="about_people_wrap" id={props.id}>
         <div className="about_people_wrap_box">
