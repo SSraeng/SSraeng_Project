@@ -1,5 +1,5 @@
 from domain.dao.quizDao import all_quiz
-from domain.dao.answerDao import all_answers
+from domain.dao.exampleDao import all_examples
 
 def get_quiz():
   quiz_data = all_quiz()
@@ -7,13 +7,13 @@ def get_quiz():
   for quiz in quiz_data:
     quiz_number = "Q" + str(quiz.id)
 
-    answer_list = all_answers(quiz.id)
-    answers = []
-    for answer in answer_list:
-      answers.append(answer.content)
+    example_list = all_examples(quiz.id)
+    examples = []
+    for example in example_list:
+      examples.append(example.content)
 
     result[quiz_number] = {
         "question":quiz.question,
-        "answers":answers
+        "examples":examples
     }
   return result
