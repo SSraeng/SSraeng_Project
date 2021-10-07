@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import test from "../tests/test.json"
 import store, { add } from '../redux_store/store';
-import { Hover } from '../styled_components/hover';
+// import { Hover } from '../styled_components/Hover';
 import axios from 'axios';
 function Tests({ num }) {
    
@@ -27,20 +27,22 @@ function Tests({ num }) {
     return (
 
         <div>
+            
              {
              test.length === 0 ? <div> Loading... </div> :
-            <Hover>
+            <div>
                  {test[num-1].question}
                 <p></p>
                 {test[num-1].examples.map((answer, i) =>
-        
+                    
                     <div key={i} style={{ backgroundColor: clickedNum[num-1] == i+1 ? 'blue' : 'red' }}
                         onClick={(e) => {
                             store.dispatch(add({ index: num - 1, submit: i + 1 }));
                             setClickedNum(clickedNum.map((element, index) => {return index+1 == num ? element = i+1 : element}));
 
-                        }}>{`${i + 1}.`}{answer}</div>)}
-            </Hover>
+                        }}>{`${i + 1}.`}{answer}</div>
+                        )}
+            </div>
             }
         </div>
 
