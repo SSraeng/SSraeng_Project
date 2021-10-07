@@ -9,7 +9,8 @@ import LoadingPage from './pages/LoadingPage';
 import TestPage from './pages/TestPage';
 import AboutPage from './pages/AboutPage';
 import UserInfoPage from './pages/UserInfoPage';
-
+import { Provider } from 'react-redux';
+import store from "./redux_store/store"
 
 
 axios.defaults.baseURL = 'http://127.0.0.1:5000';
@@ -20,6 +21,7 @@ function App() {
       <Router>
         <div>
           <Switch>
+          <Provider store={store}>
             <Route exact path="/" component={MainPage} />
             <Route exact path="/ranking" component={RankingPage} />
             <Route exact path="/result" component={ResultPage} />
@@ -27,6 +29,8 @@ function App() {
             <Route exact path="/test/test" component={TestPage} />
             <Route exact path="/about" component={AboutPage} />
             <Route exact path="/test/userinfo" component={UserInfoPage} />
+            </Provider>
+            
 
           </Switch>
         </div>

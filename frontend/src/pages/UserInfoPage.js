@@ -34,7 +34,6 @@ function UserInfoPage() {
                     store.dispatch(reset())
                     store.dispatch(plastic_reset())
                     store.dispatch(user({ name: nickname, times: times, }));
-                    console.log(store.getState())
                     history.push("/test/test");
             }
             }>테스트 시작</button>
