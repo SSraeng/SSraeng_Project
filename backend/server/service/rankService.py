@@ -9,7 +9,8 @@ def get_user_ranking():
   rank_info = {90: 5, 80: 4, 50:3, 20:2}
   
   for user, result in zip(user_data, result_data):
-    final_score = result.quiz_score*10 + (1000/result.exam_time) - result.delivery_count*5
+    final_score = result.quiz_score*10 + (1/result.exam_time) - 3*result.delivery_count*(result.delivery_count+1)/2
+    
     tier = 0
     for key, value in rank_info.items():
       if final_score >= key:

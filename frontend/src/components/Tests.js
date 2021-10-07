@@ -1,17 +1,37 @@
-import React from 'react';
-import test from "../tests/test.json"
+import React,{useEffect, useState} from 'react';
+// import test from "../tests/test.json"
 import store, { add } from '../redux_store/store';
+import axios from 'axios';
+
 
 function Tests({num}) {
+    const [test,setTest] = useState([]);
+    useEffect(()=>{
+        const fetchTest = async()=>{
+            try{
+                setTest([]);
+                const  response = await axios.get("/api/test/test");
+                setTest(response.data);
+                console.log(response.data[0].question);
+            }catch(e){
+                console.log(e)
+            }
+        }
+        
 
-    const questions = Object.values(test[Object.keys(test)[num]])[0]
-    const answers = Object.values(test[Object.keys(test)[num]])[1]
+        fetchTest();
+    },[])
     return (
         <div>
-            {questions}
-            <p></p>
-            {answers.map((answer, index)=>
-                <div key={index} onClick={() => { store.dispatch(add(index + 1)); console.log(store.getState().test[0].submit)}}>{`${index+1}.`}{answer}</div>)}
+            {test.length === 0 ? <div> Loading... </div> :
+            <div>
+                {test[num].question}
+                <p></p>
+                {test[num].examples.map((answer, index)=>
+                    <div key={index} onClick={() => { store.dispatch(add(index + 1)); 
+                   }}>{`${index+1}.`}{answer}</div>)}
+            </div>
+        }
         </div>
     );
 }
