@@ -1,7 +1,7 @@
 from domain.models.user import User, db
 
 def all_user():
-  result = User.query.all()
+  result = User.query.order_by(User.id.desc()).all()
   return result
 
 def new_user(name):
