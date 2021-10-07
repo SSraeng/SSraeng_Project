@@ -9,7 +9,7 @@ import ProgressBar from '../components/ProgressBar';
 import { useHistory } from 'react-router';
 function TestPage() {
     const [num, setNum] = useState(1)
-    const useSubmit = useSelector(state => state.test[0].submit)
+    const useSubmit = useSelector(state => state.test[0].answers)
     const history = useHistory()
     return (
         <div >
@@ -17,11 +17,13 @@ function TestPage() {
             <ProgressBar num={num} />
 
             <Tests num={num} />
-            {num != 1 ? <button onClick={() => { setNum(num - 1); console.log(useSubmit.length); }}>이전</button> : null}
+            {num != 1 ? <button onClick={() => { setNum(num - 1); console.log(useSubmit); }}>이전</button> : null}
             {num == 10 ?
                 <button onClick={
                     () => {
-                        store.dispatch(submit(store.getState().test[0]));
+                        
+                        store.dispatch(submit());
+                        console.log(store.getState().test[0])
                         history.replace("/result")
                     }
                 }>

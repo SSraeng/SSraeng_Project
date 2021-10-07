@@ -23,13 +23,13 @@ export const Test = createSlice({
     initialState: [],
     reducers: {
         user: (state, action) => {
-            state.push({ name: action.payload.name, times: action.payload.times, start: (new Date().getTime() / 1000), submit: [] })
+            state.push({ user_name: action.payload.name, delivery_count: action.payload.times, start_time: new Date().getTime(), answers: [] })
         },
         submit: (state, action) => {
-            state[0].end = new Date().getTime() / 1000
+            state[0].end_time = new Date().getTime()
         },
         add: (state, action) => {
-            state[0].submit[action.payload.index]=action.payload.submit
+            state[0].answers[action.payload.index]=action.payload.submit
         },
         reset: (state, action) => {
             return []
