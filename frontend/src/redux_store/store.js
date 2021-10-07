@@ -23,7 +23,7 @@ export const Test = createSlice({
     initialState: [],
     reducers: {
         user: (state, action) => {
-            state.push({ user_name: action.payload.name, delivery_count: action.payload.times, start_time: new Date().getTime(), answers: [] })
+            state.push({ user_name: action.payload.name, delivery_count: action.payload.times, answers: [] ,start_time:new Date().getTime()})
         },
         submit: (state, action) => {
             state[0].end_time = new Date().getTime()
