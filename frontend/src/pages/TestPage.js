@@ -7,13 +7,16 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProgressBar from '../components/ProgressBar';
 import { useHistory } from 'react-router';
+import StopWatch from '../components/StopWatch';
 function TestPage() {
     const [num, setNum] = useState(1)
     const useSubmit = useSelector(state => state.test[0].answers)
     const history = useHistory()
     return (
         <div >
+            
             <NavBar />
+            <StopWatch num={num}/>
             <ProgressBar num={num} />
 
             <Tests num={num} />
@@ -23,7 +26,6 @@ function TestPage() {
                     () => {
                         
                         store.dispatch(submit());
-                        console.log(store.getState().test[0])
                         history.replace("/result")
                     }
                 }>
