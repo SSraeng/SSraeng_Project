@@ -26,6 +26,7 @@ function ResultPage() {
             <p>나의  점수</p>
             <div>{score}</div>
             <img src={src} width="300px"></img>
+            
         <Provider store={store}>
             <PlasticCal/>
         </Provider>
