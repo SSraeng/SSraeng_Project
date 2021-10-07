@@ -27,11 +27,12 @@ function StopWatch({num}) {
     const second = parseInt(counter % 6000 / 100)
     const millysecond = parseInt(counter%100)
     return (
-        <div>
-            <div>경과시간</div>
-            {minute< 10? `0${minute}`:`${minute}`}:
+        <div style={{textAlign : "center", marginTop:"5vh"}}>
+            <h3>경과시간</h3>
+            <h4>
+            {minute < 10? `0${minute}`:`${minute}`}:
             {second < 10? `0${second}`:`${second}`}:
-            {millysecond<10? `0${millysecond}`:`${millysecond}`}
+            {millysecond<10? `0${millysecond}`:`${millysecond}`}</h4>
         </div>
     );
 }

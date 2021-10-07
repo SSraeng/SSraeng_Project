@@ -12,6 +12,10 @@ function TestPage() {
     const [num, setNum] = useState(1)
     const useSubmit = useSelector(state => state.test[0].answers)
     const history = useHistory()
+            
+            const buttonStyle= {  width:"20vh", height:"5vh", backgroundColor : "#fff", borderRadius:"1vh" }
+
+    
     return (
         <div >
             
@@ -20,9 +24,12 @@ function TestPage() {
             <ProgressBar num={num} />
 
             <Tests num={num} />
-            {num != 1 ? <button onClick={() => { setNum(num - 1);}}>이전</button> : null}
+            <div style={{margin:"auto", textAlign:"center", marginTop:"3vh"}}> 
+            {num != 1 ? <button style={buttonStyle} onClick={() => { setNum(num - 1);}}>이전</button> : null}
             {num == 10 ?
-                <button onClick={
+                <button 
+                style={buttonStyle} 
+                onClick={
                     () => {
                         
                         store.dispatch(submit());
@@ -31,9 +38,12 @@ function TestPage() {
                 }>
                     결과보기
                 </button>
-                : <button onClick={() => { setNum(num + 1);}} disabled={
+                : <button 
+                style={buttonStyle} 
+                onClick={() => { setNum(num + 1);}} disabled={
                     useSubmit.length >= num ? false : true
                 }>다음</button>}
+                </div>
         </div>
     )
 }
