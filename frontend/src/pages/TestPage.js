@@ -20,7 +20,7 @@ function TestPage() {
             <ProgressBar num={num} />
 
             <Tests num={num} />
-            {num != 1 ? <button onClick={() => { setNum(num - 1); console.log(useSubmit); }}>이전</button> : null}
+            {num != 1 ? <button onClick={() => { setNum(num - 1);}}>이전</button> : null}
             {num == 10 ?
                 <button onClick={
                     () => {
