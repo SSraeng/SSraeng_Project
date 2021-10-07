@@ -2,19 +2,37 @@ import React, { useState, useEffect } from 'react';
 import test from "../tests/test.json"
 import store, { add } from '../redux_store/store';
 import { Hover } from '../styled_components/hover';
-
+import axios from 'axios';
 function Tests({ num }) {
-    const questions = Object.values(test[Object.keys(test)[num - 1]])[0]
-    const answers = Object.values(test[Object.keys(test)[num - 1]])[1]
-    const [clickedNum, setClickedNum] = useState(Array(10).fill(0))
+   
+        const [test,setTest] = useState([]);
+        const [clickedNum, setClickedNum] = useState(Array(10).fill(0))
+        useEffect(()=>{
+            const fetchTest = async()=>{
+                try{
+                    setTest([]);
+                    const  response = await axios.get("/api/test/test");
+                    setTest(response.data);
+                    console.log(response.data[0].question);
+                }catch(e){
+                    console.log(e)
+                }
+            }
+            
+    
+            fetchTest();
+        },[])
+    
 
     return (
 
         <div>
+             {
+             test.length === 0 ? <div> Loading... </div> :
             <Hover>
-                {questions}
+                 {test[num-1].question}
                 <p></p>
-                {answers.map((answer, i) =>
+                {test[num-1].examples.map((answer, i) =>
         
                     <div key={i} style={{ backgroundColor: clickedNum[num-1] == i+1 ? 'blue' : 'red' }}
                         onClick={(e) => {
@@ -23,6 +41,7 @@ function Tests({ num }) {
 
                         }}>{`${i + 1}.`}{answer}</div>)}
             </Hover>
+            }
         </div>
 
     );
