@@ -20,7 +20,7 @@ function UserInfoPage() {
             <input value={nickname} style={{textAlign:"center", marginBottom:"3vh" }}onChange={(e) => setNickname(e.target.value)} />
             <h2 style={{marginBottom:"1vh"}}>일주일 간 배달 건수</h2>
             <button style={{borderRadius:"1vh",marginRight:"1vh",border : "0",marginBottom:"6vh", width:"4vh", backgroundColor:"#2ac1bc"}} onClick={times > 0 ? () => setTimes(times - 1) : null}>-</button>
-            <input value={times} type="number" style={{textAlign:"center"}} onChange={(e) => setTimes(parseInt(e.target.value))} />
+            <input value={times}  style={{textAlign:"center"}} onChange={(e) => setTimes(parseInt(e.target.value))} readOnly/>
             <button style={{borderRadius:"1vh",marginLeft:"1vh",border : "0",marginBottom:"6vh", width:"4vh", backgroundColor:"#2ac1bc"}} onClick={() => setTimes(parseInt(times + 1))}>+</button>
             <p></p>
             <button style={{textAlign:"center", 

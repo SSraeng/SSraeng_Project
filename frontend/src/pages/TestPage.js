@@ -12,8 +12,7 @@ function TestPage() {
     const [num, setNum] = useState(1)
     const useSubmit = useSelector(state => state.test[0].answers)
     const history = useHistory()
-            
-            const buttonStyle= {  width:"20vh", height:"5vh", backgroundColor : "#fff", borderRadius:"1vh" }
+    const buttonStyle= {  width:"20vh", height:"5vh", backgroundColor : "#fff", borderRadius:"1vh" }
 
     
     return (

@@ -9,7 +9,7 @@ function PlasticCal() {
     const plastic = useSelector(state=>state.plastic)
     return (
         <div>
-            <div>플라스틱 계산기</div>
+            <h3>플라스틱 계산기</h3>
             <PlusMinusButton title="비닐봉지" addNumber={10} />
             <PlusMinusButton title="배달용기" addNumber={44} />
             <PlusMinusButton title="일회용컵" addNumber={14} />
