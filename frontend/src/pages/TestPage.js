@@ -24,7 +24,7 @@ function TestPage() {
             } */}
             <Tests num={num} />
             {num != 0?<button onClick={()=>setNum(num-1)}>이전</button>:null}
-            {num == 9 ? <Link to="/result"><button onClick={() => {
+            {num == 9 ? <Link to="/loading"><button onClick={() => {
                 test_store.dispatch(submit(test_store.getState()[0]));
             }}>결과보기</button></Link> : <button onClick={() => setNum(num + 1)}>다음</button>}
         </div>
