@@ -4,6 +4,9 @@ export const Hover = styled.div`
 
     &:hover{
         cursor:pointer;
+        transform:scale(1.2);
+
 
     }
+
 `
