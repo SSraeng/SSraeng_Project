@@ -11,7 +11,7 @@ def analysis_service(result):
   #new 유저
   user = new_user(result['user_name'])
   score = score_service(result['answers'])
-  score = score*10
+  
   start_time = result['start_time']
   end_time = result['end_time']
   delivery_count = result['delivery_count']
@@ -28,7 +28,7 @@ def score_service(answers):
   for quiz, answer in zip(quizzes, answers):
     if quiz.answer == answer:
       score += 1
-      count_example(quiz.id, answer)
+    count_example(quiz.id, answer)
 
   return score
 
