@@ -1,13 +1,15 @@
 import { useEffect, React } from 'react';
 import { useHistory } from 'react-router';
-
+import { useLocation } from 'react-router';
 
 function LoadingPage(){
+    const location= useLocation();
+    const next = location.state.next;
     const history = useHistory();
     useEffect(()=>{
         const toResultPage= () => {
             setTimeout(()=>{
-                history.push("/result")
+                history.push(next)
             }, 5000)
         }
         toResultPage()

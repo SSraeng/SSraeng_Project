@@ -3,6 +3,7 @@ import test from "../tests/test.json"
 import store, { add } from '../redux_store/store';
 import axios from 'axios';
 import {Hover} from "../styled_components/Hover"
+import { polarbear } from '../etc/photos';
 function Tests({ num }) {
    
         const [test,setTest] = useState([]);
@@ -28,15 +29,15 @@ function Tests({ num }) {
         <div>
             
              {
-             test.length === 0 ? <div> Loading... </div> :
+             test.length === 0 ? <div><img style={{position: "fixed",left: "50%",transform: "translate(-50%)"}}src={polarbear}/></div> :
             <div style={{ textAlign:"center"}}>
                  <h3>Q{num}.{test[num-1].question}</h3>
                 {test[num-1].examples.map((answer, i) =>
-                    <Hover key={i}>
-                    <div  style={{ 
+                    <Hover >
+                    <div  key={i} style={{ 
                     width:"35vh", height:"5vh", backgroundColor: clickedNum[num-1] == i+1 ? "#2aa6dc" : '#e7feff' 
-                    , margin:"auto", marginTop:"1vh"
-                    ,borderRadius: "2vh"}}
+                    , margin:" 0 auto", marginTop:"1vh"
+                    ,borderRadius: "2vh", display:"flex", flexDirection:"column",justifyContent:"center"}}
                         onClick={(e) => {
                             store.dispatch(add({ index: num - 1, submit: i + 1 }));
 
