@@ -24,7 +24,7 @@ function UserInfoPage() {
             <button style={{borderRadius:"1vh",marginLeft:"1vh",border : "0",marginBottom:"6vh", width:"4vh", backgroundColor:"#2ac1bc"}} onClick={() => setTimes(parseInt(times + 1))}>+</button>
             <p></p>
             <button style={{textAlign:"center", 
-                    width:"28vh", height:"5vh", backgroundColor : "#2ac1bc", 
+                    width:"28vh", height:"7vh", backgroundColor : "#2ac1bc", 
                     border : "0", borderRadius:"1vh" }}
             onClick={
                 () => {
