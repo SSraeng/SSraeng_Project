@@ -9,3 +9,7 @@ def new_user(name):
   db.session.add(user)
   db.session.commit()
   return user
+
+def one_user(user_id):
+  result = User.query.filter_by(id=user_id).first()
+  return result
