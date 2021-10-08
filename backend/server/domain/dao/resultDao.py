@@ -9,3 +9,7 @@ def new_result(userid, score, examtime, deliverycount):
 def all_result():
   result = Result.query.order_by(Result.id.desc()).all()
   return result
+
+def user_result(user_id):
+  result = Result.query.filter_by(user_id=user_id).first()
+  return result

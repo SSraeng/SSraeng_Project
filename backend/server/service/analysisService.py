@@ -17,7 +17,7 @@ def analysis_service(result):
   delivery_count = result['delivery_count']
   
   exam_time = end_time - start_time
-  final_score = score*10 - 3*delivery_count*(delivery_count+1)/2
+  
   new_result(userid=user.id, score=score, examtime=exam_time, deliverycount=delivery_count)
 
   return user.id

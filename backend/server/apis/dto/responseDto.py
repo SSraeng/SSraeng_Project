@@ -11,3 +11,6 @@ def analysis_response_dto(user_id):
 
 def user_ranking_response_dto(ranks):
   return jsonify(ranks), 200
+
+def result_response_dto(result):
+  return jsonify(result), 200
