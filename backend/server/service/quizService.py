@@ -8,11 +8,18 @@ def get_quiz():
 
     example_list = all_examples(quiz.id)
     examples = []
+    total_count = 0
+    correct_count = 0
     for example in example_list:
       examples.append(example.content)
-
+      total_count += example.count
+      if quiz.answer == example.num:
+        correct_count = example.count
+    
+    ratio = (correct_count / total_count) * 100
     result.append({
-        "question":quiz.question,
-        "examples":examples
+        "question": quiz.question,
+        "examples": examples,
+        "ratio": ratio
     })
   return result
