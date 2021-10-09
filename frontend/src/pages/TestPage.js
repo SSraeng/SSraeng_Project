@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import ProgressBar from '../components/ProgressBar';
 import { useHistory } from 'react-router';
 import StopWatch from '../components/StopWatch';
-import { Hover } from '../styled_components/Hover';
+import { Hover } from '../styled_components/style';
 
 function TestPage() {
     const num = useSelector(state=>state.test_page[0])

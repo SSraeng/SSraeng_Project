@@ -3,7 +3,7 @@ import { useHistory } from 'react-router';
 import NavBar from '../components/NavBar';
 import axios from 'axios';
 import store, { submit, user,reset, plastic_reset, page_reset} from '../redux_store/store';
-import { Hover } from '../styled_components/Hover';
+import { Hover } from '../styled_components/style';
 
 
 function UserInfoPage() {   

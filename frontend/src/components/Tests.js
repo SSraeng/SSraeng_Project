@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import test from "../tests/test.json"
 import store, { add, page_plus, reset, plastic_reset, page_reset } from '../redux_store/store';
 import axios from 'axios';
-import {Select} from "../styled_components/Hover"
+import {Select} from "../styled_components/style"
 import { polarbear } from '../etc/photos';
 import { useSelector } from 'react-redux';
 function Tests() {
