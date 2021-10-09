@@ -10,7 +10,7 @@ function NavBar() {
                 <div >
                     <div style={{ paddingLeft: "50px", fontSize: "30px" , height:"10vh",paddingTop:"5vh"}} onClick={() => history.push("/")}>쓰랭</div></div>
                 <div style={{ display: "flex", justifyContent: "space-evenly"}}>
-                    <div onClick={() => history.push("/test/userinfo")}>테스트하기</div>
+                    <div onClick={() => window.location.replace("/test/userinfo")}>테스트하기</div>
                     <div onClick={() => history.push("/ranking")}>랭킹보기</div>
                     <div onClick={() => history.push("/about")}>About</div>
                 </div>
