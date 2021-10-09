@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import test from "../tests/test.json"
-import store, { add, page_plus } from '../redux_store/store';
+import store, { add, page_plus, reset, plastic_reset, page_reset } from '../redux_store/store';
 import axios from 'axios';
-import {Hover} from "../styled_components/Hover"
+import {Select} from "../styled_components/Hover"
 import { polarbear } from '../etc/photos';
 import { useSelector } from 'react-redux';
 function Tests() {
@@ -20,9 +20,9 @@ function Tests() {
                     console.log(e)
                 }
             }
-            
     
             fetchTest();
+
         },[])
 
 
@@ -34,20 +34,16 @@ function Tests() {
              test.length === 0 ? <div><img style={{position: "fixed",left: "50%",transform: "translate(-50%)"}} src={polarbear}/></div> :
             <div style={{ textAlign:"center"}}>
                     <h2></h2>
-                 <h3>Q{num+1}.{test[num].question}</h3>
+                 <h2>Q{num+1}.{test[num].question}</h2>
+                 <h4 style={{paddingLeft:"45vh"}}>정답률:{test[num].ratio.toFixed(2)}%</h4>
                 {test[num].examples.map((answer, i) =>
-                    <Hover >
-                    <div  key={i} style={{ 
-                    width:"35vh", height:"5vh", backgroundColor: clickedNum[num] == i+1 ? "#2aa6dc" : '#e7feff' 
-                    , margin:" 0 auto", marginTop:"1vh"
-                    ,borderRadius: "2vh", display:"flex", flexDirection:"column",justifyContent:"center"
-                      }}
+                    <Select num={clickedNum[num]} i={i}
                         onClick={(e) => {
                             store.dispatch(add({ index: num, submit: i + 1 }));
                             if(num<9){store.dispatch(page_plus())};
                             setClickedNum(clickedNum.map((element, index) => {return index == num ? element = i+1 : element}));
-                        }}><div>{answer}</div></div>
-                        </Hover>
+                        }}><div>{answer}</div>
+                        </Select>
                         
                         )}
             </div>
