@@ -1,7 +1,10 @@
 import axios from "axios";
 import {configureStore,createSlice} from "@reduxjs/toolkit"
 import {persistReducer} from "redux-persist"
-import session from "redux-persist/lib/storage/session";
+import sessionStorage from "redux-persist/lib/storage/session";
+import { combineReducers } from "redux";
+import thunk from "redux-thunk";
+
 
 
 export const PlasticCal = createSlice({
@@ -87,15 +90,27 @@ export const StopWatchStart = createSlice({
 })
 
 
+const reducers = combineReducers({
+    plastic:PlasticCal.reducer, 
+    test:Test.reducer, 
+    test_page:TestPage.reducer,
+    result:Result.reducer,
+    stopwatch:StopWatchStart.reducer
+})
+
+const persistConfig = {
+    key:'user',
+    storage:sessionStorage,
+};
+
+const persistedReducer =persistReducer(persistConfig,reducers);
+
 
 const store = configureStore({ 
-    reducer: { 
-        plastic:PlasticCal.reducer, 
-        test:Test.reducer, 
-        test_page:TestPage.reducer,
-        result:Result.reducer,
-        stopwatch:StopWatchStart.reducer
-     }})
+    reducer: persistedReducer,
+    devTools: process.env.NODE_ENV !== 'production',
+    middleware: [thunk],
+})
 
 export const {
     plastic_add, plastic_minus, plastic_reset
