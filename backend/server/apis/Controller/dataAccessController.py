@@ -18,12 +18,13 @@ def get_quiz_contents():
   quizzes = get_quiz()
   return quiz_response_dto(quizzes)
 
-@data_api_bp.route('/ranking', methods=['GET'])
-def get_ranking():
-  ranks = get_user_ranking()
+@data_api_bp.route('/ranking', defaults={'user_id':None}, methods=['GET'])
+@data_api_bp.route('/ranking/<int:user_id>', methods=['GET'])
+def get_ranking(user_id):
+  ranks = get_user_ranking(user_id)
   return user_ranking_response_dto(ranks)
 
-@data_api_bp.route('/result/<user_id>', methods=['GET'])
+@data_api_bp.route('/result/<int:user_id>', methods=['GET'])
 def get_users_result(user_id):
   result = get_result(user_id)
   return result_response_dto(result)
