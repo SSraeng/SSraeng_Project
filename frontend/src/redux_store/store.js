@@ -1,7 +1,8 @@
 import axios from "axios";
 import {configureStore,createSlice} from "@reduxjs/toolkit"
 import {persistReducer} from "redux-persist"
-import storage from "redux-persist/lib/storage/session";
+import session from "redux-persist/lib/storage/session";
+
 
 export const PlasticCal = createSlice({
     name: "PlasticCalReducer",
@@ -24,7 +25,10 @@ export const Test = createSlice({
     initialState: [],
     reducers: {
         user: (state, action) => {
-            state.push({ user_name: action.payload.name, delivery_count: action.payload.times, answers: [] ,start_time:new Date().getTime()})
+            state.push({ user_name: action.payload.name, delivery_count: action.payload.times, answers: [] })
+        },
+        start:(state,action)=> {
+            state[0].start_time=new Date().getTime()
         },
         submit: (state, action) => {
             state[0].end_time = new Date().getTime()
@@ -54,17 +58,60 @@ export const TestPage = createSlice({
     }
 })
 
+export const Result = createSlice({
+    name: "Result",
+    initialState : [],
+    reducers:{
+        set_result:(state,action)=>{
+            state.push(
+                action.payload)
+            },
+        reset_result:(state,action)=>{
+            return []
+        }
+        }
+    }
+)
 
-const store = configureStore({ reducer: { plastic:PlasticCal.reducer, test:Test.reducer, test_page:TestPage.reducer }})
+export const StopWatchStart = createSlice({
+    name:"StopWatchStart",
+    initialState : [false],
+    reducers:{
+        stopwatch_start : (state,action)=>{
+            return [true]
+        },
+        stopwatch_reset:(state,action)=>{
+            return [false]
+        }
+    }
+})
+
+
+
+const store = configureStore({ 
+    reducer: { 
+        plastic:PlasticCal.reducer, 
+        test:Test.reducer, 
+        test_page:TestPage.reducer,
+        result:Result.reducer,
+        stopwatch:StopWatchStart.reducer
+     }})
 
 export const {
     plastic_add, plastic_minus, plastic_reset
 } = PlasticCal.actions;
 export const {
-     user,submit,add ,reset
+     user,start,submit,add ,reset,
 } = Test.actions;
 export const{
     page_minus,page_plus,page_reset
 } = TestPage.actions;
+
+export const{
+    set_result, reset_result
+} = Result.actions;
+export const{
+    stopwatch_start, stopwatch_reset
+} = StopWatchStart.actions
 
 export default store;
