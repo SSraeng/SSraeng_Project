@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import test from "../tests/test.json"
-import store, { add, page_plus, reset, plastic_reset, page_reset } from '../redux_store/store';
+import store, { add, page_plus, reset, plastic_reset, page_reset, start,stopwatch_start } from '../redux_store/store';
 import axios from 'axios';
 import {Select} from "../styled_components/style"
 import { polarbear } from '../etc/photos';
@@ -9,13 +9,17 @@ function Tests() {
         const num = useSelector(state=>state.test_page[0])
         const [test,setTest] = useState([]);
         const [clickedNum, setClickedNum] = useState(Array(10).fill(0))
+        
         useEffect(()=>{
             const fetchTest = async()=>{
                 try{
                     setTest([]);
                     const  response = await axios.get("/api/test/test");
                     setTest(response.data);
-                    console.log(response.data)
+                    store.dispatch(stopwatch_start())
+                    store.dispatch(start())
+                    console.log(store.getState().test[0])
+                    
                 }catch(e){
                     console.log(e)
                 }
