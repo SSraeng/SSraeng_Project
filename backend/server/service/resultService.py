@@ -1,14 +1,20 @@
+import random
+
 from domain.dao.resultDao import user_result
 from domain.dao.userDao import one_user
 from domain.dao.articleDao import all_article
 from domain.dao.recyclingDao import all_recycling
-import random
+
+from .userRankService import get_user_rank
+
 
 def get_result(user_id):
   result_data = user_result(user_id)
-  if result_data == None:
-    return "Not Found User"
   user_data = one_user(user_id)
+  ranking = get_user_rank(user_id)
+  
+  if result_data == None or user_data == None or ranking == None:
+    return "Not Found User"
   
   delivery_count = result_data.delivery_count
   quiz_score = result_data.quiz_score
@@ -51,6 +57,7 @@ def get_result(user_id):
             'content_text': content_text,
             'content_image': content_image,
             'content_url': content_url,
-            'recycle_tip': recycle_tip}
+            'recycle_tip': recycle_tip,
+            'ranking': ranking}
   
   return result
