@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import NavBar from '../components/NavBar';
 import axios from 'axios';
-import store, { submit, reset, plastic_reset, page_plus, page_minus } from '../redux_store/store';
+import store, { submit, reset, plastic_reset, page_plus, page_minus, set_result } from '../redux_store/store';
 import Tests from '../components/Tests'
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -15,13 +15,35 @@ function TestPage() {
     const useSubmit = useSelector(state => state.test[0].answers)
     const history = useHistory()
     const buttonStyle= {  width:"20vh", height:"5vh", backgroundColor : "#fff", borderRadius:"1vh" }
+    const [resultButton,setResultButton] = useState(false)
 
+    const getResult = async () =>{
+        setResultButton(true)
+        store.dispatch(submit());
+        const userId = await axios.post("/api/analysis",store.getState().test[0]);
+        const response= await axios.get(`/api/result/${userId.data}`)
+        const{data} = response
+        const {user_name,
+            score,
+            tier,
+            recycle_tip,
+            content_text,
+            content_url,
+            content_image
+         } = data
+        store.dispatch(set_result({
+            user_name,score,tier,recycle_tip,content_text,content_url,content_image
+        }))
+
+        history.push({pathname:"/loading", state:{next:"/result"}})
+
+    }
     
     return (
         <div >
             
             <NavBar />
-            <StopWatch num={num}/>
+            <StopWatch />
             <ProgressBar num={num} />
 
             <Tests num={num} history={history} />
@@ -31,15 +53,9 @@ function TestPage() {
                 <Hover>
                 <button 
                 style={buttonStyle} 
-                onClick={
-                    () => {
-                        
-                        store.dispatch(submit());
-                        history.push({pathname:"/loading", state:{next:"/result"}})
-                    }
-                }>
+                onClick={getResult} disabled={resultButton}>
                     결과보기
-                </button></Hover>
+                </button ></Hover>
                 : <Hover><button 
                 style={buttonStyle} 
                 onClick={() => { store.dispatch(page_plus());}} disabled={
