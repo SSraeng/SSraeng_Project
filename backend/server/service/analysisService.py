@@ -10,7 +10,7 @@ from domain.dao.exampleDao import count_example
 def analysis_service(result):
   #new 유저
   user = new_user(result['user_name'])
-  score = score_service(result['answers'])
+  score, ox_list = score_service(result['answers'])
   
   start_time = result['start_time']
   end_time = result['end_time']
@@ -18,22 +18,21 @@ def analysis_service(result):
   
   exam_time = end_time - start_time
   
-  new_result(userid=user.id, score=score, examtime=exam_time, deliverycount=delivery_count)
+  new_result(userid=user.id, score=score, oxlist=ox_list,  examtime=exam_time, deliverycount=delivery_count)
 
   return user.id
 
 def score_service(answers):
   quizzes = all_quiz()
+  ox_list = ""
   score = 0
   for quiz, answer in zip(quizzes, answers):
     if quiz.answer == answer:
       score += 1
+      ox_list += 'O'
+    else:
+      ox_list += 'X'
+      
     count_example(quiz.id, answer)
 
-  return score
-
-
-def trash_service():
-  
-
-  return 
+  return score, ox_list
