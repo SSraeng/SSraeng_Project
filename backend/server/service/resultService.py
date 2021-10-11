@@ -52,6 +52,10 @@ def get_result(user_id):
   recycle_tip = recycling_arr[recycling_idx].image
   paritipants = len(all_result())
   
+  all_conent = [{'content_text': article.title, 'content_image': article.image, 'content_url': article.url} for article in articles]
+  all_recycle_tip = [recycle.image for recycle in recycling]
+  ox_list = result_data.ox_list
+  
   result = {'user_name': user_name,
             'score': final_score,
             'tier': res_tier_url,
@@ -60,6 +64,9 @@ def get_result(user_id):
             'content_url': content_url,
             'recycle_tip': recycle_tip,
             'ranking': ranking,
-            'participants': paritipants}
+            'participants': paritipants,
+            'all_content': all_conent,
+            'all_recycle_tip': all_recycle_tip,
+            'ox_list': ox_list}
   
   return result
