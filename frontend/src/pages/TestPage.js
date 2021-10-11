@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import NavBar from '../components/NavBar';
 import axios from 'axios';
-import store, { submit, reset, plastic_reset, page_plus, page_minus, set_result } from '../redux_store/store';
+import store, { submit, page_plus, page_minus, set_result, add_user_id } from '../redux_store/store';
 import Tests from '../components/Tests'
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -21,21 +21,31 @@ function TestPage() {
         setResultButton(true)
         store.dispatch(submit());
         const userId = await axios.post("/api/analysis",store.getState().test[0]);
+        store.dispatch(add_user_id(userId.data))
         const response= await axios.get(`/api/result/${userId.data}`)
         const{data} = response
-        const {user_name,
+        
+        const {
+            user_name,
             score,
             tier,
             recycle_tip,
             content_text,
             content_url,
-            content_image
+            content_image,
+            ranking,
+            participants,
+            ox_list,
+            all_content,
+            all_recycle_tip
          } = data
+
         store.dispatch(set_result({
-            user_name,score,tier,recycle_tip,content_text,content_url,content_image
+            user_name,score,tier,recycle_tip,content_text,content_url,content_image, ranking, participants,
+            ox_list,all_content,all_recycle_tip
         }))
 
-        history.push({pathname:"/loading", state:{next:"/result"}})
+        history.push({pathname:"/loading", state:{next:`/result/${userId.data}`}})
 
     }
     
