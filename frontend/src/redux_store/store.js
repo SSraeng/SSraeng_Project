@@ -89,13 +89,26 @@ export const StopWatchStart = createSlice({
     }
 })
 
+export const UserId = createSlice({
+    name:"UserId",
+    initialState : [],
+    reducers:{
+        add_user_id:(state,action)=>{
+            return [action.payload]
+        },
+        reset_user_id:()=>{
+            return []
+        }
+    }
+})
 
 const reducers = combineReducers({
     plastic:PlasticCal.reducer, 
     test:Test.reducer, 
     test_page:TestPage.reducer,
     result:Result.reducer,
-    stopwatch:StopWatchStart.reducer
+    stopwatch:StopWatchStart.reducer,
+    user_id:UserId.reducer
 })
 
 const persistConfig = {
@@ -111,6 +124,7 @@ const store = configureStore({
     devTools: process.env.NODE_ENV !== 'production',
     middleware: [thunk],
 })
+
 
 export const {
     plastic_add, plastic_minus, plastic_reset
@@ -128,5 +142,9 @@ export const{
 export const{
     stopwatch_start, stopwatch_reset
 } = StopWatchStart.actions
+
+export const{
+    add_user_id,reset_user_id
+} = UserId.actions
 
 export default store;
