@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import test from "../tests/test.json"
-import store, { add, page_plus, reset, plastic_reset, page_reset, start,stopwatch_start } from '../redux_store/store';
+import store, { add, page_plus, start,stopwatch_start } from '../redux_store/store';
 import axios from 'axios';
 import {Select} from "../styled_components/style"
 import { polarbear } from '../etc/photos';
@@ -41,7 +41,7 @@ function Tests() {
                  <h2>Q{num+1}.{test[num].question}</h2>
                  <h4 style={{paddingLeft:"45vh"}}>정답률:{test[num].ratio.toFixed(2)}%</h4>
                 {test[num].examples.map((answer, i) =>
-                    <Select num={clickedNum[num]} i={i}
+                    <Select num={clickedNum[num]} i={i} key={i}
                         onClick={(e) => {
                             store.dispatch(add({ index: num, submit: i + 1 }));
                             if(num<9){store.dispatch(page_plus())};
