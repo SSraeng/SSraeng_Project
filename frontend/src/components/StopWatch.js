@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { useSelector } from 'react-redux';
 import store from '../redux_store/store';
 
 function useInterval(callback,delay){
@@ -16,11 +17,11 @@ function useInterval(callback,delay){
 }
 
 
-function StopWatch({num}) {
-
+function StopWatch() {
+    const isStarted = useSelector((state)=>state.stopwatch[0])
     const[counter, setCounter] = useState(0);
         useInterval(() => {
-            setCounter(counter + 1);
+            if(isStarted)setCounter(counter +1)
         }, 10);
     
     const minute = parseInt(counter/6000)

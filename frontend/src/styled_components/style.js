@@ -27,3 +27,23 @@ export const Select = styled(Hover)`
     }
 
 `
+export const RankElement = styled.div`
+    width:${(props)=>props.width}em;
+    text-align:center;
+
+`
+// export const PolarBear = styled.div`
+//     align:center;
+//     width:80vh;
+//     background:${(props)=>props.first};
+//     &:hover{
+//         background:${(props)=>props.second};
+
+//     }
+// `
+// const PolarBear_img = styled.img.attrs({
+//     src: "images/result_polarbear.jpg"
+// })`
+//     width:80vh;
+// `
+// const PolarBear = styled.
