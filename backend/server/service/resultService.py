@@ -59,6 +59,7 @@ def get_result(user_id):
   result = {'user_name': user_name,
             'score': final_score,
             'tier': res_tier_url,
+            'tier_value': tier,
             'content_text': content_text,
             'content_image': content_image,
             'content_url': content_url,
