@@ -6,10 +6,10 @@ import {useSelector} from "react-redux";
 
 function PlasticCal() {
     const [sum, setSum] = useState(0)
-    const plastic = useSelector(state=>state.plastic)
+    const plastic = useSelector(state=>state.plastic[0])
     return (
         <div style={{marginBottom:"4vh"}}>
-            <h3>플라스틱 계산기</h3>
+            <h3>평소에 플라스틱을 얼마나 사용하는지 계산해보세요!</h3>
             <PlusMinusButton title="비닐봉지" addNumber={10} />
             <PlusMinusButton title="배달용기" addNumber={44} />
             <PlusMinusButton title="일회용컵" addNumber={14} />

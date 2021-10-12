@@ -24,15 +24,16 @@ def analysis_service(result):
 
 def score_service(answers):
   quizzes = all_quiz()
-  ox_list = ""
+  ox_list = ['X' for _ in range(10)]
+  ox_list_idx = 0
   score = 0
   for quiz, answer in zip(quizzes, answers):
     if quiz.answer == answer:
       score += 1
-      ox_list += 'O'
-    else:
-      ox_list += 'X'
+      ox_list[ox_list_idx] = 'O'
+    ox_list_idx += 1
       
     count_example(quiz.id, answer)
-
+  
+  ox_list = ''.join(ox_list)
   return score, ox_list
