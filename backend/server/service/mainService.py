@@ -6,5 +6,4 @@ def get_main_result():
     result = {
         'user_cnt':user_cnt
     }
-
     return result
