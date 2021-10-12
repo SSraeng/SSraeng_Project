@@ -23,6 +23,19 @@ export const PlasticCal = createSlice({
     }
 })
 
+export const CO2Cal= createSlice({
+    name: "CO2CalReducer",
+    initialState: [0],
+    reducers: {
+        co2_e:(state,action)=>{
+            state[0] += action.payload
+        },
+        reset_co2:(state,action)=>{
+            return [0]
+        }
+    }
+})
+
 export const Test = createSlice({
     name: "TestReducer",
     initialState: [],
@@ -108,7 +121,8 @@ const reducers = combineReducers({
     test_page:TestPage.reducer,
     result:Result.reducer,
     stopwatch:StopWatchStart.reducer,
-    user_id:UserId.reducer
+    user_id:UserId.reducer,
+    co2 : CO2Cal.reducer
 })
 
 const persistConfig = {
@@ -146,5 +160,9 @@ export const{
 export const{
     add_user_id,reset_user_id
 } = UserId.actions
+
+export const {
+    co2_e,reset_co2
+} = CO2Cal.actions
 
 export default store;
