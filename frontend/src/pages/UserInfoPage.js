@@ -11,14 +11,7 @@ function UserInfoPage() {
     const history = useHistory()
     const [nickname, setNickname] = useState("")
     const [times, setTimes] = useState(0);
-    useEffect(()=>{
-        store.dispatch(reset())
-        store.dispatch(plastic_reset())
-        store.dispatch(page_reset())
-        store.dispatch(stopwatch_reset())
-        store.dispatch(reset_user_id())
 
-    },[])
         return (
         <div>
             <NavBar/>
