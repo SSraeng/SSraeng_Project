@@ -1,8 +1,8 @@
-from domain.dao.userDao import all_user
+from domain.dao.resultDao import all_result
 
 
 def get_main_result():
-    user_cnt = len(all_user())
+    user_cnt = len(all_result())
     result = {
         'user_cnt':user_cnt
     }
