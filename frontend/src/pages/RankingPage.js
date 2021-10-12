@@ -38,21 +38,10 @@ function RankingPage({match}) {
     return (
         <div >
             <NavBar />
-            {
-                userRank?
-                <div style={{display:"flex", justifyContent:"space-evenly"}}>  
-                <RankElement width={1}>{userRank.ranking}</RankElement>
-                <RankElement width={10}>{userRank.name}</RankElement>
-                <RankElement width={2}>{userRank.tier}</RankElement>
-                <RankElement width={4}>{userRank.delivery_count}</RankElement>
-                <RankElement width={5}>{userRank.quiz_score}</RankElement>
-                <RankElement width={4}>{userRank.total_score}</RankElement> 
-            </div>:null
-            }
             
             <RankPageTitle> 
                 <span>우리집 누가 치웠어?</span>
-                <img src="https://ssraeng.blob.core.windows.net/article/ciderbear.png" />
+                <img src="https://ssraeng.blob.core.windows.net/etc/ciderbear.png"/>
             </RankPageTitle>
             <RankWrapper style={{display:"flex", justifyContent:"space-evenly"}}>    
                 <RankElement width={2}>순위</RankElement>

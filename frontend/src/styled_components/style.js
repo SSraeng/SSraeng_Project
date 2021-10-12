@@ -51,7 +51,7 @@ export const RankDataWrapper = styled.div`
 
 export const RankAllDataWrapper = styled.div`
     :hover{
-        cursor: url("https://ssraeng.blob.core.windows.net/article/pointer2.png"), auto;
+        cursor: url("https://ssraeng.blob.core.windows.net/etc/pointer2.png"), auto;
     }
 `;
 
