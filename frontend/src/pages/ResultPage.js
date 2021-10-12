@@ -1,56 +1,46 @@
 import React, { useState,useEffect } from 'react';
 import NavBar from '../components/NavBar';
-import store,{reset,submit} from '../redux_store/store';
-import { first, second, third, fourth, fifth } from '../tests/level';
+import store from '../redux_store/store';
 import PlasticCal from '../components/PlasticCal';
 import axios from 'axios';
+import { useHistory } from 'react-router';
+import { useSelector } from 'react-redux';
+import Grade from '../resultpage-components/Grade';
+import WhichAction from '../resultpage-components/WhichAction';
 
-function ResultPage() {
-    const [data,setData]= useState(null)
-    const [page, setPage] = useState(1);
-    useEffect(()=>{
-        const testResult = async()=>{
-            try{
-                setData(null);
-                console.log(store.getState().test[0])
-                const userId = await axios.post("/api/analysis",store.getState().test[0]);
-                console.log(userId)
-                const response= await axios.get(`/api/result/${userId.data}`)
-                console.log(response.data);
-                setData(response.data)
-            }catch(e){
-                console.log(e)
-            }
-        }
-        
+function ResultPage({match}) {
+    const {params} = match
+    const history = useHistory()
+    const [resultData,setResultData] = useState(false);
 
-        testResult();
-    },[])
+    const user_id = store.getState().user_id[0]
+    const result= store.getState().result[0]
+    if (user_id)
+    {
+
+        console.log(result)
+
+    }
+
+     useEffect(()=>{
+            const getResult = async () =>{
+
+                const response= await axios.get(`/api/result/${params.user_id}`)
+                const{data} = response 
+                console.log(data)
+                 setResultData(data)
+                 }
+                 if(!user_id)getResult();
+     },[])
 
     return (
-        <div >
+        <div>
             <NavBar />
-            {
-            data?
-            <div style={{position: "absolute",left: "50%",transform: "translate(-50%)", textAlign:"center"}}>
-                <div style={{margin:"auto", textAlign:"center", marginTop:"10vh" }}/>
-                <h1 style={{textAlign:"center"}}>{data.user_name}의  점수</h1>
-                <h2 style={{textAlign:"center"}}>{data.score}</h2>
-                <div>
-                <img src={data.tier} width="300px"style={{marginBottom:"5vh" }} /></div>
-                <div>
-                <img src={data.recycle_tip} width="300px"style={{marginBottom:"5vh"}}/></div>
-                
-                <div>{data.content_text}</div>
-                <a href={data.content_url}><img width = "300vh" src={data.content_image}/></a>
-                
-                <PlasticCal/>
-            </div>
+           { resultData?<Grade data={resultData}/>:result?<Grade data={result}/>:null}
+            {result?<WhichAction user_id={user_id} user_name={result.user_name} history={history}/>:null}
 
-            :null
-            }
+                {!user_id?<button onClick={()=>history.replace("/test/userinfo")}>나도테스트해보기</button>:null}
 
-            
         </div>
     )
 }

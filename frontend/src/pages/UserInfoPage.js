@@ -2,20 +2,16 @@ import React, { useEffect,useState } from 'react';
 import { useHistory } from 'react-router';
 import NavBar from '../components/NavBar';
 import axios from 'axios';
-import store, { submit, user,reset, plastic_reset, page_reset} from '../redux_store/store';
+import store, { submit, user,reset, plastic_reset, page_reset, stopwatch_reset, reset_user_id} from '../redux_store/store';
 import { Hover } from '../styled_components/style';
 
 
 function UserInfoPage() {   
+    
     const history = useHistory()
     const [nickname, setNickname] = useState("")
     const [times, setTimes] = useState(0);
 
-    useEffect(()=>{
-        store.dispatch(reset())
-        store.dispatch(plastic_reset())
-        store.dispatch(page_reset())
-    },[])
         return (
         <div>
             <NavBar/>
@@ -42,6 +38,8 @@ function UserInfoPage() {
                     store.dispatch(reset())
                     store.dispatch(plastic_reset())
                     store.dispatch(page_reset())
+                    store.dispatch(stopwatch_reset())
+                    store.dispatch(reset_user_id())
                     store.dispatch(user({ name: nickname, times: times }));
                     history.push("/test/test")
             }

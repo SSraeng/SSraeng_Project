@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import PlusMinusButton from './PlusMinusButton';
-import store,{reset} from '../redux_store/store';
+import store from '../redux_store/store';
 import {useSelector} from "react-redux";
 
 
