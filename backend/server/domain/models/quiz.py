@@ -5,7 +5,7 @@ class Quiz(db.Model):
   __tablename__ = 'quiz'
 
   id        = db.Column(db.Integer, primary_key=True, nullable=False)
-  question  = db.Column(db.String(256), nullable=False)
+  question  = db.Column(db.NVARCHAR(256), nullable=False)
   quiz_type = db.Column(db.Integer, nullable=False)
   answer    = db.Column(db.Integer, nullable=False)
 

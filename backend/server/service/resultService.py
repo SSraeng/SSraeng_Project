@@ -1,14 +1,20 @@
-from domain.dao.resultDao import user_result
+import random
+
+from domain.dao.resultDao import user_result, all_result
 from domain.dao.userDao import one_user
 from domain.dao.articleDao import all_article
 from domain.dao.recyclingDao import all_recycling
-import random
+
+from .userRankService import get_user_rank
+
 
 def get_result(user_id):
   result_data = user_result(user_id)
-  if result_data == None:
-    return "Not Found User"
   user_data = one_user(user_id)
+  ranking = get_user_rank(user_id)
+  
+  if result_data == None or user_data == None or ranking == None:
+    return "Not Found User"
   
   delivery_count = result_data.delivery_count
   quiz_score = result_data.quiz_score
@@ -44,13 +50,24 @@ def get_result(user_id):
   content_image = article_arr[article_idx].image
   content_url = article_arr[article_idx].url
   recycle_tip = recycling_arr[recycling_idx].image
+  paritipants = len(all_result())
+  
+  all_conent = [{'content_text': article.title, 'content_image': article.image, 'content_url': article.url} for article in articles]
+  all_recycle_tip = [recycle.image for recycle in recycling]
+  ox_list = result_data.ox_list
   
   result = {'user_name': user_name,
             'score': final_score,
             'tier': res_tier_url,
+            'tier_value': tier,
             'content_text': content_text,
             'content_image': content_image,
             'content_url': content_url,
-            'recycle_tip': recycle_tip}
+            'recycle_tip': recycle_tip,
+            'ranking': ranking,
+            'participants': paritipants,
+            'all_content': all_conent,
+            'all_recycle_tip': all_recycle_tip,
+            'ox_list': ox_list}
   
   return result

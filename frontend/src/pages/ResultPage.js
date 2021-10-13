@@ -1,52 +1,85 @@
 import React, { useState,useEffect } from 'react';
 import NavBar from '../components/NavBar';
-import store,{reset,submit} from '../redux_store/store';
-import { first, second, third, fourth, fifth } from '../tests/level';
-import PlasticCal from '../components/PlasticCal';
+import store, { plastic_reset, reset_co2 } from '../redux_store/store';
+import PlasticCal from '../resultpage-components/PlasticCal';
 import axios from 'axios';
+import { useHistory } from 'react-router';
+import { useSelector } from 'react-redux';
+import {Grade,PlasticResult,PolarBearTV,PolarBearTVMent,RecycleTip,Solutions,WhichAction} from "../resultpage-components/components"
+import {Fade, Rotate,Flip, Zoom, Bounce,  Slide} from "react-reveal"
+import {MiddleBlock, MiddleBlockF} from "../styled_components/style.js"
 
-function ResultPage() {
-    const [data,setData]= useState(null)
-    useEffect(()=>{
-        const testResult = async()=>{
-            try{
-                setData(null);
-                console.log(store.getState().test[0])
-                const userId = await axios.post("/api/analysis",store.getState().test[0]);
-                console.log(userId)
-                const response= await axios.get(`/api/result/${userId.data}`)
-                console.log(response.data);
-                setData(response.data)
-            }catch(e){
-                console.log(e)
-            }
-        }
-        
+function ResultPage({match}) {
+    const {params} = match
+    const history = useHistory()
+    const [resultData,setResultData] = useState(false);
+    const user_id = store.getState().user_id[0]
+    const result = store.getState().result[0]
+    
+     useEffect(()=>{
+            const getResult = async () =>{
 
-        testResult();
-    },[])
+                const response= await axios.get(`/api/result/${params.user_id}`)
+                const{data} = response 
+                 setResultData(data)
+                 }
+                 if(!user_id)getResult();
+                store.dispatch(plastic_reset()); 
+                store.dispatch(reset_co2())
+            
+     },[])
+
+     useEffect(()=>{
+         if(result)
+         console.log(result);
+     })
 
     return (
-        <div >
-            <NavBar />
-            {
-            data?
-            <div style={{position: "absolute",left: "50%",transform: "translate(-50%)"}}>
-                <div style={{margin:"auto", textAlign:"center", marginTop:"10vh" }}/>
-                <h1>{data.user_name}의  점수</h1>
-                <h2>{data.score}</h2>
-                <img src={data.tier} width="300px"style={{marginBottom:"5vh"}}/>
-                <img src={data.recycle_tip} width="300px"style={{marginBottom:"5vh"}}/>
-                <div>{data.content_text}</div>
-                <a href={data.content_url}><img src={data.content_image}/></a>
-                
-                <PlasticCal/>
-            </div>
+        <div>
+            <NavBar/>
+            <MiddleBlockF/>
+            <Fade top>
+           <Grade data={resultData?resultData:result?result:null}/>
+           </Fade>
+           <MiddleBlock/>
+           {result?
+           <div>
+            <Fade top>
+            <Solutions oxlist={result.ox_list}/>
+            </Fade>
+            <MiddleBlock/>
+            <Fade top>
+            <PlasticCal/>
+            </Fade>
+            <MiddleBlock/>
+            <Fade top>
+            <PlasticResult user_name={result.user_name}/>
+            </Fade>
+            <MiddleBlock/>
+            <Fade top>
+            <RecycleTip recycle_tip={result.all_recycle_tip}/>
+            </Fade>
+            <MiddleBlock/>
+            <Fade top>
+            <PolarBearTVMent/>
+            </Fade>
+            <MiddleBlock/>
+            <Fade top>
+            <PolarBearTV content_url={result.content_url} content_image={result.content_image}/>
+            </Fade>
+            <MiddleBlock/>
+            <Fade top>
+            <WhichAction user_id={result.user_id} user_name={result.user_name} history={history}/>
+            </Fade>
+            <MiddleBlock/>
 
-            :null
+            </div>
+            :
+            null
             }
 
-            
+            {!user_id?<button onClick={()=>history.replace("/test/userinfo")}>나도테스트해보기</button>:null}
+
         </div>
     )
 }

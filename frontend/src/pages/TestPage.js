@@ -1,48 +1,76 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
 import axios from 'axios';
-import store, { submit, reset, plastic_reset } from '../redux_store/store';
+import store, { submit, page_plus, page_minus, set_result, add_user_id } from '../redux_store/store';
 import Tests from '../components/Tests'
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProgressBar from '../components/ProgressBar';
 import { useHistory } from 'react-router';
 import StopWatch from '../components/StopWatch';
-import { Hover } from '../styled_components/Hover';
+import { Hover } from '../styled_components/style';
+
 function TestPage() {
-    const [num, setNum] = useState(1)
+    const num = useSelector(state=>state.test_page[0])
     const useSubmit = useSelector(state => state.test[0].answers)
     const history = useHistory()
     const buttonStyle= {  width:"20vh", height:"5vh", backgroundColor : "#fff", borderRadius:"1vh" }
+    const [resultButton,setResultButton] = useState(false)
 
-    
+    const getResult = async () =>{
+        setResultButton(true)
+        store.dispatch(submit());
+        const userId = await axios.post("/api/analysis",store.getState().test[0]);
+        store.dispatch(add_user_id(userId.data))
+        const response= await axios.get(`/api/result/${userId.data}`)
+        const{data} = response
+        
+        const {
+            user_name,
+            score,
+            tier,
+            recycle_tip,
+            content_text,
+            content_url,
+            content_image,
+            ranking,
+            participants,
+            ox_list,
+            all_content,
+            all_recycle_tip,
+            tier_value
+         } = data
+
+        store.dispatch(set_result({
+            user_name,score,tier,recycle_tip,content_text,content_url,content_image, ranking, participants,
+            ox_list,all_content,all_recycle_tip, tier_value
+        }))
+
+        history.push({pathname:"/loading", state:{next:`/result/${userId.data}`}})
+
+    }
+
     return (
         <div >
             
             <NavBar />
-            <StopWatch num={num}/>
+            <StopWatch />
             <ProgressBar num={num} />
 
             <Tests num={num} history={history} />
             <div style={{margin:"auto", textAlign:"center", marginTop:"3vh", display:'flex',justifyContent:"center" }}> 
-            {num != 1 ? <Hover><button style={{marginRight:"10vh",...buttonStyle}} onClick={() => { setNum(num - 1);}}>이전</button></Hover> : null}
-            {num == 10 ?
+            {num != 0 ? <Hover><button style={{marginRight:"10vh",...buttonStyle}} onClick={() => { store.dispatch(page_minus());}}>이전</button></Hover> : null}
+            {num == 9 ?
                 <Hover>
                 <button 
                 style={buttonStyle} 
-                onClick={
-                    () => {
-                        
-                        store.dispatch(submit());
-                        history.push({pathname:"/loading", state:{next:"/result"}})
-                    }
-                }>
+                onClick={getResult} disabled={resultButton||useSubmit.length != 10}>
                     결과보기
                 </button></Hover>
                 : <Hover><button 
                 style={buttonStyle} 
-                onClick={() => { setNum(num + 1);}} disabled={
-                    useSubmit.length >= num ? false : true
+                onClick={() => { store.dispatch(page_plus());}} disabled={
+                    useSubmit.length >= num+1 ? false : true
                 }>다음</button></Hover>}
                 </div>
         </div>

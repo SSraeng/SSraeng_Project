@@ -6,7 +6,7 @@ class Example(db.Model):
 
   id         = db.Column(db.Integer, primary_key=True, nullable=False)
   quiz_id    = db.Column(db.Integer, db.ForeignKey('quiz.id', ondelete='CASCADE', onupdate='CASCADE'), nullable=False)
-  content    = db.Column(db.String(256), nullable=False)
+  content    = db.Column(db.NVARCHAR(256), nullable=False)
   num        = db.Column(db.Integer, nullable=False)
   count      = db.Column(db.Integer, nullable=False, default=0)
 
