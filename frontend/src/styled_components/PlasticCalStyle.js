@@ -52,9 +52,10 @@ export const ButtonStyle = styled.button`
   font-weight: 700;
   border: 0;
   border-color: #A5BDCC;
-  color: #1C4766;
+  color: #000000;
   
   &:hover {
-    background-color:  #E5ECF1
+    background-color:  #E5ECF1;
+    cursor: pointer;
   }
 `;
