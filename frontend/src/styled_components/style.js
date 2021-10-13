@@ -92,18 +92,21 @@ export const RankPageTitle = styled.div`
         vertical-align: bottom;
     }
 `;
-// export const PolarBear = styled.div`
-//     align:center;
-//     width:80vh;
-//     background:${(props)=>props.first};
-//     &:hover{
-//         background:${(props)=>props.second};
 
-//     }
-// `
-// const PolarBear_img = styled.img.attrs({
-//     src: "images/result_polarbear.jpg"
-// })`
-//     width:80vh;
-// `
-// const PolarBear = styled.
+export const ResultWrapper = styled.div`
+    height:50vh;
+    display:flex; 
+    flex-direction:column; 
+    justify-content:center; 
+    text-align:center;
+
+`
+
+export const MiddleBlock = styled.div`
+    height:50vh;
+`
+export const MiddleBlockF = styled.div`
+    height:25vh;
+`
+
+
