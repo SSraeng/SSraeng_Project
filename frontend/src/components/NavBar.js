@@ -1,26 +1,29 @@
 import React from 'react';
 import { useHistory } from 'react-router';
 import store from '../redux_store/store';
+import {NavbarWrapper, NavbarTitle, NavbarGomFace, NavbarMenuItem, NavbarMenuWrapper} from '../styled_components/NavbarStyle';
+
 function NavBar() {
     const history = useHistory()
     const user_id = store.getState().user_id[0]
     
     return (
-        <div>
+        <NavbarWrapper>
             <header className="Basic-Bar">
-                <div >
-                    <div style={{ paddingLeft: "50px", fontSize: "30px" , height:"10vh",paddingTop:"5vh"}} onClick={() => history.push("/")}>쓰랭</div></div>
-                <div style={{ display: "flex", justifyContent: "space-evenly"}}>
-                    <div onClick={() => window.location.replace("/test/userinfo")}>테스트하기</div>
-                    <div onClick={() => history.push(user_id?`/ranking/${user_id}`:"/ranking")}>랭킹보기</div>
-                    <div onClick={() => history.push("/about")}>About</div>
-                </div>
+                
+                <NavbarTitle onClick={() => history.push("/")}>
+                    <p>여러분의 <span>쓰</span>레기 <span>랭</span>킹을 매겨드립니다</p>
+                    
+                <NavbarGomFace src='https://ssraeng.blob.core.windows.net/etc/sunglassgom.jpeg' onClick={() => history.push("/")}/>
+                </NavbarTitle>
+                
+                <NavbarMenuWrapper style={{ display: "flex", justifyContent: "space-evenly"}}>
+                    <NavbarMenuItem onClick={() => window.location.replace("/test/userinfo")}>테스트하기</NavbarMenuItem>
+                    <NavbarMenuItem onClick={() => history.push(user_id?`/ranking/${user_id}`:"/ranking")}>랭킹보기</NavbarMenuItem>
+                    <NavbarMenuItem onClick={() => history.push("/about")}>About</NavbarMenuItem>
+                </NavbarMenuWrapper>
             </header>
-            <hr style={{
-                border : "solid 1px",
-                width: "95vw",
-                color: "rgb(80, 78, 78)"}} />
-        </div>
+        </NavbarWrapper>
     );
 }
 
