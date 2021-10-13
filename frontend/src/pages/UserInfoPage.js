@@ -45,7 +45,7 @@ function UserInfoPage() {
                     store.dispatch(plastic_reset())
                     history.push("/test/test")
             }
-            } disabled={!nickname}><h1>테스트 시작</h1></button>
+            } disabled={!nickname}><h1>시작</h1></button>
             </Hover>
             </div>
 

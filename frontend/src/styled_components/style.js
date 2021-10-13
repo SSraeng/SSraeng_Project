@@ -4,8 +4,7 @@ export const Hover = styled.div`
 
     &:hover{
         cursor:pointer;
-        transform:scale(1.2);
-
+        transform:scale(1.05);
     }
 
 `
@@ -23,9 +22,7 @@ export const Select = styled(Hover)`
     }
     &:hover{
         background-color: #87F5F5
-
     }
-
 `
 
 export const RankElement = styled.div`
