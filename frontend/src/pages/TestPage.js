@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
 import axios from 'axios';
 import store, { submit, page_plus, page_minus, set_result, add_user_id } from '../redux_store/store';
@@ -48,7 +48,7 @@ function TestPage() {
         history.push({pathname:"/loading", state:{next:`/result/${userId.data}`}})
 
     }
-    
+
     return (
         <div >
             
@@ -63,9 +63,9 @@ function TestPage() {
                 <Hover>
                 <button 
                 style={buttonStyle} 
-                onClick={getResult} disabled={resultButton}>
+                onClick={getResult} disabled={resultButton||useSubmit.length != 10}>
                     결과보기
-                </button ></Hover>
+                </button></Hover>
                 : <Hover><button 
                 style={buttonStyle} 
                 onClick={() => { store.dispatch(page_plus());}} disabled={

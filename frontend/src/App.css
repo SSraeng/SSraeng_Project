@@ -29,6 +29,15 @@
   src: url("./fonts/EliceDigitalBaeum_Regular.ttf");
 }
 
+@font-face {
+  font-family: "jalnan";
+  src: url("./fonts/Jalnan.ttf");
+}
+
+@font-face {
+  font-family: "Seulvely";
+  src: url("./fonts/UhBee Seulvely.ttf");
+}
 /* Analysis 컴포넌트 */
 .data_analysis {
   display: flex;

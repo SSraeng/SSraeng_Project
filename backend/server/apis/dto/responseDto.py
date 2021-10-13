@@ -20,4 +20,4 @@ def result_response_dto(result):
   return jsonify(result), 200
 
 def main_response_dto(result):
-  return jsonify(result), 200
+  return jsonify(result), 200 

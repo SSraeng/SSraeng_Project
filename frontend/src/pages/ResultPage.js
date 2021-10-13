@@ -1,63 +1,77 @@
 import React, { useState,useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import store, { plastic_reset, reset_co2 } from '../redux_store/store';
-import PlasticCal from '../components/PlasticCal';
+import PlasticCal from '../resultpage-components/PlasticCal';
 import axios from 'axios';
 import { useHistory } from 'react-router';
 import { useSelector } from 'react-redux';
 import {Grade,PlasticResult,PolarBearTV,PolarBearTVMent,RecycleTip,Solutions,WhichAction} from "../resultpage-components/components"
+import {Fade, Rotate,Flip, Zoom, Bounce,  Slide} from "react-reveal"
+import {MiddleBlock, MiddleBlockF} from "../styled_components/style.js"
+
 function ResultPage({match}) {
     const {params} = match
     const history = useHistory()
     const [resultData,setResultData] = useState(false);
-
     const user_id = store.getState().user_id[0]
     const result = store.getState().result[0]
-    const {ox_list, user_name, content_url, content_image}= result
-    const [page,setPage]= useState(1)
+    
      useEffect(()=>{
             const getResult = async () =>{
 
                 const response= await axios.get(`/api/result/${params.user_id}`)
                 const{data} = response 
-                console.log(data)
                  setResultData(data)
                  }
                  if(!user_id)getResult();
+                store.dispatch(plastic_reset()); 
+                store.dispatch(reset_co2())
+            
      },[])
 
     return (
         <div>
             <NavBar/>
-           {page==1?<Grade data={resultData?resultData:result?result:null}/>:null}
-           {ox_list&&page==2?
-            <Solutions oxlist={ox_list}/>
-            :user_id&&page==3?
-            <WhichAction user_id={user_id} user_name={user_name} history={history}/>
-            
-            :result&&page==4?
-            <PolarBearTV content_url={content_url} content_image={content_image}/>
-            :user_name&&page==5?
-            <RecycleTip/>
-            :user_name&&page==6?
-            <PolarBearTVMent/>
-            :user_name&&page==7?
-            
-            <PlasticResult user_name={user_name}/>
-            :user_name&&page==8?
+            <MiddleBlockF/>
+            <Fade top>
+           <Grade data={resultData?resultData:result?result:null}/>
+           </Fade>
+           <MiddleBlock/>
+           {result?
+           <div>
+            <Fade top>
+            <Solutions oxlist={result.ox_list}/>
+            </Fade>
+            <MiddleBlock/>
+            <Fade top>
             <PlasticCal/>
+            </Fade>
+            <MiddleBlock/>
+            <Fade top>
+            <PlasticResult user_name={result.user_name}/>
+            </Fade>
+            <MiddleBlock/>
+            <Fade top>
+            <RecycleTip recycle_tip={result.all_recycle_tip}/>
+            </Fade>
+            <MiddleBlock/>
+            <Fade top>
+            <PolarBearTVMent/>
+            </Fade>
+            <MiddleBlock/>
+            <Fade top>
+            <PolarBearTV content_url={result.content_url} content_image={result.content_image}/>
+            </Fade>
+            <MiddleBlock/>
+            <Fade top>
+            <WhichAction user_id={result.user_id} user_name={result.user_name} history={history}/>
+            </Fade>
+            <MiddleBlock/>
+
+            </div>
             :
             null
             }
-            {result&&page<8?
-            <button onClick={()=>{setPage(page+1)}}>다음</button>:null
-            }
-            {
-            result&&page>1?
-            <button onClick={()=>setPage(page-1)}>이전</button>:null
-            }
-
-            
 
             {!user_id?<button onClick={()=>history.replace("/test/userinfo")}>나도테스트해보기</button>:null}
 

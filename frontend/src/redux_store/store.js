@@ -100,7 +100,8 @@ export const StopWatchStart = createSlice({
             return [false]
         }
     }
-})
+}
+)
 
 export const UserId = createSlice({
     name:"UserId",
@@ -115,6 +116,20 @@ export const UserId = createSlice({
     }
 })
 
+export const Checked = createSlice({
+    name: "Checked",
+    initialState:[ [0,0,0,0,0,0,0,0,0,0] ],
+    reducers:{
+        add_checked:(state,action)=>{
+            return [action.payload]
+        },
+        reset_checked:()=>{
+            return [[0,0,0,0,0,0,0,0,0,0]]
+        }
+    }
+})
+
+
 const reducers = combineReducers({
     plastic:PlasticCal.reducer, 
     test:Test.reducer, 
@@ -122,7 +137,8 @@ const reducers = combineReducers({
     result:Result.reducer,
     stopwatch:StopWatchStart.reducer,
     user_id:UserId.reducer,
-    co2 : CO2Cal.reducer
+    co2 : CO2Cal.reducer,
+    checked:Checked.reducer
 })
 
 const persistConfig = {
@@ -138,6 +154,8 @@ const store = configureStore({
     devTools: process.env.NODE_ENV !== 'production',
     middleware: [thunk],
 })
+
+
 
 
 export const {
@@ -164,5 +182,9 @@ export const{
 export const {
     co2_e,reset_co2
 } = CO2Cal.actions
+
+export const{
+    add_checked, reset_checked
+}= Checked.actions
 
 export default store;
