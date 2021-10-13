@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import {WhichActionWrapper, WhichActionExample, WhichActionButtonWrapper} from '../styled_components/WhichActionStyle';
-// import {RankElement, WhichActionWrapper} from '../styled_components/style';
+import { ResultWrapper } from '../styled_components/style';
 
 function WhichAction({user_id,user_name,history}) {
     const [action,setAction] = useState(0);
@@ -34,6 +34,7 @@ function WhichAction({user_id,user_name,history}) {
     };
 
     return (
+        <ResultWrapper>
         <WhichActionWrapper>
             {
                 action == 0 ?
@@ -66,6 +67,7 @@ function WhichAction({user_id,user_name,history}) {
                     null
             }
         </WhichActionWrapper>
+        </ResultWrapper>
     )
 }
 

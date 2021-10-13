@@ -1,13 +1,14 @@
 import React, { useState,useEffect } from 'react';
 import ReactPlayer from 'react-player';
 import {PolarBearImageStyle, PolarBearTVButton, PolarBearWrapper, PolarBearTVPlayer, PolarBearTVOff} from '../styled_components/PolarBearTVStyle';
-
+import { ResultWrapper } from '../styled_components/style';
 function PolarBearTV({content_url,content_image}) {
     
     const [tv, setTv] = useState(false);
 
     return (
         <div>
+            <ResultWrapper>
             {tv?
                 <>
                     <PolarBearTVPlayer>
@@ -20,6 +21,7 @@ function PolarBearTV({content_url,content_image}) {
                 <PolarBearTVButton onClick={()=>setTv(true)}> TV 보기 </PolarBearTVButton>
                 </PolarBearWrapper>
             }
+            </ResultWrapper>
             
         </div>
     )
