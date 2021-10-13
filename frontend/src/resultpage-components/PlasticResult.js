@@ -9,7 +9,7 @@ function PlasticResult({user_name}) {
     const trees= (CO2e*52)/(10*1000)
     return (
 
-            <div>
+            <div style={{textAlign:"center"}}>
             <ResultWrapper>
                 <div>{user_name}님은 평소</div>
                 <div>일주일에 {plastic_gram}g,</div>

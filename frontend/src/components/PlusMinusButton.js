@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import store,{plastic_add,plastic_minus,co2_e} from '../redux_store/store';
+import { ButtonStyle, Input, Img } from '../styled_components/PlasticCalStyle';
 
 function CO2Cal(addNumber,pm){
     if(addNumber===14)
@@ -12,30 +13,30 @@ function CO2Cal(addNumber,pm){
     store.dispatch(co2_e(72*pm))
 }
 
-function PlusMinusButton({title,addNumber}) {
+function PlusMinusButton({title, img, addNumber}) {
     const [times, setTimes] = useState(0)
-    const buttonStyle={border:"0",width:"2vh", backgroundColor:"#2aa6dc" ,marginBottom:"1vh"}
     return (
         <div>
-           <h5>{title}</h5>
-           <button style={buttonStyle}
-           onClick={times >= 1 ? () => {
-                setTimes(times - 1);
-                store.dispatch(plastic_minus(addNumber));
-                CO2Cal(addNumber,-1)
-            }
-                : null}>
-                -
-            </button>
-            <input style={{textAlign:"center"}} value={times} onChange={(e) => setTimes(parseInt(e.target.value))} readOnly/>
-            <button style={buttonStyle}
-            onClick={() => {
-                setTimes(parseInt(times + 1));
-                store.dispatch(plastic_add(addNumber));
-                CO2Cal(addNumber,1)
-            }}>
-                +
-            </button>
+            <Img src={img}/>
+            <h4>{title}</h4>
+            <ButtonStyle
+            onClick={times >= 1 ? () => {
+                    setTimes(times - 1);
+                    store.dispatch(plastic_minus(addNumber));
+                    CO2Cal(addNumber,-1)
+                }
+                    : null}>
+                    -
+                </ButtonStyle>
+                <Input style={{textAlign:"center"}} value={times} onChange={(e) => setTimes(parseInt(e.target.value))} readOnly/>
+                <ButtonStyle
+                onClick={() => {
+                    setTimes(parseInt(times + 1));
+                    store.dispatch(plastic_add(addNumber));
+                    CO2Cal(addNumber,1)
+                }}>
+                    +
+                </ButtonStyle>
 
             <p></p>
         </div>
