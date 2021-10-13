@@ -18,3 +18,6 @@ def result_response_dto(result):
   if result == 'Not Found User':
     return jsonify(result), 400
   return jsonify(result), 200
+
+def main_response_dto(result):
+  return jsonify(result), 200 
