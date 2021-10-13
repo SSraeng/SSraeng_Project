@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const Answer = styled.h3`
-    color: #6EB3D0;
+    color: #000000;
 `;
 
 export const Div = styled.div`

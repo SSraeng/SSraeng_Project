@@ -9,11 +9,26 @@ function Solutions({oxlist}) {
     const [page,setPage] = useState(1);
     console.log(explain)
     console.log(explain[1].question)
+    const oxList = ({oxlist})=>{
+        const bf = oxlist.slice(0,page-1)
+        const current = oxlist[page-1]
+        const af = oxlist.slice(page)
+        return (
+            <div>
+                {bf}
+                <a style={{
+                    fontWeight:"700",
+                    color:`${current=="X"?"#D22318":"#1A55B9"}`
+                    }}>{current}</a>
+                {af} 
+            </div>
+        )
+    }
     return (
             <div>
                 <ResultWrapper>
                 <h2>정오표</h2>
-                <div>{oxlist}</div>
+                <div>{oxList({oxlist})}</div>
                 <div>
                 {explains?
                     explain.map((element,index)=>
@@ -46,12 +61,8 @@ function Solutions({oxlist}) {
                             }}>다음</ButtonStyle>:null
                         }
                     </div>:null
-                    
-                
                     ):null
                 } 
-                
-            
                 </div>
                 </ResultWrapper>
             </div>
