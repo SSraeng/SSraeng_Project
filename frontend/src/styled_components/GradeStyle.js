@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 export const GradeWrapper = styled.div`
-    height:30vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
     text-align:center;
+    height:30vh;
     
     img{
         width: 45vw;
