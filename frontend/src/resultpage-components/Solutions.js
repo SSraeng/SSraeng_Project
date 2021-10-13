@@ -2,6 +2,8 @@ import React, { useState,useEffect } from 'react';
 import explains from "../etc/explains.json"
 import store,{reset_co2,plastic_reset} from '../redux_store/store';
 import { ResultWrapper } from '../styled_components/style';
+import { ButtonStyle, Img, Answer, Div } from '../styled_components/SolutionStyle';
+
 function Solutions({oxlist}) {
     const explain = explains
     const [page,setPage] = useState(1);
@@ -10,7 +12,7 @@ function Solutions({oxlist}) {
     return (
             <div>
                 <ResultWrapper>
-                <h4>정오표</h4>
+                <h2>정오표</h2>
                 <div>{oxlist}</div>
                 <div>
                 {explains?
@@ -18,30 +20,30 @@ function Solutions({oxlist}) {
                     index+1==page?
                     <div key={index} style={{border:"solid 1px"}}>
 
-                        <div style={{color:`${oxlist[index]=="X"?"red":"blue"}`}}>
+                        <Div style={{color:`${oxlist[index]=="X"?"#D22318":"#1A55B9"}`}}>
                             {element.question}
-                        </div>
+                        </Div>
 
-                        <div>
+                        <Answer>
                                 {element.answer}
-                        </div>
-                        <div>
+                        </Answer>
+                        <Div>
                             {element.type==1?
                             <div>{element.explain}</div>:
-                            <img src={element.explain}></img>
+                            <Img src={element.explain}></Img>
                             }
-                        </div>
-                        {
-                        page<10?
-                        <button onClick={()=>{
-                            setPage(page+1);
-                         }}>다음</button>:null
-                        }
+                        </Div>
                         {
                         page>1?
-                            <button onClick={()=>{
+                            <ButtonStyle onClick={()=>{
                                 setPage(page-1);
-                            }}>이전</button>:null
+                            }}>이전</ButtonStyle>:null
+                        }
+                        {
+                        page<10?
+                            <ButtonStyle onClick={()=>{
+                                setPage(page+1);
+                            }}>다음</ButtonStyle>:null
                         }
                     </div>:null
                     
