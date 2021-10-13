@@ -37,12 +37,13 @@ function TestPage() {
             participants,
             ox_list,
             all_content,
-            all_recycle_tip
+            all_recycle_tip,
+            tier_value
          } = data
 
         store.dispatch(set_result({
             user_name,score,tier,recycle_tip,content_text,content_url,content_image, ranking, participants,
-            ox_list,all_content,all_recycle_tip
+            ox_list,all_content,all_recycle_tip, tier_value
         }))
 
         history.push({pathname:"/loading", state:{next:`/result/${userId.data}`}})
