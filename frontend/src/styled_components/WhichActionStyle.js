@@ -23,7 +23,7 @@ export const WhichActionExample = styled.div`
   button{
     text-align: center;
     display: inline-block;
-    width: 35vw;
+    width: 55vw;
     margin-bottom: 3vh;
     background-color: rgba(0,255,0,0.2);
     border: none;

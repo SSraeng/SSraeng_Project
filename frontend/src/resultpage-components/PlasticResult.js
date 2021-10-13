@@ -25,11 +25,12 @@ function PlasticResult({user_name}) {
                         const array = []; 
                         for(let i = 0; i < Math.ceil(trees); i++)
                         { 
-                            array.push(<img src={tree}/>); 
+                            array.push(<img src={tree} style={{width:"5vw"}}/>); 
                         } 
                         return array; })() : null
                 }
                 </div>
+                
                 
             </ResultWrapper>
 
