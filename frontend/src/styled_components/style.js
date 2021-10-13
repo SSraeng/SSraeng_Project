@@ -94,16 +94,17 @@ export const RankPageTitle = styled.div`
 `;
 
 export const ResultWrapper = styled.div`
-    height:50vh;
+    height:40vh;
     display:flex; 
     flex-direction:column; 
     justify-content:center; 
     text-align:center;
+    padding-bottom:30vh;
 
 `
 
 export const MiddleBlock = styled.div`
-    height:50vh;
+    height:20vh;
 `
 export const MiddleBlockF = styled.div`
     height:25vh;

@@ -44,13 +44,13 @@
   {
     "question": "Q8. 우리나라 1인 생활폐기물 배출량은 85년부터 현재까지 꾸준히 늘어났다?",
     "answer": "X",
-    "explain": "https://ssraeng.blob.core.windows.net/recycling-tip/year_trash.png",
+    "explain": "https://ssraeng.blob.core.windows.net/etc/year_trash.png",
     "type": 2
   },
   {
     "question": "Q9. OECD 주요 국가 중 1인당 1일 생활폐기물 최대 배출 국가는 한국이다?",
     "answer": "X",
-    "explain": "https://ssraeng.blob.core.windows.net/recycling-tip/oecd_trash.png",
+    "explain": "https://ssraeng.blob.core.windows.net/etc/oecd_trash.png",
     "type": 2
   },
   {
