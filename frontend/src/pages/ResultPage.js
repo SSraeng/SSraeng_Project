@@ -29,6 +29,11 @@ function ResultPage({match}) {
             
      },[])
 
+     useEffect(()=>{
+         if(result)
+         console.log(result);
+     })
+
     return (
         <div>
             <NavBar/>
