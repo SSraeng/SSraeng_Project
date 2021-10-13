@@ -3,16 +3,14 @@ import styled from 'styled-components';
 export const NavbarWrapper = styled.div`
   margin-bottom: 5vh;
   width: 100%;
-  /* border-bottom: solid 1px rgb(80, 78, 78); */
-  /* background-color: rgba(150,150,255,0.1); */
   box-shadow: 3px 3px 20px 20px rgba(0,0,0,0.1);
   padding-bottom: 2vh;
   font-size: 18px;
 `;
 
 export const NavbarTitle = styled.div`
-  margin-bottom: 3rem;
-  /* padding-top: 3rem; */
+  margin-bottom: 1rem;
+  padding-top: 1rem;
   width: 100%;
   font-size: 35px;
   font-weight: bold;
@@ -31,10 +29,9 @@ export const NavbarTitle = styled.div`
 export const NavbarGomFace = styled.img`
   display: inline;
   
-  width: 100px;
+  width: 60px;
   padding-left: 10px;
-  padding-top: 10px;
-  align-items: center;
+  vertical-align: middle;
 `;
 
 export const NavbarMenuItem = styled.div`
@@ -48,6 +45,5 @@ export const NavbarMenuItem = styled.div`
 `;
 
 export const NavbarMenuWrapper = styled.div`
-  /* border-top: 5px double;
-  padding-top: 15px; */
+  
 `;
