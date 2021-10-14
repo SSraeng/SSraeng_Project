@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import {WhichActionWrapper, WhichActionExample, WhichActionButtonWrapper} from '../styled_components/WhichActionStyle';
 import { ResultWrapper } from '../styled_components/style';
-
+import Fade from "react-reveal/Fade";
 function WhichAction({user_id,user_name,history,tier}) {
     const [action,setAction] = useState(0);
 
@@ -36,6 +36,7 @@ function WhichAction({user_id,user_name,history,tier}) {
     return (
 
         <WhichActionWrapper>
+            <Fade>
             {
                 action == 0 ?
                 <WhichActionExample>
@@ -66,6 +67,7 @@ function WhichAction({user_id,user_name,history,tier}) {
                 </WhichActionExample>:
                     null
             }
+            </Fade>
         </WhichActionWrapper>
 
     )

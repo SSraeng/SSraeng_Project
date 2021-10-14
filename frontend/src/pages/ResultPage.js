@@ -98,9 +98,7 @@ function ResultPage({match}) {
                     :null}
                     {resultData? 
                         <div className="section">
-                            
                             <PolarBearTV content_url={resultData.content_url} content_image={resultData.content_image}/>
-
                         </div>
                     :null}
                     {resultData?

@@ -9,12 +9,12 @@ import ProgressBar from '../components/ProgressBar';
 import { useHistory } from 'react-router';
 import StopWatch from '../components/StopWatch';
 import { Hover } from '../styled_components/style';
-
+import { jawsbar } from '../etc/colors';
 function TestPage() {
     const num = useSelector(state=>state.test_page[0])
     const useSubmit = useSelector(state => state.test[0].answers)
     const history = useHistory()
-    const buttonStyle= {  width:"20vh", height:"5vh", backgroundColor : "#fff", borderRadius:"1vh" }
+    const buttonStyle= {  marginTop:"3vh",width:"20vh", height:"6vh", backgroundColor : "#fff", fontSize:"3vh",borderRadius:"1vh" }
     const [resultButton,setResultButton] = useState(false)
 
     const getResult = async () =>{
@@ -27,7 +27,7 @@ function TestPage() {
     }
 
     return (
-        <div >
+        <div style={{background:"linearGradient(white,jawsbar,white)"}}>
             
             <NavBar />
             <StopWatch />
@@ -39,10 +39,11 @@ function TestPage() {
             {num == 9 ?
                 <Hover>
                 <button 
-                style={buttonStyle} 
+                style={buttonStyle}
                 onClick={getResult} disabled={resultButton||useSubmit.length != 10}>
                     결과보기
-                </button></Hover>
+                </button>
+                </Hover>
                 : <Hover><button 
                 style={buttonStyle} 
                 onClick={() => { store.dispatch(page_plus());}} disabled={
