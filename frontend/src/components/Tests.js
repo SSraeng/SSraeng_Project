@@ -56,7 +56,6 @@ function Tests() {
                     </Select>
                         
                         )}
-                        {/* //clicked_arr.map((element, index) => index == num ? element = i+1 : element */}
             </div>
             }
         </div>
