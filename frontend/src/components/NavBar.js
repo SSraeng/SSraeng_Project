@@ -18,7 +18,7 @@ function NavBar() {
                 </NavbarTitle>
                 
                 <NavbarMenuWrapper style={{ display: "flex", justifyContent: "space-evenly"}}>
-                    <NavbarMenuItem onClick={() => window.location.replace("/test/userinfo")}>테스트하기</NavbarMenuItem>
+                    <NavbarMenuItem onClick={() => history.push("/test/userinfo")}>테스트하기</NavbarMenuItem>
                     <NavbarMenuItem onClick={() => history.push(user_id?`/ranking/${user_id}`:"/ranking")}>랭킹보기</NavbarMenuItem>
                     <NavbarMenuItem onClick={() => history.push("/about")}>About</NavbarMenuItem>
                 </NavbarMenuWrapper>
