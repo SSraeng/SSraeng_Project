@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const PolarBearImageStyle = styled.div`
   margin: 0 auto;
-  width: 50vh;
+  width: 70vh;
 `;
 
 export const PolarBearTVButton = styled.button`
@@ -28,7 +28,7 @@ export const PolarBearTVButton = styled.button`
 
 export const PolarBearWrapper = styled.div`
   position: relative;
-  width: 50vh;
+  width: 70vh;
   margin: 0 auto;
   box-shadow: 2px 2px 3px 3px rgba(0,0,0,0.2);
   img{
