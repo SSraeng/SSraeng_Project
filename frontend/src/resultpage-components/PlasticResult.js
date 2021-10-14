@@ -3,7 +3,14 @@ import store from '../redux_store/store';
 import { useSelector } from 'react-redux';
 import { Highlight, Content,  PlasticResultWrapper } from '../styled_components/PlasticResultStyle';
 import { tree } from '../etc/photos';
+import styled from 'styled-components';
 
+const TreeImg = styled.img`
+    height:10vh;
+    width:${props=>5*props.cutwidth}vw;
+
+
+`
 function PlasticResult({user_name}) {
     const plastic_gram =useSelector(state=>state.plastic[0])
     const CO2e= useSelector(state=>state.co2[0])
@@ -25,12 +32,13 @@ function PlasticResult({user_name}) {
                 {
                     trees > 0? (() => { 
                         const array = []; 
-                        for(let i = 0; i < Math.ceil(trees); i++)
+                        for(let i = 0; i < Math.floor(trees); i++)
                         { 
-                            array.push(<img src={tree} style={{width:"5vw"}}/>); 
+                            array.push(<img src={tree} style={{height:"10vh", width:"5vw"}}/>); 
                         } 
                         return array; })() : null
                 }
+                {trees-Math.floor(trees)!=0?<TreeImg src={tree} cutwidth={trees-Math.floor(trees)}/>:null}
                 </div>
                 
                 
