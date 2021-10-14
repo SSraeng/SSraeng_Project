@@ -23,7 +23,7 @@ function Grade({data}) {
             setTierImage(imageArray[index]);
             setTier(index+1);
             count ++;
-            if(count == 21-data.tier_value){
+            if(count == 15+data.tier_value){
                 setTierImage(data.tier);
                 setTier(data.tier_value);
                 setScore(data.score);
