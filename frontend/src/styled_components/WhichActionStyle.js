@@ -8,8 +8,6 @@ export const WhichActionWrapper = styled.div`
 export const WhichActionExample = styled.div`
   width: 50vw;
   margin: 0 auto;
-  /* display: grid; */
-  /* grid-template-columns: 20vw; */
   div{
     margin-top: 1vh;
     margin-bottom: 1vh;
@@ -23,7 +21,7 @@ export const WhichActionExample = styled.div`
   button{
     text-align: center;
     display: inline-block;
-    width: 55vw;
+    width: 50vw;
     margin-bottom: 3vh;
     background-color: rgba(0,255,0,0.2);
     border: none;
