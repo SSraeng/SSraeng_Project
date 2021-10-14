@@ -11,6 +11,15 @@ const Graph = styled.div`
     > div {
         padding-left: 5vh;
     }
+    @media only screen and (max-width:768px){
+        height: 10vh;
+        > div {
+            padding-left: 5vw;
+        }
+        > p {
+            font-size: 1rem;
+        }
+    };
 `
 const Bar = styled.div`
     height: 5vh;
@@ -29,6 +38,22 @@ const Bar = styled.div`
         box-sizing: border-box;
         padding: 0 10px;
         color: white;
+    }
+
+    @media only screen and (max-width:768px){
+        height: 3vh;
+        width: 60vw;
+        margin-top: 2vh;
+        span {
+            display: block;
+            height: 3vh;
+            line-height: 3vh;
+            border-radius: 40px;
+            box-sizing: border-box;
+            padding: 0 10px;
+            color: white;
+            font-size: 1rem;
+        }
     }
 `
 

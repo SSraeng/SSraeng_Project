@@ -7,17 +7,31 @@ import { GraphBox } from "../components/GraphBox";
 import { Reference } from "../components/Reference";
 
 const AccumulateBox = styled.div`
-    width: 20vw;
+    width: 10vw;
     display: flex;
-    font-size: 1.2rem;
     flex-direction: column;
-    box-sizing: border-box;
+    font-size: 2.5rem;
+    font-weight: 900;
     margin-left: auto;
     margin-right: 5vw;
     margin-top: 5vh;
-    background-color: #6EB3D0;
-    color: white;
+    color: #6EB3D0;
     text-align: center;
+    text-shadow: 1px 2px 2px black;
+
+    @media only screen and (max-width:768px){
+        width: 100vw;
+        height: 15vh;
+        font-size: 1.5rem;
+        justify-content: center;
+        align-items: center;
+    };
+
+    @media only screen and (min-width:768px) and (max-width:1600px){
+        width: 20vw;
+        font-size: 2rem;
+    }
+
 `
 const Main = styled.div`
     display: flex;
@@ -29,32 +43,63 @@ const MainHeader = styled.div`
     height:100vh;
     box-sizing: border-box;
     padding-bottom: 30vh;
-    margin: 30vh 0;
+
+    @media only screen and (max-width:768px){
+        width: 100vw;
+    };
+
 `
 const Letter = styled.div`
     width: 30vw;
     height:100%;
     margin:0 auto;
     box-shadow: 1vh 2vh 4vh rgb(100 100 100 / 30%);
+
+    @media only screen and (max-width:768px){
+        width: 80vw;
+    };
+
+    @media only screen and (min-width:768px) and (max-width:1600px){
+        width: 40vw;
+    }
 `
 const LetterContent = styled.div`
     font-family:Seulvely;
     font-size: 2.2rem;
     width:100%;
     height:70%;
-    padding-top:40px;
+    padding-top:10vh;
+    box-sizing: border-box;
+
+    @media only screen and (max-width:768px){
+        font-size: 1.5rem;
+    };
+
 `
 const Writer= styled.div`
     font-family:Seulvely;
     font-size:2rem;
     width:100%;
     height:30%;
+    padding-top: 5vh;
+    box-sizing: border-box;
+
+    @media only screen and (max-width:768px){
+        font-size: 1.5rem;
+    };
 `
 const SadBear = styled.img`
     width: 20vw;
     position:absolute;
-    bottom:0;
+    bottom:10vh;
     right: 10vw;
+
+    @media only screen and (max-width:768px){
+        height: 30vh;
+        width: auto;
+        right: 0;
+    };
+
 `
 const MainBody = styled.div`
     font-size: 1.5em;
@@ -76,23 +121,39 @@ const Narration = styled.div`
     h2 {
         margin-top: 10vh;
     }
+
+    @media only screen and (max-width:768px){
+        font-size: 0.8rem;
+        padding-top: 20vh;
+        height: ${props => props.first ? "50vh" : "140vh"};
+    };
+
+
 `
 const Analysis = styled.div`
-    height: 70vw;
+    height: 69vw;
     width: 100%;
     box-sizing: border-box;
     position: relative;
-    margin-top: 10vh;
+    @media only screen and (max-width:768px){
+        height: 50vh;
+    };
 `
 const ContentsHeader = styled.div`
     width: 80%;
     margin: 0 auto;
     display: flex;
+    padding-top: ${props => props.article ? "": "10vh"}; ;
     flex-direction: ${props => props.article ? "": "column"};
     justify-content: ${props => props.article ? "space-between": "" };
     div + div {
         margin-top: ${props => props.article ? "": "7vh" };
     }
+    @media only screen and (max-width:768px){
+        width: 90%;
+        padding-top: 0px;
+        flex-direction: column;
+    };
 `
 const Title = styled.div`
     font-size: 2.3em;
@@ -100,11 +161,20 @@ const Title = styled.div`
     text-align: left;
     text-shadow: 3px 2px 5px white;
     line-height: 110%;
+
+    @media only screen and (max-width:768px){
+        font-size: 1.2rem;
+        text-align: center;
+    };
 `
 const SubTitle = styled.div`
     font-size: 0.9em;
     font-weight: 600;
     text-align: left;
+    @media only screen and (max-width:768px){
+        visibility: hidden;
+        height: 0px;
+    };
 `
 const Article = styled.div`
     height: 190vh;
@@ -113,12 +183,24 @@ const Article = styled.div`
     padding-top: 10vh;
     background-color: #A6BECC;
     position: relative;
+    @media only screen and (max-width:768px){
+        height: 90vh;
+    };
 `
 const GraphBoxWrap = styled.div`
     width: 60vw;
     height:15vh;
     margin-left: 20vh;
     margin-top: 15vh;
+    @media only screen and (max-width:768px){
+        width: 90vw;
+        margin: 10vh auto 0;
+        height: 60vh;
+        >p {
+            margin-top: 2vh;
+            font-size: 1rem;
+        }
+    };
 `
 const SpeechBubble = styled.div`
     width: 30%;
@@ -163,6 +245,14 @@ const SpeechBubble = styled.div`
         border-width: 17px;
         margin-left: -17px;
     };
+
+    @media only screen and (max-width:768px){
+        width: 60%;
+        height: 15vh;
+        font-size: 0.3rem;
+        padding-top: 4vh;
+    }
+    
 `
 const GukgomQuestion =styled.div`
     display: flex;
@@ -171,8 +261,12 @@ const GukgomQuestion =styled.div`
     margin-top: 15vh;
 `
 const MainFooter = styled.div`
-    height: 120vh;
+    height: 80vh;
     background-color: white;
+    @media only screen and (max-width:768px){
+        height: 60vh;
+    }
+    
 `
 const TestButton = styled.button`
     height: 10vh;
@@ -184,6 +278,12 @@ const TestButton = styled.button`
     box-shadow: 1vh 1vh 3vh rgb(100 100 100 / 30%);
     color: white;
     cursor: pointer;
+    @media only screen and (max-width:768px){
+        margin-top: 5vh;
+        width: 60vw;
+        height: 10vh;
+    }
+    
 `
 
 function MainPage() {
@@ -200,8 +300,8 @@ function MainPage() {
         <div className='mainpage'>
             <NavBar />
             <AccumulateBox>
-                    <h2>쓰랭 누적 사용자 수</h2>
-                    <p>{userCnt}명</p>
+                    <div>참여자 수</div>
+                    <div>{userCnt}명</div>
             </AccumulateBox>
             <Main>
                 <MainHeader>
@@ -240,7 +340,7 @@ function MainPage() {
                                 </SubTitle>
                             </Fade>
                         </ContentsHeader>
-                        <img src="images/그래프4.png" 
+                        <img src="images/그래프.png" 
                              alt="코로나19 확진자수 배달 건수 증가량"
                              style={{width:"100%", position:"absolute", bottom:"0",left:"0"}}/>
                     </Analysis>
@@ -267,6 +367,7 @@ function MainPage() {
                                 <p style={{textAlign:"end"}}>(단위: 톤/일)</p>
                             </GraphBoxWrap>
                         </Fade>
+
                         <img src="images/쓰레기더미.png"
                              alt="쓰레기통 주변에 버려진 쓰레기"
                              style={{width:"40%", position:"absolute", bottom:"-50px",right:"0"}}/>

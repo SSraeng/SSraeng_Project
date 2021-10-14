@@ -19,6 +19,11 @@ const Refer = styled.div`
     div + div{
         margin-top: 1vh;
     }
+    @media only screen and (max-width:768px){
+        margin: 10vh auto;
+        width: 90vw;
+        p { font-size: 0.2rem;}
+    }
 `
 const Title = styled.div`
     margin-bottom: 2vh;
@@ -26,6 +31,10 @@ const Title = styled.div`
     font-family: Elice_Regular;
     font-size: 1.4rem;
     font-weight: 700;
+
+    @media only screen and (max-width:768px){
+        font-size: 1rem;
+    }
 `
 
 
