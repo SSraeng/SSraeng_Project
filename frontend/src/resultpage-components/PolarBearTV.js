@@ -21,8 +21,8 @@ function PolarBearTV({content_url,content_image}) {
             NavbarImgTag.style.display = 'none';
         } else{
             bodyTag.style.backgroundColor = 'rgb(255,255,255)';
-            NavbarSpanTag1.style.color = 'rgb(70,70,255)';
-            NavbarSpanTag2.style.color = 'rgb(70,70,255)';
+            NavbarSpanTag1.style.color = '#6EB3D0';
+            NavbarSpanTag2.style.color = '#6EB3D0';
             NavbarImgTag.style.display = 'inline';
         }
     }, [tv])
