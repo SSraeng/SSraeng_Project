@@ -7,8 +7,9 @@ export const Hover = styled.div`
         transform:scale(1.05);
     }
 
-`
-export const ButtonStyle = styled.button`
+`;
+
+export const Button = styled.button`
   appearance: none;
   background-color: #A5BDCC;
   border-radius:1vh;
