@@ -2,9 +2,9 @@ import React, { useState,useEffect } from 'react';
 import explains from "../etc/explains.json"
 import store,{reset_co2,plastic_reset} from '../redux_store/store';
 import { ResultWrapper } from '../styled_components/style';
-import { ButtonStyle, Img, Answer, Div, AnswerList } from '../styled_components/SolutionStyle';
+import { ButtonStyle, Img, Answer, Div, AnswerList ,SolutionWrapper} from '../styled_components/SolutionStyle';
 import {grayblue,jawsbar,autumnsky,navy} from "../etc/colors"
-
+import Fade from "react-reveal/Fade";
 function Solutions({oxlist}) {
     const explain = explains
     const [page,setPage] = useState(1);
@@ -19,7 +19,7 @@ function Solutions({oxlist}) {
                 {bf}
                 <a style={{
                     fontWeight:"700",
-                    fontSize:"2.8vh",
+                    fontSize:"2.8rem",
                     color:`${current=="X"?"#D22318":"#1A55B9"}`
                     }}>{current}</a>
                 {af} 
@@ -28,18 +28,23 @@ function Solutions({oxlist}) {
     }
     return (
             <div>
-                <ResultWrapper>
-                <h1 style={{fontSize:"4vh", backgroundColor:navy}}>해설지</h1>
-                <div>{oxList({oxlist})}</div>
+                <SolutionWrapper>
+                <h1 style={{fontSize:"4vh", color:"white",backgroundColor:navy, letterSpacing: "1rem"}}>해설지</h1>
+                <div><strong>{oxList({oxlist})}</strong></div>
                 <div>
                 {explains?
                     explain.map((element,index)=>
                     index+1==page?
-                    <div key={index} style={{border:"solid 1px"}}>
-
-                        <Div style={{color:`${oxlist[index]=="X"?"#D22318":"#1A55B9"}`}}>
-                            {element.question}
+                    <div key={index} >
+                    <Div style={{color:`${oxlist[index]=="X"?"#D22318":"#1A55B9"}` }}>
+                    <strong>{element.question}</strong>
                         </Div>
+                    <div 
+                    style={{ minHeight:"70vh",
+                    display:"flex", flexDirection:"column",
+                    alignItems:"center", justifyContent:"center", backgroundColor:grayblue}}>
+
+                        <Fade>
 
                         <Answer>
                                 {element.answer}
@@ -50,6 +55,11 @@ function Solutions({oxlist}) {
                             <Img src={element.explain}></Img>
                             }
                         </Div>
+                        </Fade>
+
+                    </div></div>:null
+                    ):null
+                } 
                         {
                         page>1?
                             <ButtonStyle onClick={()=>{
@@ -62,11 +72,8 @@ function Solutions({oxlist}) {
                                 setPage(page+1);
                             }}>다음</ButtonStyle>:null
                         }
-                    </div>:null
-                    ):null
-                } 
                 </div>
-                </ResultWrapper>
+                </SolutionWrapper>
             </div>
     )
 }
