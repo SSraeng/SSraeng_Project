@@ -33,6 +33,7 @@ export const ResultWrapper = styled.div`
     justify-content:center; 
     text-align:center;
     padding-bottom:30vh;
+    padding-top:30vh;
 
 `
 
