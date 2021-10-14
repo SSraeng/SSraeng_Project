@@ -6,8 +6,8 @@ import { tree } from '../etc/photos';
 import styled from 'styled-components';
 
 const TreeImg = styled.img`
-    height:10vh;
-    width:${props=>5*props.cutwidth}vw;
+    height:15vh;
+    width:${props=>10*props.cutwidth}vh;
 
 
 `
@@ -34,7 +34,7 @@ function PlasticResult({user_name}) {
                         const array = []; 
                         for(let i = 0; i < Math.floor(trees); i++)
                         { 
-                            array.push(<img src={tree} style={{height:"10vh", width:"5vw"}}/>); 
+                            array.push(<img src={tree} style={{height:"15vh", width:"10vh"}}/>); 
                         } 
                         return array; })() : null
                 }
