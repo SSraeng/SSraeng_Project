@@ -1,17 +1,20 @@
 import styled from "styled-components"
 
 export const Answer = styled.h3`
+    font-size: 1.8rem;
     color: #000000;
+    margin-bottom: 1.6vh;
 `;
 
 export const Div = styled.div`
-    font-size: 1.05rem;
-    margin: 10px 20px 5px 20px;
+    font-size: 1.3rem;
+    margin: 1vh 1vh 1vh 0.5vh;
     white-space: pre-line;
 `;
 
 export const AnswerList = styled.div`
     letter-spacing: .3rem;
+    font-size: 2.3vh;
 `;
 
 export const Img = styled.img`
