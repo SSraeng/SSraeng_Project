@@ -18,7 +18,7 @@ function PlusMinusButton({title, img, addNumber}) {
     return (
         <div>
             <Img src={img}/>
-            <h4>{title}</h4>
+            <h4 style={{fontSize:"2vh"}}>{title}</h4>
             <ButtonStyle
             onClick={times >= 1 ? () => {
                     setTimes(times - 1);

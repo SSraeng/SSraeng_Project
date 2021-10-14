@@ -4,8 +4,10 @@ import store, { plastic_reset, reset_co2 } from '../redux_store/store';
 import PlasticCal from '../resultpage-components/PlasticCal';
 import axios from 'axios';
 import { useHistory } from 'react-router';
-import {Grade,PlasticResult,PolarBearTV,PolarBearTVMent,RecycleTip,Solutions,WhichAction} from "../resultpage-components/components"
+import {Grade,PlasticResult,PolarBearTV,PolarBearTVMent,Solutions,WhichAction} from "../resultpage-components/components"
 import ReactFullpage from "@fullpage/react-fullpage"
+import { RecycleWrapper } from '../styled_components/RecycleTipStyle';
+import { Content } from '../styled_components/RecycleTipStyle';
 function ResultPage({match}) {
     const {params} = match
     const history = useHistory()
@@ -68,8 +70,15 @@ function ResultPage({match}) {
                     :null}
                     {result? 
                         <div className="section">
-                            
-                            <RecycleTip recycle_tip={result.all_recycle_tip}/>
+                            <RecycleWrapper>
+                            <Content>그렇지만 플라스틱을 줄이거나 재활용을 잘 한다면 </Content>
+                            <Content>이 나무들을 심는것과 비슷한 효과를 낼 수 있겠어요! </Content>
+                            {
+                result.all_recycle_tip.map((element,index)=>
+                   <div className="slide"><img src={element} key={index} style={{width:"50vh", marginBottom:"30vh", marginTop:"-10vh"}}></img></div>
+                )}
+                </RecycleWrapper>
+            
                                                                                  
                         </div>
                     :null}
@@ -90,7 +99,7 @@ function ResultPage({match}) {
                     {result? 
                         <div className="section">
     
-                            <WhichAction user_id={user_id} user_name={result.user_name} history={history}/>
+                            <WhichAction user_id={user_id} user_name={result.user_name} history={history} tier={result.tier}/>
                                                       
                         </div>
                     :null}

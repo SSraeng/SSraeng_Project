@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import { ResultWrapper } from '../styled_components/style';
-
+import { Content } from '../styled_components/RecycleTipStyle';
 
 function RecycleTip({recycle_tip}) {
     console.log(recycle_tip);
@@ -9,11 +9,11 @@ function RecycleTip({recycle_tip}) {
     return (
         
         <ResultWrapper>
-            <div>그렇지만 플라스틱을 줄이거나 재활용을 잘 한다면 </div>
-            <div>이 나무들을 심는것과 비슷한 효과를 낼 수 있겠어요! </div>
+            <Content>그렇지만 플라스틱을 줄이거나 재활용을 잘 한다면 </Content>
+            <Content>이 나무들을 심는것과 비슷한 효과를 낼 수 있겠어요! </Content>
             {
                 recycle_tip.map((element,index)=>
-                   index+1==page?<img src={element} key={index} style={{width:"50vh", margin:"0 auto"}}></img>:null
+                   index+1==page?<div className="slide"><img src={element} key={index} style={{width:"50vh", margin:"0 auto"}}></img></div>:null
                 )
             }
 
