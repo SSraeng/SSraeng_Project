@@ -90,7 +90,7 @@ function ResultPage({match}) {
                     {result? 
                         <div className="section">
     
-                            <WhichAction user_id={user_id} user_name={result.user_name} history={history}/>
+                            <WhichAction user_id={user_id} user_name={result.user_name} history={history} tier={result.tier}/>
                                                       
                         </div>
                     :null}
