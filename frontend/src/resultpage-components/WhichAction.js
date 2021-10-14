@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import {WhichActionWrapper, WhichActionExample, WhichActionButtonWrapper} from '../styled_components/WhichActionStyle';
 import { ResultWrapper } from '../styled_components/style';
 
-function WhichAction({user_id,user_name,history}) {
+function WhichAction({user_id,user_name,history,tier}) {
     const [action,setAction] = useState(0);
 
     const kakaoBtnHandler = () => {
@@ -15,18 +15,18 @@ function WhichAction({user_id,user_name,history}) {
             content: {
                 title: '나의 쓰레기 등급은?!',
                 description: '당신은 지구의 쓰레기에 얼마나 영향을 끼치시나요?',
-                imageUrl: 'https://ssraeng.blob.core.windows.net/tier/grade_1.png',
+                imageUrl: tier,
                 link: {
-                    mobileWebUrl: 'https://www.twitch.tv/m_maeng93',
-                    webUrl: 'https://www.twitch.tv/m_maeng93',
+                    mobileWebUrl: `http://kdt-vm-0202016.koreacentral.cloudapp.azure.com/result/${user_id}`,
+                    webUrl: `http://kdt-vm-0202016.koreacentral.cloudapp.azure.com/result/${user_id}`,
                 },
             },
             buttons: [
                 {
                     title: '웹으로 보기',
                     link: {
-                    mobileWebUrl: 'https://www.twitch.tv/m_maeng93',
-                    webUrl: 'https://www.twitch.tv/m_maeng93',
+                    mobileWebUrl: `http://kdt-vm-0202016.koreacentral.cloudapp.azure.com/result/${user_id}`,
+                    webUrl: `http://kdt-vm-0202016.koreacentral.cloudapp.azure.com/result/${user_id}`,
                     },
                 },
             ],

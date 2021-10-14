@@ -1,11 +1,23 @@
-import React from "react";
+import { useState, useEffect, React } from 'react';
+import axios from 'axios';
 import NavBar from '../components/NavBar';
 import styled from "styled-components";
 import Fade from "react-reveal/Fade";
+import { GraphBox } from "../components/GraphBox";
+import { Reference } from "../components/Reference";
 
 const AccumulateBox = styled.div`
+    width: 20vw;
     display: flex;
-    flex-direction: row-reverse;
+    font-size: 1.2rem;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: 5vw;
+    margin-top: 5vh;
+    background-color: #6EB3D0;
+    color: white;
+    text-align: center;
 `
 const Main = styled.div`
     display: flex;
@@ -14,19 +26,20 @@ const Main = styled.div`
 `
 const MainHeader = styled.div`
     position: relative;
-    height:50vh;
+    height:100vh;
+    box-sizing: border-box;
     padding-bottom: 30vh;
-    margin-bottom: 30vh;
+    margin: 30vh 0;
 `
 const Letter = styled.div`
-    border:1px solid black;
     width: 30vw;
     height:100%;
     margin:0 auto;
+    box-shadow: 1vh 2vh 4vh rgb(100 100 100 / 30%);
 `
 const LetterContent = styled.div`
     font-family:Seulvely;
-    font-size:2rem;
+    font-size: 2.2rem;
     width:100%;
     height:70%;
     padding-top:40px;
@@ -38,69 +51,157 @@ const Writer= styled.div`
     height:30%;
 `
 const SadBear = styled.img`
-    height: 30vh;
+    width: 20vw;
     position:absolute;
     bottom:0;
-    right: 20vw;
+    right: 10vw;
 `
 const MainBody = styled.div`
     font-size: 1.5em;
     font-weight:700;
-    box-shadow: 0 -4vh 8vh rgb(100 100 100 / 50%);
+    box-shadow: 0 -4vh 8vh rgb(100 100 100 / 30%);
 `
 const Narration = styled.div`
-    height: 100vh;
-    width: 100vw;
-    margin-top: 15vh;
+    width: 100%;
+    height: ${props => props.first ? "60vh" : "160vh"};
+    padding-top: ${props => props.first ? "40vh" : "45vh"};
+    font-size: ${props => props.first ? "1.8rem" : "1.5rem"};
     p {
         width: 80%;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0 auto;
     }
     p + p {
-        margin-top: 17vh;
+        margin-top: 15vh;
     }
     h2 {
         margin-top: 10vh;
     }
 `
 const Analysis = styled.div`
-    height: 190vh;
-    width: 100vw;
+    height: 170vh;
+    width: 100%;
     box-sizing: border-box;
     position: relative;
+    margin-top: 10vh;
 `
 const ContentsHeader = styled.div`
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
     display: flex;
+    flex-direction: ${props => props.article ? "": "column"};
+    justify-content: ${props => props.article ? "space-between": "" };
     div + div {
-        margin-left: auto;
+        margin-top: ${props => props.article ? "": "7vh" };
     }
 `
 const Title = styled.div`
-    font-size: 2em;
-    font-weight:700;
+    font-size: 2.3em;
+    font-weight: 900;
     text-align: left;
+    text-shadow: 3px 2px 5px white;
+    line-height: 110%;
 `
 const SubTitle = styled.div`
-    font-size: 1.1em;
-    font-weight:700;
+    font-size: 0.9em;
+    font-weight: 600;
+    text-align: left;
 `
 const Article = styled.div`
-    height: 100vh;
-    width: 100vw;
+    height: 190vh;
+    width: 100%;
     box-sizing: border-box;
+    padding-top: 10vh;
     background-color: #A6BECC;
+    position: relative;
+`
+const GraphBoxWrap = styled.div`
+    width: 60vw;
+    height:15vh;
+    margin-left: 20vh;
+    margin-top: 15vh;
+`
+const SpeechBubble = styled.div`
+    width: 30%;
+    height: 50%;
+    position: relative;
+    font-family: Seulvely;
+    font-weight: 700;
+    font-size: 1.5rem;
+	background: #ffffff;
+	border: 5px solid #000000;
+    box-shadow: 1vh 1vh 3vh rgb(100 100 100 / 30%);
+    border-radius: 50%;
+    box-sizing: border-box;
+    padding-top: 5%;
+    text-align: center;
+    margin: 0 auto;
+    ::after{
+        top: 100%;
+        left: 50%;
+        border: solid transparent;
+        content: "";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: rgba(255, 255, 255, 0);
+        border-top-color: #ffffff;
+        border-width: 10px;
+        margin-left: -10px;
+    };
+    ::before{
+        top: 100%;
+        left: 50%;
+        border: solid transparent;
+        content: "";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: rgba(0, 0, 0, 0);
+        border-top-color: #000000;
+        border-width: 17px;
+        margin-left: -17px;
+    };
+`
+const GukgomQuestion =styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    margin-top: 15vh;
+`
+const MainFooter = styled.div`
+    height: 120vh;
+    background-color: white;
+`
+const TestButton = styled.button`
+    height: 10vh;
+    width: 15vw;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background-color: #6EB3D0;
+    border: 0;
+    box-shadow: 1vh 1vh 3vh rgb(100 100 100 / 30%);
+    color: white;
+    cursor: pointer;
 `
 
 function MainPage() {
+    const [userCnt, setUserCnt] = useState(0)
+    // useEffect(()=>{
+    //     const fetchEvents = async () =>{
+    //         const res = await axios.get("/api")
+    //         setUserCnt(res.data.user_cnt)
+    //     }
+    //     fetchEvents();
+    // },[])
+
     return (
         <div className='mainpage'>
             <NavBar />
             <AccumulateBox>
-                <h2>쓰랭 누적 사용자 수</h2>
-                <p>12,345,678명</p>
+                    <h2>쓰랭 누적 사용자 수</h2>
+                    <p>{userCnt}명</p>
             </AccumulateBox>
             <Main>
                 <MainHeader>
@@ -111,72 +212,79 @@ function MainPage() {
                                 지구.. 뜨거워.. <br/>
                                 북극곰.. 아파...
                             </LetterContent>
-                            <Writer>from. 북극곰</Writer>
+                            <Writer>from. 극곰이</Writer>
                     </Letter>
                     <SadBear src="images/sad_bear.png" alt="슬픈 얼굴의 북극곰" />
                 </MainHeader>
                 <MainBody>
-                    <Narration>
+                    <Narration first>
                         <Fade bottom>   
                             <p>
-                                북극에 있는 북극곰에게 날아온 편지입니다.<br/>
-                                북극곰은 왜 우리에게 이런 편지를 썼을까요?
-                            </p>
-                        </Fade>
-                        <Fade bottom> 
-                            <p>
-                                코로나19가 장기화 되면서 비대면으로 음식을 받을 수 있는<br/>
-                                배달 서비스 이용이 증가했습니다<br/>
-                                이에 따라 생활폐기물 배출량이 증가했다는<br/>
-                                많은 기사들이 쏟아져 나오고 있습니다
-                            </p>
-                        </Fade>
-                        <Fade bottom> 
-                            <p>
-                                과연 배달 건수는 얼마나 증가했는지<br/>
-                                배출되는 재활용 쓰레기 양은 얼마나 늘었는지<br/>
-                                저희와 함께 확인해 보시죠
+                                북극에 있는 극곰이에게 날아온 편지입니다.<br/>
+                                극곰이는 우리에게 왜 이런 편지를 썼을까요?
                             </p>
                         </Fade>
                     </Narration>
                     <Analysis>
                         <ContentsHeader>
                             <Title>
-                                거리두기 단계가 올라갈수록<br/>
-                                늘어나는 배달 주문
+                                COVID-19 이후<br/>
+                                급증하는 배달 주문 건수
                             </Title>
-                            <SubTitle>
-                                서브 타이틀 기사가 들어가는<br/>
-                                자리입니다.
-                            </SubTitle>
+                            <Fade bottom>
+                                <SubTitle>
+                                    코로나19가 장기화 되면서 비대면으로 음식을 
+                                    받을 수 있는 배달 서비스 이용이 증가했습니다.<br/>
+                                    20년 총 배달 주문 건수는 19년에 견줘 약 78% 증가하였으며,<br/>
+                                    사회적 거리두기가 지속 유지되어 주문 건수 또한 급증하는 추세입니다.<br/>
+                                </SubTitle>
+                            </Fade>
                         </ContentsHeader>
-                        <div className="main_body_analysis_contents">
-                            차트 또는 차트 설명
-                        </div>
-                        <img src="images/그래프.png" alt="코로나19 확진자수 배달 건수 증가량" style={{width:"100%", position:"absolute", bottom:"0",left:"0"}}/>
+                        <img src="images/그래프.png" 
+                             alt="코로나19 확진자수 배달 건수 증가량"
+                             style={{width:"100%", position:"absolute", bottom:"0",left:"0"}}/>
                     </Analysis>
                     <Article>
-                        <ContentsHeader>
+                        <ContentsHeader article>
                             <Title>
-                                배달 늘어나니<br/>
-                                폭증하는<br/>
-                                플라스틱 폐기물 배출
+                                늘어나는 배달 서비스와<br/>
+                                급증하는 재활용 폐기물<br/>
                             </Title>
-                            <SubTitle>
-                                서브 타이틀 기사가 들어가는<br/>
-                                자리입니다.
-                            </SubTitle> 
+                                <Fade bottom>
+                                    <SubTitle>
+                                        19년 대비 20년의 재활용 폐기물은 평균 18.8% 증가하였습니다.<br/>
+                                        배달 서비스 하루 주문량은 270만건에 이르고,<br/>
+                                        이로 인해 발생되는 플라스틱 배달 쓰레기 발생량은 약830만개입니다.<br/>
+                                        배달 서비스 이용 시 최소 3개의 배달 쓰레기가 발생하는 것 입니다.<br/>
+                                    </SubTitle> 
+                                </Fade>
                         </ContentsHeader>
-                        <div className="main_body_article_contents">
-                            차트 또는 차트 설명
-                        </div>
+                        <Fade bottom>
+                            <GraphBoxWrap>
+                                <GraphBox matter="종이류" value19="687.3" value20="889" />
+                                <GraphBox matter="비닐류" value19="855.5" value20="950.5" />
+                                <GraphBox matter="플라스틱" value19="733.7" value20="848" />
+                                <p style={{textAlign:"end"}}>(단위: 톤/일)</p>
+                            </GraphBoxWrap>
+                        </Fade>
+                        <img src="images/쓰레기더미.png"
+                             alt="쓰레기통 주변에 버려진 쓰레기"
+                             style={{width:"40%", position:"absolute", bottom:"-50px",right:"0"}}/>
+                        <img src="images/쓰레기.png"
+                             alt="길바닥에 버려진 쓰레기"
+                             style={{width:"85%", position:"absolute", bottom:"-90px",left:"0"}}/>
+                        <img src="images/쓰레기.png" 
+                             alt="길바닥에 버려진 쓰레기"
+                             style={{width:"75%", position:"absolute", bottom:"-90px",right:"0"}}/>
+                        <img src="images/쓰레기통.png"
+                             alt="쓰레기통"
+                             style={{width:"50%", position:"absolute", bottom:"-50px",left:"-80px"}}/>
                     </Article>
                     <Narration>
                         <Fade bottom>
                             <p>
-                                쓰랭의 데이터 분석 결과<br/>
-                                코로나 확진자가 증가함에 따라 배달 건수가 증가하고 있고,<br/>
-                                이에 따라 재활용 폐기물 배출량이 증가하고 있었습니다
+                                코로나 확진자 증가에 따라 배달 건수가 증가하였으며,<br/>
+                                이에 따라 재활용 폐기물 배출량이 증가하고 있습니다
                             </p>
                             <p>
                                 많은 쓰레기가 나오고 있는 상황이지만<br/>
@@ -185,20 +293,35 @@ function MainPage() {
                         </Fade>
                         <Fade bottom>    
                             <p>
-                                과연 우리는 분리수거를 제대로 하고 있을까요?<br/>
-                                배달을 시킬 때마다 얼마나 많은 쓰레기가 나올까요?
+                                우리는 올바른 분리 배출과 일회용품 줄이기를 통해<br/>
+                                쓰레기 문제를 해소하고 극곰이를 도와줄 수 있습니다.
                             </p>
                         </Fade>
-                        <p>
-                            자신의 분리수거 능력은 얼마나 되는지<br/>
-                            내 분리수거 점수는 몇점일지<br/>
-                        </p>
-                        <h2>테스트 해보세요!</h2>
+                        <Fade bottom>
+                            <p>
+                                극곰이가 묻습니다.<br/>
+                            </p>
+                        </Fade>
+                        <Fade bottom>
+                            <GukgomQuestion>
+                                    <SpeechBubble>
+                                        당신의 분리수거 지식은 얼마나 되나요?<br/>
+                                        당신은 얼마나 많은 쓰레기를 버리고 있나요?
+                                    </SpeechBubble>
+                                <img src="images/극곰이.png"
+                                     alt="쓰랭 마스코트 극곰이"
+                                     style={{height:"50%", margin:"0 auto"}}/>
+                            </GukgomQuestion>
+                        </Fade> 
+                        <h2>쓰레기 등급과 랭킹을 확인해보세요!</h2>
                     </Narration>
                 </MainBody>
-                <div className="main_footer" style={{ height:"100vh"}}>
-                    <button onClick={() => window.location.replace("/test/userinfo")}>테스트하기</button>
-                </div>
+                <MainFooter>
+                    <TestButton onClick={() => window.location.replace("/test/userinfo")}>
+                        테스트하기
+                    </TestButton>
+                    <Reference />
+                </MainFooter>
             </Main>
         </div>
     )

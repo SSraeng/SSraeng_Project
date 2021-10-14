@@ -1,9 +1,11 @@
 import React, { useState,useEffect } from 'react';
 import { ResultWrapper } from '../styled_components/style';
 
+
 function RecycleTip({recycle_tip}) {
-    console.log(recycle_tip.length)
-    const [page, setPage] = useState(1)
+    console.log(recycle_tip);
+    const [page, setPage] = useState(1);
+    
     return (
         
         <ResultWrapper>
@@ -14,6 +16,7 @@ function RecycleTip({recycle_tip}) {
                    index+1==page?<img src={element} key={index} style={{width:"50vh", margin:"0 auto"}}></img>:null
                 )
             }
+
             {   
                 page<5?
                 <button style={{width:"20vh"}}

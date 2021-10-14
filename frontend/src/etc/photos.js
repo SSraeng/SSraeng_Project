@@ -4,4 +4,5 @@ const third = "https://media.discordapp.net/attachments/887950235878432778/89306
 const fourth = "https://media.discordapp.net/attachments/887950235878432778/893068685219098724/grade_4.png"
 const fifth = "https://media.discordapp.net/attachments/887950235878432778/893068686204739584/grade_5.png"
 const polarbear = "https://media.discordapp.net/attachments/887950235878432778/893537999080525864/KakaoTalk_20210930_213759859-removebg-preview.png"
-export {first,second,third,fourth,fifth, polarbear}
+const tree = "https://ssraeng.blob.core.windows.net/etc/tree.jpg"
+export {first,second,third,fourth,fifth, polarbear, tree}
