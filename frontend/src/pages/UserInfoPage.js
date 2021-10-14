@@ -1,8 +1,7 @@
-import React, { useEffect,useState } from 'react';
+import React, {useState } from 'react';
 import { useHistory } from 'react-router';
 import NavBar from '../components/NavBar';
-import axios from 'axios';
-import store, { submit, user,reset, reset_result,plastic_reset, page_reset, stopwatch_reset, reset_user_id, reset_checked} from '../redux_store/store';
+import store, {user,reset, reset_result,plastic_reset, page_reset, stopwatch_reset, reset_user_id, reset_checked} from '../redux_store/store';
 import { Hover, Button } from '../styled_components/style';
 import Trashes from "../components/Trashes"
 import {grayblue,jawsbar,autumnsky,navy} from "../etc/colors"
@@ -55,7 +54,7 @@ function UserInfoPage() {
                     border : "0", borderRadius:"10px" , fontSize:"2vh"}}
             onClick={
                 () => {ResetAll(history,nickname,times)}
-            } disabled={nickname.length > 10 || nickname.length==0}><h1>테스트 시작</h1></button>
+            } disabled={nickname.length > 10 || nickname.length===0}><h1>테스트 시작</h1></button>
             </Hover>
             <Trashes times={times}/>
         

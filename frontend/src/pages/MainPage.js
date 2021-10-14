@@ -1,5 +1,4 @@
-import { useState, useEffect, React } from 'react';
-import axios from 'axios';
+import { useState, React } from 'react';
 import NavBar from '../components/NavBar';
 import styled from "styled-components";
 import Fade from "react-reveal/Fade";
@@ -187,14 +186,7 @@ const TestButton = styled.button`
 `
 
 function MainPage() {
-    const [userCnt, setUserCnt] = useState(0)
-    // useEffect(()=>{
-    //     const fetchEvents = async () =>{
-    //         const res = await axios.get("/api")
-    //         setUserCnt(res.data.user_cnt)
-    //     }
-    //     fetchEvents();
-    // },[])
+    const [userCnt] = useState(0)
 
     return (
         <div className='mainpage'>

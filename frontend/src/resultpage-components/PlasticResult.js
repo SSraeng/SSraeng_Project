@@ -1,5 +1,4 @@
-import React, { useState,useEffect } from 'react';
-import store from '../redux_store/store';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { Highlight, Content,  PlasticResultWrapper } from '../styled_components/PlasticResultStyle';
 import { tree } from '../etc/photos';
@@ -35,7 +34,7 @@ function PlasticResult({user_name}) {
                         const array = []; 
                         for(let i = 0; i < Math.floor(trees); i++)
                         { 
-                            array.push(<img src={tree} style={{height:"15vh", width:"10vh"}}/>); 
+                            array.push(<img src={tree} style={{height:"15vh", width:"10vh"}} alt="그림 수리중"/>);
                         } 
                         return array; })() : null
                 }

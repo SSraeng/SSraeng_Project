@@ -1,13 +1,11 @@
-import React,{useEffect, useState} from 'react';
+import React from 'react';
 import PlusMinusButton from '../components/PlusMinusButton';
-import store from '../redux_store/store';
 import {useSelector} from "react-redux";
 import { ResultWrapper } from '../styled_components/style';
 import { Title, Content, Plastic, Container } from '../styled_components/PlasticCalStyle';
 import {plasticbag,container,cup,pet} from "../etc/photos"
 
 function PlasticCal() {
-    const [sum, setSum] = useState(0)
     const plastic = useSelector(state=>state.plastic[0])
     return (
         <ResultWrapper>
