@@ -11,7 +11,7 @@ function PlasticCal() {
     const plastic = useSelector(state=>state.plastic[0])
     return (
         <ResultWrapper>
-            <Title>평소에 플라스틱을 얼마나 사용하는지 계산해보세요!</Title>
+            <Title>일주일에 플라스틱을 얼마나 사용하는지 계산해보세요!</Title>
             <Container>
                 <PlusMinusButton title="비닐봉지" img={plasticbag} addNumber={10} />
                 <PlusMinusButton title="배달용기" img={container} addNumber={44} />
