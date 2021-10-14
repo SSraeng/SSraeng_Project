@@ -44,4 +44,3 @@ export const MiddleBlockF = styled.div`
     height:25vh;
 `
 
-
