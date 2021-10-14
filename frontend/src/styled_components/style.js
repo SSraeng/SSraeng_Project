@@ -13,7 +13,7 @@ export const Hover = styled.div`
 export const Select = styled(Hover)`
     width:35vh;
     height:5vh; 
-    background-color: ${(props)=>props.num == props.i+1 ? "#2aa6dc" : "#e7feff"};
+    background-color: ${(props)=>props.num == props.i+1 ? "#6EB3D0" : "#E5ECF1"};
     margin: 0 auto; 
     margin-top:1vh;
     border-radius: 2vh;
@@ -22,7 +22,8 @@ export const Select = styled(Hover)`
     justify-content:center;
     }
     &:hover{
-        background-color: #87F5F5
+        background-color: #1C4766;
+        color:white;
 
     }
 
