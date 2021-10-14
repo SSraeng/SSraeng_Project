@@ -18,6 +18,7 @@ function Solutions({oxlist}) {
                 {bf}
                 <a style={{
                     fontWeight:"700",
+                    fontSize:"2.8vh",
                     color:`${current=="X"?"#D22318":"#1A55B9"}`
                     }}>{current}</a>
                 {af} 
@@ -27,7 +28,7 @@ function Solutions({oxlist}) {
     return (
             <div>
                 <ResultWrapper>
-                <h2>정오표</h2>
+                <h1 style={{fontSize:"4vh"}}>정오표</h1>
                 <div>{oxList({oxlist})}</div>
                 <div>
                 {explains?
