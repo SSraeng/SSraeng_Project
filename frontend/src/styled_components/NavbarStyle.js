@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const NavbarWrapper = styled.div`
   margin-bottom: 5vh;
   width: 100%;
-  box-shadow: 3px 3px 20px 20px rgba(0,0,0,0.1);
+  box-shadow: 3px 3px 10px 10px rgba(0,0,0,0.1);
   padding-bottom: 2vh;
   font-size: 18px;
 `;
@@ -18,11 +18,12 @@ export const NavbarTitle = styled.div`
   cursor: pointer;
 
   span{
-    color: rgb(70,70,255);
+    color: #6EB3D0;
   }
 
   p{
     display: inline;
+    color: #1C4766;
   }
 `;
 
@@ -37,6 +38,7 @@ export const NavbarGomFace = styled.img`
 export const NavbarMenuItem = styled.div`
   font-weight: bold;
   font-size: 20px;
+  color: #1C4766;
   
   :hover{
     text-shadow: 1px 1px 10px rgba(0,0,0,0.4);

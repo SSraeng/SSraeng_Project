@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
 import axios from 'axios';
-import { RankElement, RankWrapper, RankDataWrapper, RankPageButton, RankPageButtonWrapper, RankPageTitle, RankAllDataWrapper } from '../styled_components/style';
+import { RankElement, RankWrapper, RankDataWrapper, RankPageButton, RankPageButtonWrapper, RankPageTitle, RankAllDataWrapper } from '../styled_components/RankPageStyle';
 import store from '../redux_store/store';
 
 function RankingPage({match}) {
