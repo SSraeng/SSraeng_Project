@@ -13,7 +13,7 @@ function ResultPage({match}) {
     const history = useHistory()
     const [resultData,setResultData] = useState(false);
     const user_id = store.getState().user_id[0]
-    const result = store.getState().result[0]
+
     
      useEffect(()=>{
             const getResult = async () =>{
@@ -22,15 +22,15 @@ function ResultPage({match}) {
                 const{data} = response 
                  setResultData(data)
                  }
-                 if(!user_id)getResult();
+                 getResult();
                 store.dispatch(plastic_reset()); 
                 store.dispatch(reset_co2())
             
      },[])
 
      useEffect(()=>{
-         if(result)
-         console.log(result);
+         if(resultData)
+         console.log(resultData);
      })
 
     return (
@@ -43,38 +43,40 @@ function ResultPage({match}) {
         render={({state,fullpageApi})=>{
             return(
             <div id="fullpage-wrapper">
-                <div className="section " style={{display:"flex", }}>
+                
+                <div className="section" style={{display:"flex", }}>
                     
                     <NavBar/>
-                    <Grade data={resultData?resultData:result?result:null}/>
-                    
+                    {resultData?
+                    <Grade data={resultData}/>:
+                    null}
                 </div>
-                {result?
+                {resultData?
                     <div className="section">
                             
-                            <Solutions oxlist={result.ox_list}/>
+                            <Solutions oxlist={resultData.ox_list}/>
                                                                                 
                         </div>
                     :null}
-                    {result? <div className="section">
+                    {resultData? <div className="section">
                             
                             <PlasticCal/>
                                                                                  
                         </div>
                     :null}
-                    {result? <div className="section">
+                    {resultData? <div className="section">
                             
-                            <PlasticResult user_name={result.user_name}/>
+                            <PlasticResult user_name={resultData.user_name}/>
                                                                                  
                         </div>
                     :null}
-                    {result? 
+                    {resultData? 
                         <div className="section">
                             <RecycleWrapper>
                             <Content>그렇지만 플라스틱을 줄이거나 재활용을 잘 한다면 </Content>
                             <Content>이 나무들을 심는것과 비슷한 효과를 낼 수 있겠어요! </Content>
                             {
-                result.all_recycle_tip.map((element,index)=>
+                resultData.all_recycle_tip.map((element,index)=>
                    <div className="slide"><img src={element} key={index} style={{width:"50vh", marginBottom:"30vh", marginTop:"-10vh"}}></img></div>
                 )}
                 </RecycleWrapper>
@@ -82,24 +84,24 @@ function ResultPage({match}) {
                                                                                  
                         </div>
                     :null}
-                    {result? 
+                    {resultData? 
                         <div className="section">
                             
                             <PolarBearTVMent/>
                                                                                  
                         </div>
                     :null}
-                    {result? 
+                    {resultData? 
                         <div className="section">
                             
-                            <PolarBearTV content_url={result.content_url} content_image={result.content_image}/>
+                            <PolarBearTV content_url={resultData.content_url} content_image={resultData.content_image}/>
                                                                                  
                         </div>
                     :null}
-                    {result? 
+                    {resultData&&user_id? 
                         <div className="section">
     
-                            <WhichAction user_id={user_id} user_name={result.user_name} history={history} tier={result.tier}/>
+                            <WhichAction user_id={user_id} user_name={resultData.user_name} history={history} tier={resultData.tier}/>
                                                       
                         </div>
                     :null}
