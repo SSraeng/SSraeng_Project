@@ -2,7 +2,14 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Highlight, Content,  PlasticResultWrapper } from '../styled_components/PlasticResultStyle';
 import { tree } from '../etc/photos';
+import styled from 'styled-components';
 
+const TreeImg = styled.img`
+    height:15vh;
+    width:${props=>10*props.cutwidth}vh;
+
+
+`
 function PlasticResult({user_name}) {
     const plastic_gram =useSelector(state=>state.plastic[0])
     const CO2e= useSelector(state=>state.co2[0])
@@ -24,12 +31,13 @@ function PlasticResult({user_name}) {
                 {
                     trees > 0? (() => { 
                         const array = []; 
-                        for(let i = 0; i < Math.ceil(trees); i++)
+                        for(let i = 0; i < Math.floor(trees); i++)
                         { 
-                            array.push(<img src={tree} style={{ width: "5vw" }} alt="그림 수리중"/>);
+                            array.push(<img src={tree} style={{height:"15vh", width:"10vh"}} alt="그림 수리중"/>);
                         } 
                         return array; })() : null
                 }
+                {trees-Math.floor(trees)!=0?<TreeImg src={tree} cutwidth={trees-Math.floor(trees)}/>:null}
                 </div>
                 
                 
