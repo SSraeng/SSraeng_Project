@@ -17,7 +17,7 @@ function NavBar() {
                 <NavbarGomFace src='https://ssraeng.blob.core.windows.net/etc/sunglassgom.jpeg' onClick={() => history.push("/")}/>
                 </NavbarTitle>
                 
-                <NavbarMenuWrapper style={{ display: "flex", justifyContent: "space-evenly"}}>
+                <NavbarMenuWrapper >
                     <NavbarMenuItem onClick={() => history.push("/test/userinfo")}>테스트하기</NavbarMenuItem>
                     <NavbarMenuItem onClick={() => history.push(user_id?`/ranking/${user_id}`:"/ranking")}>랭킹보기</NavbarMenuItem>
                     <NavbarMenuItem onClick={() => history.push("/about")}>About</NavbarMenuItem>
