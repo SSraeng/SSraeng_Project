@@ -1,6 +1,10 @@
 import React from 'react';
+import {grayblue,jawsbar,autumnsky,navy} from "../etc/colors"
 
-
+// export const grayblue = "#E5ECF1"
+// export const jawsbar = "#A5BDCC"
+// export const autumnsky = "#6EB3D0"
+// export const navy = "#1C4766"
 function ProgressBar({num}) {
     const minColor = `#E5ECF1 0%`;
     const maxColor = `#6EB3D0 60%`;
@@ -18,7 +22,7 @@ function ProgressBar({num}) {
                     position: "absolute",
                     zIndex:"1"
                   }}/>
-            <div style={{ position: "absolute", zIndex:"-1", width:`${60}vw`, height:"4vh",backgroundColor:"#E5ECF1", borderRadius:"1vh"}}></div>
+            <div style={{ position: "absolute", zIndex:"-1", width:`${60}vw`, height:"4vh",backgroundColor:grayblue, borderRadius:"1vh"}}></div>
                   
         </div>
         
