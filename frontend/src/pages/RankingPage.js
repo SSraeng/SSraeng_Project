@@ -3,7 +3,7 @@ import NavBar from '../components/NavBar';
 import axios from 'axios';
 import { RankElement, RankWrapper, RankDataWrapper, RankPageButton, RankPageButtonWrapper, RankPageTitle, RankAllDataWrapper } from '../styled_components/RankPageStyle';
 import store from '../redux_store/store';
-
+import { navy } from '../etc/colors';
 function RankingPage({match}) {
     const {params} = match
     const [rankData, setRankData] = useState(null)
@@ -54,7 +54,12 @@ function RankingPage({match}) {
             {rankData?
             rankData.slice(start,start+15).map((element,index)=>
             <RankDataWrapper key={index+start} style={{display:"flex", justifyContent:"space-evenly", 
-            border:`${userRank && index+start+1 === userRank.ranking? "solid 4px":null}`}} >
+            border:`${userRank && index+start+1 === userRank.ranking? `solid 4px ${navy}`:null}`,
+            backgroundColor:`${userRank && index+start+1 === userRank.ranking? `${navy}`:null}`,
+            color:`${userRank && index+start+1 === userRank.ranking? `white`:null}`,
+            fontWeight:"bold"
+
+            }} >
             <RankElement width={1}>{index+start+1}</RankElement>
             <RankElement width={10}>{element.name}</RankElement>
             <RankElement width={2}>{element.tier}</RankElement>

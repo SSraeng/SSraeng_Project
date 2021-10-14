@@ -10,13 +10,13 @@ export const PolarBearTVButton = styled.button`
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 40vh;
+  width: 30vh;
   height:5vh;
   font-size: 3vh;
   font-weight: bold;
   background: #E5ECF1;
   opacity:70%;
-  border-radius: 3px;
+  border-radius: 3vw;
   border:none;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -63,13 +63,13 @@ export const PolarBearTVPlayer = styled.div`
 export const PolarBearTVOff = styled.div`
   margin: 2vh auto;
   text-align: center;
-  width: 40vh;
+  width: 30vh;
   height:5vh;
   font-size: 3vh;
   font-weight: bold;
   background: rgba(255,50,50, 0.5);
   opacity:70%;
-  border-radius: 3px;
+  border-radius: 10vw;
   border:none;
   :hover{
     background-color: rgba(255,50,50, 0.9);

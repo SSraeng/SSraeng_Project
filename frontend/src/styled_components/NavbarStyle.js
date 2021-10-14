@@ -47,5 +47,7 @@ export const NavbarMenuItem = styled.div`
 `;
 
 export const NavbarMenuWrapper = styled.div`
+    display: flex; 
+    justify-content: space-evenly;
   
 `;

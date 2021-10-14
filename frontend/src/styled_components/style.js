@@ -17,8 +17,8 @@ export const Button = styled.button`
   margin-right:1vh;
   font-size: 1rem;
   margin: 0 1vh 6vh 1vh;
-  height: 2.7vh;
-  width: 4vh;
+  height: 4.5vh;
+  width: 4.5vh;
   font-weight: 700;
   border: 0;
   border-color: #A5BDCC;
@@ -52,14 +52,17 @@ export const ButtonStyle = styled.button`
 
 export const Select = styled(Hover)`
     width:35vh;
-    height:5vh; 
-    background-color: ${(props)=>props.num === props.i+1 ? autumnsky : grayblue};
+    height:6vh; 
+    background-color: ${(props)=>props.num == props.i+1 ? autumnsky : grayblue};
     margin: 0 auto; 
     margin-top:1vh;
     border-radius: 2vh;
     display: flex;
     flex-direction:column;
     justify-content:center;
+    font-size:3vh;
+    font-weight:bold;
+    color:#282828
     }
     &:hover{
         background-color: #1C4766;
