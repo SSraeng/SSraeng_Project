@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import { ResultWrapper } from '../styled_components/style';
-import SimpleImageSlider from 'react-simple-image-slider';
+
 
 function RecycleTip({recycle_tip}) {
     console.log(recycle_tip);
