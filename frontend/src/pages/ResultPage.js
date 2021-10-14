@@ -71,17 +71,15 @@ function ResultPage({match}) {
                         </div>
                     :null}
                     {resultData? 
-                        <div className="section">
+                        <div style={{width:"96vw"}} className="section">
                             <RecycleWrapper>
                             <Content>그렇지만 플라스틱을 줄이거나 재활용을 잘 한다면 </Content>
                             <Content>이 나무들을 심는것과 비슷한 효과를 낼 수 있겠어요! </Content>
-                            {
-                resultData.all_recycle_tip.map((element,index)=>
-                   <div className="slide"><img src={element} key={index} style={{width:"50vh", marginBottom:"30vh", marginTop:"-10vh"}}></img></div>
-                )}
-                </RecycleWrapper>
-            
-                                                                                 
+                            {resultData.all_recycle_tip.map((element,index)=>
+                                <div className="slide">
+                                    <img src={element} key={index} style={{width:"50vh", marginBottom:"30vh", marginTop:"-10vh"}}></img>
+                                </div>)}
+                            </RecycleWrapper>                                               
                         </div>
                     :null}
                     {resultData? 
