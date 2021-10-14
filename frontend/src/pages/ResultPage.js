@@ -84,7 +84,7 @@ function ResultPage({match}) {
                             <Content>이 나무들을 심는것과 비슷한 효과를 낼 수 있겠어요! </Content>
                             {resultData.all_recycle_tip.map((element,index)=>
                                 <div className="slide">
-                                    <img src={element} key={index} style={{width:"50vh", marginBottom:"30vh", marginTop:"-10vh"}}></img>
+                                    <img src={element} key={index} style={{width:"50vh", height:"55vh", marginBottom:"30vh", marginTop:"-10vh", objectFit: "contain"}}></img>
                                 </div>)}
                             </RecycleWrapper>                                               
                         </div>
