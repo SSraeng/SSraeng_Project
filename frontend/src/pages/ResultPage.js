@@ -38,59 +38,62 @@ function ResultPage({match}) {
         <div>
         <NavBar/>
         <ReactFullpage 
+
+        scrollingSpeed = {500}
+
         render={({state,fullpageApi})=>{
             return(
             <div id="fullpage-wrapper">
                 <div className="section section1">
-                    <Fade top>
-                        <Grade data={resultData?resultData:result?result:null}/>
-                    </Fade>
+                    
+                    <Grade data={resultData?resultData:result?result:null}/>
+                    
                 </div>
                 {result?
                     <div className="section">
-                            <Fade top>
-                                <Solutions oxlist={result.ox_list}/>
-                            </Fade>                                                     
+                            
+                            <Solutions oxlist={result.ox_list}/>
+                                                                                
                         </div>
                     :null}
                     {result? <div className="section">
-                            <Fade top>
-                                <PlasticCal/>
-                            </Fade>                                                     
+                            
+                            <PlasticCal/>
+                                                                                 
                         </div>
                     :null}
                     {result? <div className="section">
-                            <Fade top>
-                                <PlasticResult user_name={result.user_name}/>
-                            </Fade>                                                     
+                            
+                            <PlasticResult user_name={result.user_name}/>
+                                                                                 
                         </div>
                     :null}
                     {result? 
                         <div className="section">
-                            <Fade top>
-                                <RecycleTip recycle_tip={result.all_recycle_tip}/>
-                            </Fade>                                                     
+                            
+                            <RecycleTip recycle_tip={result.all_recycle_tip}/>
+                                                                                 
                         </div>
                     :null}
                     {result? 
                         <div className="section">
-                            <Fade top>
-                                <PolarBearTVMent/>
-                            </Fade>                                                     
+                            
+                            <PolarBearTVMent/>
+                                                                                 
                         </div>
                     :null}
                     {result? 
                         <div className="section">
-                            <Fade top>
-                                <PolarBearTV content_url={result.content_url} content_image={result.content_image}/>
-                            </Fade>                                                     
+                            
+                            <PolarBearTV content_url={result.content_url} content_image={result.content_image}/>
+                                                                                 
                         </div>
                     :null}
                     {result? 
                         <div className="section">
-                            <Fade top>
-                                <WhichAction user_id={result.user_id} user_name={result.user_name} history={history}/>
-                            </Fade>                                                     
+    
+                            <WhichAction user_id={result.user_id} user_name={result.user_name} history={history}/>
+                                                      
                         </div>
                     :null}
 
