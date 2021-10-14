@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import explains from "../etc/explains.json"
 import store,{reset_co2,plastic_reset} from '../redux_store/store';
 import { ResultWrapper } from '../styled_components/style';
-import { ButtonStyle, Img, Answer, Div } from '../styled_components/SolutionStyle';
+import { ButtonStyle, Img, Answer, Div, AnswerList } from '../styled_components/SolutionStyle';
 
 function Solutions({oxlist}) {
     const explain = explains
@@ -14,14 +14,14 @@ function Solutions({oxlist}) {
         const current = oxlist[page-1]
         const af = oxlist.slice(page)
         return (
-            <div>
+            <AnswerList>
                 {bf}
                 <a style={{
                     fontWeight:"700",
                     color:`${current=="X"?"#D22318":"#1A55B9"}`
                     }}>{current}</a>
                 {af} 
-            </div>
+            </AnswerList>
         )
     }
     return (

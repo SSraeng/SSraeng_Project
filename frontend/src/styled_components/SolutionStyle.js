@@ -10,6 +10,10 @@ export const Div = styled.div`
     white-space: pre-line;
 `;
 
+export const AnswerList = styled.div`
+    letter-spacing: .3rem;
+`;
+
 export const Img = styled.img`
     height: 400px;
     width: 500px;
