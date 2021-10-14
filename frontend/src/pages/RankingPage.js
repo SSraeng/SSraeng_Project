@@ -15,7 +15,7 @@ function RankingPage({match}) {
     const getRanking = async () =>{
         if (user_id)
         {
-            const response= await axios.get(`/api/ranking/${user_id}`)
+            const response= await axios.get(`/api/ranking/${params.user_id}`)
             const{ranks} = response.data
             const{user} = response.data
             const {ranking} = user

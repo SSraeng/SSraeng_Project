@@ -22,30 +22,6 @@ function TestPage() {
         store.dispatch(submit());
         const userId = await axios.post("/api/analysis",store.getState().test[0]);
         store.dispatch(add_user_id(userId.data))
-        const response= await axios.get(`/api/result/${userId.data}`)
-        const{data} = response
-        
-        const {
-            user_name,
-            score,
-            tier,
-            recycle_tip,
-            content_text,
-            content_url,
-            content_image,
-            ranking,
-            participants,
-            ox_list,
-            all_content,
-            all_recycle_tip,
-            tier_value
-         } = data
-
-        store.dispatch(set_result({
-            user_name,score,tier,recycle_tip,content_text,content_url,content_image, ranking, participants,
-            ox_list,all_content,all_recycle_tip, tier_value
-        }))
-
         history.push({pathname:"/loading", state:{next:`/result/${userId.data}`}})
 
     }
