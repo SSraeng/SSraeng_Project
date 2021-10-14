@@ -21,12 +21,16 @@ export function Wave (){
 
 const Wrapper = styled.div`
     position: absolute;
-    top:  30vh;
+    top: 30vh;
     left: 0;
     box-sizing: border-box;
+    width:100%;
+    height:100%;
+};
+    
+
 `;
 
 const Wavy = styled.div`
     width:100%;
-    height:100%;
 `

@@ -78,7 +78,7 @@ const Narration = styled.div`
     }
 `
 const Analysis = styled.div`
-    height: 170vh;
+    height: 70vw;
     width: 100%;
     box-sizing: border-box;
     position: relative;
@@ -240,7 +240,7 @@ function MainPage() {
                                 </SubTitle>
                             </Fade>
                         </ContentsHeader>
-                        <img src="images/그래프.png" 
+                        <img src="images/그래프4.png" 
                              alt="코로나19 확진자수 배달 건수 증가량"
                              style={{width:"100%", position:"absolute", bottom:"0",left:"0"}}/>
                     </Analysis>
