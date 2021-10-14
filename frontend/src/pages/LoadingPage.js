@@ -1,6 +1,9 @@
 import { useEffect, React } from 'react';
 import { useHistory } from 'react-router';
 import { useLocation } from 'react-router';
+import { Wave } from '../components/Wave';
+import {LoadingTitle, Loader, Polarbear} from '../styled_components/LoadingPageStyle';
+
 
 function LoadingPage(){
     const location= useLocation();
@@ -18,17 +21,13 @@ function LoadingPage(){
     return(
         <div className="loadingPage">
             <div className="loading_header">
-                <p   className="loading_header_title">로딩 중...</p>
-                <div className="loading_header_box">
-                    <div className="loader"></div>
-                </div>
+                <LoadingTitle>로딩 중...</LoadingTitle>
+                <Loader></Loader>
             </div>
-            <div className="loading_content">
-                <div className="loading_content_image_box" >
-                    <img className="loading_content_image_bear" src="images/polarbear.png" alt="빙하 위의 위태로운 북극곰"/>
-                    <img className="loading_content_image_sea" src="images/sea.png" alt="바다 일러스트레이션"/>
-                </div>
+            <div className="loading_image_box">
+                    <Polarbear src="images/polarbear.png" alt="빙하 위의 위태로운 북극곰"/>
             </div>
+            <Wave/>
         </div>
     )
 }
