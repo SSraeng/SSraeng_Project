@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import store from '../redux_store/store';
 
 function useInterval(callback,delay){
     const savedCallback = useRef();

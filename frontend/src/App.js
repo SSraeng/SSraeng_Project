@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import axios from 'axios';
 import MainPage from './pages/MainPage';
 import RankingPage from './pages/RankingPage';
@@ -9,9 +9,7 @@ import LoadingPage from './pages/LoadingPage';
 import TestPage from './pages/TestPage';
 import AboutPage from './pages/AboutPage';
 import UserInfoPage from './pages/UserInfoPage';
-import { Provider , useSelector } from 'react-redux';
-import store from "./redux_store/store"
-
+import { useSelector } from 'react-redux';
 
  axios.defaults.baseURL = 'http://127.0.0.1:5000';
 

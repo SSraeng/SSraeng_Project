@@ -52,7 +52,7 @@ export const ButtonStyle = styled.button`
 export const Select = styled(Hover)`
     width:35vh;
     height:5vh; 
-    background-color: ${(props)=>props.num == props.i+1 ? "#6EB3D0" : "#E5ECF1"};
+    background-color: ${(props)=>props.num === props.i+1 ? "#6EB3D0" : "#E5ECF1"};
     margin: 0 auto; 
     margin-top:1vh;
     border-radius: 2vh;

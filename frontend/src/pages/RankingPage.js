@@ -22,13 +22,12 @@ function RankingPage({match}) {
             setRankData(ranks);
             setUserRank(user);
             setStart(15*Math.floor(ranking/15))
-            console.log(ranks)
 
         }
         else{ const response= await axios.get("/api/ranking") 
         const {ranks} = response.data
         setRankData(ranks);
-        console.log(response)
+        
     }
 
     }
@@ -41,7 +40,7 @@ function RankingPage({match}) {
             
             <RankPageTitle> 
                 <span>우리집 누가 치웠어?</span>
-                <img src="https://ssraeng.blob.core.windows.net/etc/ciderbear.png"/>
+                <img src="https://ssraeng.blob.core.windows.net/etc/ciderbear.png" alt="그림 수리중"/>
             </RankPageTitle>
             <RankWrapper style={{display:"flex", justifyContent:"space-evenly"}}>    
                 <RankElement width={2}>순위</RankElement>

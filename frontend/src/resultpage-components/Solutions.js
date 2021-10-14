@@ -1,6 +1,5 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState } from 'react';
 import explains from "../etc/explains.json"
-import store,{reset_co2,plastic_reset} from '../redux_store/store';
 import { ResultWrapper } from '../styled_components/style';
 import { ButtonStyle, Img, Answer, Div, AnswerList } from '../styled_components/SolutionStyle';
 
@@ -19,7 +18,7 @@ function Solutions({oxlist}) {
                 <a style={{
                     fontWeight:"700",
                     fontSize:"2.8vh",
-                    color:`${current=="X"?"#D22318":"#1A55B9"}`
+                    color:`${current==="X"?"#D22318":"#1A55B9"}`
                     }}>{current}</a>
                 {af} 
             </AnswerList>
@@ -33,10 +32,10 @@ function Solutions({oxlist}) {
                 <div>
                 {explains?
                     explain.map((element,index)=>
-                    index+1==page?
+                    index+1===page?
                     <div key={index} style={{border:"solid 1px"}}>
 
-                        <Div style={{color:`${oxlist[index]=="X"?"#D22318":"#1A55B9"}`}}>
+                        <Div style={{color:`${oxlist[index]==="X"?"#D22318":"#1A55B9"}`}}>
                             {element.question}
                         </Div>
 
@@ -44,7 +43,7 @@ function Solutions({oxlist}) {
                                 {element.answer}
                         </Answer>
                         <Div>
-                            {element.type==1?
+                            {element.type===1?
                             <div>{element.explain}</div>:
                             <Img src={element.explain}></Img>
                             }
