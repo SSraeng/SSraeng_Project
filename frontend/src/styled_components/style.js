@@ -8,6 +8,25 @@ export const Hover = styled.div`
     }
 
 `
+export const ButtonStyle = styled.button`
+  appearance: none;
+  background-color: #A5BDCC;
+  border-radius:1vh;
+  margin-right:1vh;
+  font-size: 1rem;
+  margin: 0 1vh 6vh 1vh;
+  height: 2.7vh;
+  width: 4vh;
+  font-weight: 700;
+  border: 0;
+  border-color: #A5BDCC;
+  color: #000000;
+  
+  &:hover {
+    background-color:  #E5ECF1;
+    cursor: pointer;
+  }
+`;
 
 export const Select = styled(Hover)`
     width:35vh;
