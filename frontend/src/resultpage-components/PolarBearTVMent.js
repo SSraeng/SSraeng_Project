@@ -8,7 +8,7 @@ function PolarBearTVMent({data}) {
         
         <div>
             <PolarBearTVMentWrapper>
-                <h1>마지막으로, 북극곰과 함께 현재 우리 지구의 모습을 시청하겠습니다.ㅠ</h1>
+                <h1>극곰이와 함께 현재 우리 지구의 모습을 시청해볼까요?</h1>
                 <img src="../images/PolarBearHead.png" />
             </PolarBearTVMentWrapper>
         </div>

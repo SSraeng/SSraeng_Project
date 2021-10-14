@@ -34,13 +34,13 @@ function WhichAction({user_id,user_name,history,tier}) {
     };
 
     return (
-        <ResultWrapper>
+
         <WhichActionWrapper>
             {
                 action == 0 ?
                 <WhichActionExample>
-                <div><span>{user_name}</span> 님은 지구를 위해</div>
-                <div> 어떤 행동을 하실건가요?</div>
+                <div><strong><span>{user_name}</span> 님은 지구를 위해</strong></div>
+                <div> <strong>어떤 행동을 하실건가요?</strong></div>
                 <WhichActionButtonWrapper>
                     <button onClick={()=>setAction(1)}>배달음식과 플라스틱 사용을 줄이고 분리수거를 잘한다</button>
                     <button onClick={()=>setAction(2)}>친구에게 내 쓰랭등급과 퀴즈를 공유한다</button>
@@ -59,15 +59,15 @@ function WhichAction({user_id,user_name,history,tier}) {
                 </WhichActionExample>:
                 action == 2?
                 <WhichActionExample>
-                    <div>다른사람들에게도 환경의 중요성을 알리는 <span>{user_name}</span>님!</div>
+                    <strong><div>다른사람들에게도 환경의 중요성을 알리는 <span>{user_name}</span>님!</div>
                     <div>정말 멋있습니다!</div>
-                    <div>퀴즈 푸느라 수고하셨습니다!;)</div>
+                    <div>퀴즈 푸느라 수고하셨습니다!;)</div></strong>
                     <WhichActionButtonWrapper><button id="kakao-link-btn" onClick={kakaoBtnHandler}>결과 공유하기</button></WhichActionButtonWrapper>
                 </WhichActionExample>:
                     null
             }
         </WhichActionWrapper>
-        </ResultWrapper>
+
     )
 }
 
