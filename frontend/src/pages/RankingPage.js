@@ -62,7 +62,12 @@ function RankingPage({match}) {
             }} >
             <RankElement width={1}>{index+start+1}</RankElement>
             <RankElement width={10}>{element.name}</RankElement>
-            <RankElement width={2}>{element.tier}</RankElement>
+            <RankElement width={1}>
+            &nbsp;&nbsp;<span 
+                style={{
+                    backgroundColor:`${element.tier==1?"red":element.tier==2?"orange":element.tier==3?"yellow":element.tier==4?"#87F717":"green"}`
+                    ,textAlign:"center", color:"white",textShadow:" 0 0 2px black", borderRadius:"10vh"}}
+                    >&nbsp;&nbsp;{element.tier}&nbsp;&nbsp; </span></RankElement>
             <RankElement width={4}>{element.delivery_count}</RankElement>
             <RankElement width={5}>{element.quiz_score}</RankElement>
             <RankElement width={4}>{element.total_score}</RankElement>

@@ -10,7 +10,7 @@ export const RankElement = styled.div`
 
 export const RankWrapper = styled.div`
     margin-top: 1vh;
-
+    align:center;
     background-color: #A5BDCC;
     width: 100%;
     font-size: 18px;
@@ -19,6 +19,7 @@ export const RankWrapper = styled.div`
 `;
 
 export const RankDataWrapper = styled.div`
+    
     border-bottom: solid ${jawsbar};
     :hover{
         background-color: #E5ECF1;

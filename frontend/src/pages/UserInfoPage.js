@@ -5,6 +5,7 @@ import store, {user,reset, reset_result,plastic_reset, page_reset, stopwatch_res
 import { Hover, Button } from '../styled_components/style';
 import Trashes from "../components/Trashes"
 import {grayblue,jawsbar,autumnsky,navy} from "../etc/colors"
+import Fade from "react-reveal/Fade"
 
 function ResetAll(history, nickname, times){
     store.dispatch(reset())
@@ -29,9 +30,11 @@ function UserInfoPage() {
         <div>
             <NavBar/>
         <div style={{marginLeft:"auto",textAlign:"center"}}>
+            <Fade left>
             <h1 style={{marginTop:"7vh", marginBottom:"5vh", fontSize:"7vh"}}>
                 쓰랭 테스트
             </h1>
+            </Fade>
 
             <h2 style={{marginBottom:"1vh", fontSize:"4vh", wordSpacing:".5em"}}>이 름</h2>
             <input value={nickname} style={{border: "2px solid #A5BDCC", borderRadius:"10px",textAlign:"center", width:"20rem", height:"5vh", backgroundColor:`${nickname.length > 10 || nickname.length == 0?" #E5ECF1":"white"}`, fontSize:"2vh", fontWeight:"bold"
