@@ -4,10 +4,7 @@ import store, { plastic_reset, reset_co2 } from '../redux_store/store';
 import PlasticCal from '../resultpage-components/PlasticCal';
 import axios from 'axios';
 import { useHistory } from 'react-router';
-import { useSelector } from 'react-redux';
 import {Grade,PlasticResult,PolarBearTV,PolarBearTVMent,RecycleTip,Solutions,WhichAction} from "../resultpage-components/components"
-import {Fade, Rotate,Flip, Zoom, Bounce,  Slide} from "react-reveal"
-import {MiddleBlock, MiddleBlockF} from "../styled_components/style.js"
 import ReactFullpage from "@fullpage/react-fullpage"
 function ResultPage({match}) {
     const {params} = match
@@ -36,16 +33,17 @@ function ResultPage({match}) {
 
     return (
         <div>
-        <NavBar/>
+        
         <ReactFullpage 
-
+        navigation
         scrollingSpeed = {500}
 
         render={({state,fullpageApi})=>{
             return(
             <div id="fullpage-wrapper">
-                <div className="section section1">
+                <div className="section " style={{display:"flex", }}>
                     
+                    <NavBar/>
                     <Grade data={resultData?resultData:result?result:null}/>
                     
                 </div>
@@ -92,7 +90,7 @@ function ResultPage({match}) {
                     {result? 
                         <div className="section">
     
-                            <WhichAction user_id={result.user_id} user_name={result.user_name} history={history}/>
+                            <WhichAction user_id={user_id} user_name={result.user_name} history={history}/>
                                                       
                         </div>
                     :null}
