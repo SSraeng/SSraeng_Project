@@ -1,9 +1,9 @@
 import React, { useState,useEffect } from 'react';
 import store from '../redux_store/store';
 import { useSelector } from 'react-redux';
-import { ResultWrapper } from '../styled_components/style';
-import { Highlight, Content } from '../styled_components/PlasticResultStyle';
+import { Highlight, Content,  PlasticResultWrapper } from '../styled_components/PlasticResultStyle';
 import { tree } from '../etc/photos';
+
 function PlasticResult({user_name}) {
     const plastic_gram =useSelector(state=>state.plastic[0])
     const CO2e= useSelector(state=>state.co2[0])
@@ -11,7 +11,7 @@ function PlasticResult({user_name}) {
     return (
 
             <div style={{textAlign:"center"}}>
-            <ResultWrapper>
+            <PlasticResultWrapper>
                 <Content>
                     {user_name}님은 평소<br/>
                     일주일에 {plastic_gram}g,<br/>
@@ -34,7 +34,7 @@ function PlasticResult({user_name}) {
                 </div>
                 
                 
-            </ResultWrapper>
+            </PlasticResultWrapper>
 
             </div>
     )
