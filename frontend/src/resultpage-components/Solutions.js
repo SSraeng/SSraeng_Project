@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import explains from "../etc/explains.json"
 import { ResultWrapper } from '../styled_components/style';
 import { ButtonStyle, Img, Answer, Div, AnswerList } from '../styled_components/SolutionStyle';
+import {grayblue,jawsbar,autumnsky,navy} from "../etc/colors"
 
 function Solutions({oxlist}) {
     const explain = explains
@@ -27,7 +28,7 @@ function Solutions({oxlist}) {
     return (
             <div>
                 <ResultWrapper>
-                <h1 style={{fontSize:"4vh"}}>정오표</h1>
+                <h1 style={{fontSize:"4vh", backgroundColor:navy}}>해설지</h1>
                 <div>{oxList({oxlist})}</div>
                 <div>
                 {explains?

@@ -4,6 +4,8 @@ import NavBar from '../components/NavBar';
 import store, {user,reset, reset_result,plastic_reset, page_reset, stopwatch_reset, reset_user_id, reset_checked} from '../redux_store/store';
 import { Hover, Button } from '../styled_components/style';
 import Trashes from "../components/Trashes"
+import {grayblue,jawsbar,autumnsky,navy} from "../etc/colors"
+
 function ResetAll(history, nickname, times){
     store.dispatch(reset())
     store.dispatch(page_reset())
@@ -35,7 +37,7 @@ function UserInfoPage() {
             <input value={nickname} style={{border: "1px solid #A5BDCC", borderRadius:"10px",textAlign:"center", width:"20rem", height:"2rem", backgroundColor:`${nickname.length > 10 || nickname.length === 0?" #E5ECF1":"white"}`
             }} 
                 onChange={(e) => setNickname(e.target.value)} />
-            {nickname.length > 10 || nickname.length === 0?<div style={{color:"#A5BDCC", height:"5vh"}}>이름을 1자이상 10자이하로 입력하세요</div>:<div style={{height:"5vh"}}></div>}
+            {nickname.length > 10 || nickname.length === 0?<div style={{color:jawsbar, height:"5vh"}}>이름을 1자이상 10자이하로 입력하세요</div>:<div style={{height:"5vh"}}></div>}
             <h2 style={{ marginBottom:"1vh"}}>일주일 간 배달 건수</h2>
             <Button onClick={times > 0 ? () => setTimes(times - 1) : null}>-</Button>
 
@@ -46,7 +48,7 @@ function UserInfoPage() {
             <p></p>
             <Hover>
             <button style={{textAlign:"center", 
-                    width:"28vh", height:"7vh", backgroundColor : "#6EB3D0", 
+                    width:"28vh", height:"7vh", backgroundColor : autumnsky, 
                     border : "0", borderRadius:"10px" , marginBottom:"3vh"}}
             onClick={
                 () => {ResetAll(history,nickname,times)}
