@@ -1,10 +1,10 @@
 import React, { useRef, useState, useCallback } from "react";
 import styled from "styled-components";
 
-export function Accrodain(props){
+export function Accordian(props){
     const parentRef = useRef(null);
     const childRef= useRef(null);
-    const [isCollapse, setIsCollapse] = useState(false);
+    const [isCollapse, setIsCollapse] = useState(true);
     const handleButtonClick = useCallback(
         event => {
             event.stopPropagation();
@@ -19,8 +19,7 @@ export function Accrodain(props){
             setIsCollapse(!isCollapse);
         },[isCollapse]
     )
-    const parentRefHeight = parentRef.current?.style.height ?? "0px";
-    const buttonText = parentRefHeight === "0px" ? "열기" : "닫기";
+    const buttonText = isCollapse ? "열기" : "닫기"; 
 
     return(
         <Container>

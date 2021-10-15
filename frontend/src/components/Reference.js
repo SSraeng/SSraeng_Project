@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Accrodain } from "./Accrodain";
+import { Accordian } from "./Accordian";
 
 const Refer = styled.div`
     margin: 10vh auto;
@@ -42,9 +42,9 @@ export function Reference(){
     return(
     <Refer>
         <Title> 참조 </Title>
-        <Accrodain title="기사" contents={article}/>
-        <Accrodain title="논문" contents={thesis}/>
-        <Accrodain title="사이트" contents={site}/>
+        <Accordian title="기사" contents={article}/>
+        <Accordian title="논문" contents={thesis}/>
+        <Accordian title="사이트" contents={site}/>
     </Refer>
     )
 }
