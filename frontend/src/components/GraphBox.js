@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {grayblue,jawsbar,autumnsky,navy} from "../etc/colors"
+import {autumnsky,navy} from "../etc/colors"
 
 const Graph = styled.div`
     width: 100%;
@@ -38,7 +38,7 @@ const Bar = styled.div`
         line-height: 5vh;
         text-align: right;
         width: ${props => props.percentile};
-        background-color: ${props => props.year === '2019'? navy: "#77a8d0"};
+        background-color: ${props => props.year === '2019'? navy: autumnsky};
         border-radius: 40px;
         box-sizing: border-box;
         padding: 0 10px;

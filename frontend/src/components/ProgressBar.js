@@ -1,5 +1,5 @@
 import React from 'react';
-import {grayblue,jawsbar,autumnsky,navy} from "../etc/colors"
+import {grayblue,jawsbar,autumnsky} from "../etc/colors"
 
 function ProgressBar({num}) {
     const minColor = `${jawsbar} 0%`;
