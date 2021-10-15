@@ -16,7 +16,7 @@ function LoadingPage(){
             }, 5000)
         }
         toResultPage()
-    },[])
+    },[history, next])
 
     return(
         <div className="loadingPage">

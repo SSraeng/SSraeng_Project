@@ -1,5 +1,4 @@
-import { useState, useEffect, React } from 'react';
-import axios from 'axios';
+import { useState, React } from 'react';
 import NavBar from '../components/NavBar';
 import Fade from "react-reveal/Fade";
 import { GraphBox } from "../components/GraphBox";

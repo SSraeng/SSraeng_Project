@@ -1,19 +1,21 @@
 import styled from 'styled-components';
-
+import { jawsbar } from '../etc/colors';
 export const WhichActionWrapper = styled.div`
     text-align: center;
-    margin-top: 5vh;
+    margin-top: 20vh;
+    height:100vh;
+
 `;
 
 export const WhichActionExample = styled.div`
-  width: 50vw;
+
   margin: 0 auto;
   /* display: grid; */
   /* grid-template-columns: 20vw; */
   div{
     margin-top: 1vh;
     margin-bottom: 1vh;
-    font-size: 1.7rem;
+    font-size: 2.5rem;
 
     span{
       color: rgb(0,150,0);
@@ -28,7 +30,7 @@ export const WhichActionExample = styled.div`
     background-color: rgba(0,255,0,0.2);
     border: none;
     border-radius: 15px;
-    font-size: 1.4rem;
+    font-size: 2rem;
     min-height: 2.5em;
 
     :hover{

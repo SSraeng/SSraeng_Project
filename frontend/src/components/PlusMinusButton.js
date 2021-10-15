@@ -1,15 +1,15 @@
-import React,{useEffect, useState} from 'react';
+import React,{useState} from 'react';
 import store,{plastic_add,plastic_minus,co2_e} from '../redux_store/store';
 import { ButtonStyle, Input, Img } from '../styled_components/PlasticCalStyle';
 
 function CO2Cal(addNumber,pm){
     if(addNumber===14)
     store.dispatch(co2_e(33*pm))
-    if(addNumber==10)
+    if(addNumber===10)
     store.dispatch(co2_e(19*pm))
-    if(addNumber==15)
+    if(addNumber===15)
     store.dispatch(co2_e(36*pm))
-    if(addNumber==44)
+    if(addNumber===44)
     store.dispatch(co2_e(72*pm))
 }
 

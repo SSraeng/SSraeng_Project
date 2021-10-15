@@ -28,7 +28,7 @@ function PolarBearTV({content_url,content_image}) {
                     <PolarBearTVOff onClick={()=>setTv(false)}>TV 끄기</PolarBearTVOff>
                 </> :
                 <PolarBearWrapper>
-                <PolarBearImageStyle> <img src={content_image} /></PolarBearImageStyle>
+                <PolarBearImageStyle> <img src={content_image} alt="그림 수리중"/></PolarBearImageStyle>
                 <PolarBearTVButton onClick={()=>setTv(true)}> TV 보기 </PolarBearTVButton>
                 </PolarBearWrapper>
             }
