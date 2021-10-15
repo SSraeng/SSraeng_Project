@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Accrodain } from "./Accrodain";
+import { Accordian } from "./Accordian";
 
 const Refer = styled.div`
     margin: 10vh auto;
@@ -19,6 +19,11 @@ const Refer = styled.div`
     div + div{
         margin-top: 1vh;
     }
+    @media only screen and (max-width:768px){
+        margin: 10vh auto;
+        width: 90vw;
+        p { font-size: 0.2rem;}
+    }
 `
 const Title = styled.div`
     margin-bottom: 2vh;
@@ -26,6 +31,10 @@ const Title = styled.div`
     font-family: Elice_Regular;
     font-size: 1.4rem;
     font-weight: 700;
+
+    @media only screen and (max-width:768px){
+        font-size: 1rem;
+    }
 `
 
 
@@ -33,9 +42,9 @@ export function Reference(){
     return(
     <Refer>
         <Title> 참조 </Title>
-        <Accrodain title="기사" contents={article}/>
-        <Accrodain title="논문" contents={thesis}/>
-        <Accrodain title="사이트" contents={site}/>
+        <Accordian title="기사" contents={article}/>
+        <Accordian title="논문" contents={thesis}/>
+        <Accordian title="사이트" contents={site}/>
     </Refer>
     )
 }

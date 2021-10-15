@@ -6,7 +6,7 @@ export const GradeWrapper = styled.div`
     flex-direction:column;
     justify-content:center;
     text-align:center;
-    padding-top: 20vh;
+    padding-top: 200px;
     font-size:150%;
     
     img{
@@ -30,4 +30,29 @@ export const GradeWrapper = styled.div`
     h1{
         margin-bottom: 20px;
     }
+`;
+
+export const MeTooButton = styled.button`
+    background-color: #E5ECF1;
+    border: none;
+    border-radius: 3px;
+    text-align: center;
+    width: 20vw;
+    height: 60px;
+    margin: 250px auto;
+    font-size: 25px;
+    font-weight: bold;
+    
+    color: #1C4766;
+    box-shadow: 2px 2px 2px 2px gray;
+
+    :hover{
+        cursor: pointer;
+    }
+    
+`;
+
+export const SharedResult = styled.div`
+    display: flex;
+    flex-direction: column;
 `;

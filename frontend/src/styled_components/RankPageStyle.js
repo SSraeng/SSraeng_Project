@@ -1,22 +1,26 @@
 import styled from "styled-components";
-
+import { jawsbar } from "../etc/colors";
 export const RankElement = styled.div`
     width:${(props)=>props.width}em;
     text-align:center;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
+    ;
 `;
 
 export const RankWrapper = styled.div`
     margin-top: 1vh;
-    margin-bottom: 2vh;
+    align:center;
     background-color: #A5BDCC;
     width: 100%;
     font-size: 18px;
     font-weight: bold;
+    
 `;
 
 export const RankDataWrapper = styled.div`
+    
+    border-bottom: solid ${jawsbar};
     :hover{
         background-color: #E5ECF1;
     }
@@ -36,11 +40,12 @@ export const RankPageButton = styled.div`
     display: inline-block;
     font-size: 18px;
     background-color: #1C4766;
-    border-radius: 3px;
+    border-radius: 10vw;
     color: white;
-    min-width: 8%;
+    min-width: 10%;
     padding-top: 0.35vh;
-    padding-bottom: 0.35vh;;
+    padding-bottom: 0.35vh;
+    font-weight:bold;
 
     :hover{
         background-color: #6EB3D0;

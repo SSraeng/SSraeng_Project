@@ -8,32 +8,39 @@ import {Grade,PlasticResult,PolarBearTV,PolarBearTVMent,Solutions,WhichAction} f
 import ReactFullpage from "@fullpage/react-fullpage"
 import { RecycleWrapper } from '../styled_components/RecycleTipStyle';
 import { Content } from '../styled_components/RecycleTipStyle';
+import { MeTooButton, SharedResult } from '../styled_components/GradeStyle';
+
 function ResultPage({match}) {
     const {params} = match
     const history = useHistory()
     const [resultData,setResultData] = useState(false);
     const user_id = store.getState().user_id[0]
-    const result = store.getState().result[0]
+
     
-     useEffect(()=>{
-            const getResult = async () =>{
+    useEffect(()=>{
+        const getResult = async () =>{
+            const response= await axios.get(`/api/result/${params.user_id}`)
+            const{data} = response 
+            setResultData(data)
+        }
+        getResult();
+        store.dispatch(plastic_reset()); 
+        store.dispatch(reset_co2())
 
-                const response= await axios.get(`/api/result/${params.user_id}`)
-                const{data} = response 
-                 setResultData(data)
-                 }
-                 if(!user_id)getResult();
-                store.dispatch(plastic_reset()); 
-                store.dispatch(reset_co2())
-            
-     },[])
+    },[params.user_id])
 
-     useEffect(()=>{
-         if(result)
-         console.log(result);
-     })
+    useEffect(()=>{
+        if(resultData)
+        console.log(resultData);
+    })
 
     return (
+        resultData && !user_id ? 
+        <SharedResult>
+            <NavBar/>
+            <Grade data={resultData}/>
+            <MeTooButton onClick={()=>history.replace("/test/userinfo")}>나도 테스트 해보기</MeTooButton>
+        </SharedResult> :
         <div>
         
         <ReactFullpage 
@@ -43,68 +50,65 @@ function ResultPage({match}) {
         render={({state,fullpageApi})=>{
             return(
             <div id="fullpage-wrapper">
-                <div className="section " style={{display:"flex", }}>
+                
+                <div className="section" style={{display:"flex", }}>
                     
                     <NavBar/>
-                    <Grade data={resultData?resultData:result?result:null}/>
-                    
+                    {resultData?
+                    <Grade data={resultData}/>:
+                    null}
                 </div>
-                {result?
+                {resultData?
                     <div className="section">
                             
-                            <Solutions oxlist={result.ox_list}/>
+                            <Solutions oxlist={resultData.ox_list}/>
                                                                                 
                         </div>
                     :null}
-                    {result? <div className="section">
+                    {resultData? <div className="section">
                             
                             <PlasticCal/>
-                                                                                 
+
                         </div>
                     :null}
-                    {result? <div className="section">
+                    {resultData? <div className="section">
                             
-                            <PlasticResult user_name={result.user_name}/>
-                                                                                 
+                            <PlasticResult user_name={resultData.user_name}/>
+
                         </div>
                     :null}
-                    {result? 
-                        <div className="section">
+                    {resultData? 
+                        <div style={{width:"96vw"}} className="section">
                             <RecycleWrapper>
                             <Content>그렇지만 플라스틱을 줄이거나 재활용을 잘 한다면 </Content>
                             <Content>이 나무들을 심는것과 비슷한 효과를 낼 수 있겠어요! </Content>
-                            {
-                result.all_recycle_tip.map((element,index)=>
-                   <div className="slide"><img src={element} key={index} style={{width:"50vh", marginBottom:"30vh", marginTop:"-10vh"}}></img></div>
-                )}
-                </RecycleWrapper>
-            
-                                                                                 
+                            {resultData.all_recycle_tip.map((element,index)=>
+                                <div className="slide">
+                                    <img src={element} key={index} style={{ width: "50vh", height: "55vh", marginBottom: "30vh", marginTop: "-10vh", objectFit: "contain" }} alt="그림 수리중"></img>
+                                </div>)}
+                            </RecycleWrapper>                                               
                         </div>
                     :null}
-                    {result? 
+                    {resultData? 
                         <div className="section">
                             
                             <PolarBearTVMent/>
-                                                                                 
+
                         </div>
                     :null}
-                    {result? 
+                    {resultData? 
                         <div className="section">
-                            
-                            <PolarBearTV content_url={result.content_url} content_image={result.content_image}/>
-                                                                                 
+                            <PolarBearTV content_url={resultData.content_url} content_image={resultData.content_image}/>
                         </div>
                     :null}
-                    {result? 
+                    {resultData?
                         <div className="section">
     
-                            <WhichAction user_id={user_id} user_name={result.user_name} history={history} tier={result.tier}/>
-                                                      
+                            <WhichAction user_id={user_id} user_name={resultData.user_name} history={history} tier={resultData.tier}/>
+
                         </div>
                     :null}
 
-            {!user_id?<button onClick={()=>history.replace("/test/userinfo")}>나도테스트해보기</button>:null}
             </div>
             )
         }}

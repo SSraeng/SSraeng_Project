@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import {autumnsky,navy} from "../etc/colors"
 
 const Graph = styled.div`
     width: 100%;
@@ -10,6 +10,20 @@ const Graph = styled.div`
     box-sizing: border-box;
     > div {
         padding-left: 5vh;
+    }
+    @media only screen and (max-width:768px){
+        height: 10vh;
+        > div {
+            padding-left: 5vw;
+        }
+        > p {
+            font-size: 1rem;
+        }
+    };
+    @media only screen and (min-width:768px) and (max-width:1280px){
+        > p {
+            font-size: 1.2rem;
+        }
     }
 `
 const Bar = styled.div`
@@ -24,11 +38,42 @@ const Bar = styled.div`
         line-height: 5vh;
         text-align: right;
         width: ${props => props.percentile};
-        background-color: ${props => props.year === '2019'? "#1c4766": "#77a8d0"};
+        background-color: ${props => props.year === '2019'? navy: autumnsky};
         border-radius: 40px;
         box-sizing: border-box;
         padding: 0 10px;
         color: white;
+    }
+
+    @media only screen and (max-width:768px){
+        height: 3vh;
+        width: 60vw;
+        margin-top: 2vh;
+        span {
+            display: block;
+            height: 3vh;
+            line-height: 3vh;
+            border-radius: 40px;
+            box-sizing: border-box;
+            padding: 0 10px;
+            color: white;
+            font-size: 1rem;
+        }
+    }
+    @media only screen and (min-width:768px) and (max-width:1300px){
+        height: 3vh;
+        width: 50vw;
+        margin-top: 2vh;
+        span {
+            display: block;
+            height: 3vh;
+            line-height: 3vh;
+            border-radius: 40px;
+            box-sizing: border-box;
+            padding: 0 10px;
+            color: white;
+            font-size: 1rem;
+        }
     }
 `
 

@@ -10,11 +10,13 @@ export const PolarBearTVButton = styled.button`
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 50%;
-  font-size: 2vw;
+  width: 30vh;
+  height:5vh;
+  font-size: 3vh;
   font-weight: bold;
   background: #E5ECF1;
-  border-radius: 3px;
+  opacity:70%;
+  border-radius: 3vw;
   border:none;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -23,6 +25,7 @@ export const PolarBearTVButton = styled.button`
   :hover{
     background-color: #A5BDCC;
     box-shadow: 2px 2px 3px 3px rgba(0,0,0,0.2);
+    opacity:100%;
   }
 `;
 
@@ -60,16 +63,17 @@ export const PolarBearTVPlayer = styled.div`
 export const PolarBearTVOff = styled.div`
   margin: 2vh auto;
   text-align: center;
-  width: 40%;
-  min-width: 300px;
-  min-height: 50px;
-  font-size: 2rem;
+  width: 30vh;
+  height:5vh;
+  font-size: 3vh;
   font-weight: bold;
   background: rgba(255,50,50, 0.5);
-  border-radius: 3px;
+  opacity:70%;
+  border-radius: 10vw;
   border:none;
   :hover{
     background-color: rgba(255,50,50, 0.9);
+    opacity:100%;
   }
 `;
 

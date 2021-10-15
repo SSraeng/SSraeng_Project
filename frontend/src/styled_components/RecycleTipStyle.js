@@ -9,7 +9,6 @@ export const RecycleWrapper = styled.div`
     justify-content:center; 
     text-align:center;
     padding-top:20vh;
-    background: linear-gradient(white,green,white);
 
 `
 

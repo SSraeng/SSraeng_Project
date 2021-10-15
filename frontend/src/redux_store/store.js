@@ -1,4 +1,3 @@
-import axios from "axios";
 import {configureStore,createSlice} from "@reduxjs/toolkit"
 import {persistReducer} from "redux-persist"
 import sessionStorage from "redux-persist/lib/storage/session";

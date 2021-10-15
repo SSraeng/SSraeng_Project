@@ -1,10 +1,10 @@
 import React, { useRef, useState, useCallback } from "react";
 import styled from "styled-components";
 
-export function Accrodain(props){
+export function Accordian(props){
     const parentRef = useRef(null);
     const childRef= useRef(null);
-    const [isCollapse, setIsCollapse] = useState(false);
+    const [isCollapse, setIsCollapse] = useState(true);
     const handleButtonClick = useCallback(
         event => {
             event.stopPropagation();
@@ -19,8 +19,7 @@ export function Accrodain(props){
             setIsCollapse(!isCollapse);
         },[isCollapse]
     )
-    const parentRefHeight = parentRef.current?.style.height ?? "0px";
-    const buttonText = parentRefHeight === "0px" ? "열기" : "닫기";
+    const buttonText = isCollapse ? "열기" : "닫기"; 
 
     return(
         <Container>
@@ -34,15 +33,6 @@ export function Accrodain(props){
         </Container>
     )
 }
-const ContentsWrapper = styled.div`
-    height: 0;
-    width: 100%;
-    overflow: hidden;
-    transition: height 0.35s ease;
-`
-const Contents= styled.div`
-    padding: 4px 8px;
-`
 const Container = styled.div`
     display: flex;
     position:relative;
@@ -57,9 +47,24 @@ const Header = styled.div`
     margin: 0 2vw  0 0.5vw;
     font-size: 1rem;
     font-weight: 700;
+    @media only screen and (max-width:768px){
+        font-size: 0.8rem;
+    }
 `
 const Button = styled.div`
-    top: 0.5vh;
-    right: 0.5vw;
+    top: 0.1vh;
+    right: 3vw;
     position: absolute;
+`
+const ContentsWrapper = styled.div`
+    height: 0;
+    width: 100%;
+    overflow: hidden;
+    transition: height 0.35s ease;
+`
+const Contents= styled.div`
+    padding: 4px 8px;
+    @media only screen and (max-width:768px){
+        font-size: 0.2rem;
+    }
 `
