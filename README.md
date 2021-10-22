@@ -80,17 +80,12 @@ cd frontend && yarn start
 │├─redux_store(redux 모듈)
 │├─resultpage-components(결과페이지 컴포넌트)
 │├─styled_components(스타일)
-│├─types (ts 공통 타입, 인터페이스)
-││ └─tests(등급 사진, 문제)
+│└─tests(등급 사진, 문제)
 │├─App.css
 │├─App.js
 │├─index.css
 │├─index.js
 │└─reportWebVitals.js
-├─config
-│ ├─webpack.common.js
-│ ├─webpack.dev.js
-│ └─webpack.prod.js
 ├─.gitignore
 ├─README.md
 ├─package-lock.json
