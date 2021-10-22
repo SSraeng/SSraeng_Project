@@ -1,119 +1,253 @@
-# 쓰랭 (가칭)
-- COVID-19 이후 쓰레기 증가에 대한 유저의 책임감 향상, 환경보호 캠페인 확산 유도  
+# 쓰랭
+## 웹 서비스 주제
+COVID-19 이후 쓰레기 배출로 인한 환경 문제는 얼마나 심각할까?
+데이터 분석을 통해 포스트 코로나 시대의 급증한 쓰레기양과 배달 음식간의 상관관계 그래프를 제시하여 환경 문제를 제기한다. 쓰레기  문제를 유저들로부터 일깨우며, 분리 배출 방법을 제시해 환경보호를 위한 서비스를 제공한다.
+## 웹 서비스 내용
+1. 데이터 분석을 통한 쓰레기 문제 제기
+2. 문제 해소를 위한 분리 배출 방법 퀴즈 컨텐츠
+3. 퀴즈 결과에 따른 등급과 순위표
+4. 쓰레기 환경 문제에 대한 사용자 경각심 유도 컨텐츠
 
-## 프로젝트 구성 안내
-* 주요 기능
-  - 데이터 분석 파트 : COVID-19 전후 배달 음식과 관련된       데이터들을 비교 분석하여 환경 문제를 제기한다. (상세 데이터 셋은 추후 갱신 예정)
+## 기술스택
 
-  - 유저 상호 작용 파트 :
-    - 유저로부터 설문 형식의 데이터를 받아 점수로 계산하고, '당신의 쓰레기 등급은?' 이라는 절대평가 방식의 등급을 부여한다.
-      - 점수 산정 방식 : (설문 조사 항목 작성 후 갱신 예정) 
-      - 등급 표 : 등급이 높을수록 부정적인 이미지로 보여야 함.
-        - 수능 등급 형식(1안) 
-          | 등급 | 점수 |
-          | ------ | ------ |
-          | 1 |  |
-          | 2 |  |
-          | 3 |  |
-          | 4 |  |
-          | 5 |  |
-          | 6 |  |
-          | 7 |  |
-          | 8 |  |
-          | 9 |  |
-        - 게임 등급 형식(2안)
-          | 티어 | 점수 |
-          | ------ | ------ |
-          | Grandmaster |  |
-          | Diamond |  |
-          | Platinum |  |
-          | Gold |  |
-          | Silver |  |
-          | Bronze |  |
+### 프론트엔드 기술스택
 
-    - 점수를 기준으로 백분율을 나타낸다.
-      - 당신은 상위 4% 쓰레기 입니다.(1안 예시)
-      - (2안 추가 예정)
-    - 점수를 기반으로 유저의 쓰레기 배출 습관이 지속될 경우 현실적인 데이터를 제시하여 경각심을 유도하는 메시지를 노출.
-      - 당신은 10년동안 800kg 쓰레기를 배출하고 있습니다. (1안 예시)
-      - 당신은 10년동안 북극곰 10마리를 죽였습니다. (2안 예시) 
-    - 점수에 따라 올바른 쓰레기 분리 배출 방법을 제시한다.
-      - 점수별 제시 내용 (추가 예정)
+<img src="https://img.shields.io/badge/-redux--toolkit-%23764ABC?style=for-the-badge&logo=redux&logoColor=black"/> <img src="https://img.shields.io/badge/-react%20-%2361DAFB?style=for-the-badge&logo=react&logoColor=black"/> <img src="https://img.shields.io/badge/-react--router-%23CA4245?style=for-the-badge&logo=react-router&logoColor=black"/>
+<img src="https://img.shields.io/badge/-redux--persist-white?style=for-the-badge&logo=redux&logoColor=%23764ABC"/> <img src="https://img.shields.io/badge/-axios-%23764ABC?style=for-the-badge&logo=axios&logoColor=%23764ABC"/> <img src="https://img.shields.io/badge/-styled--components-%23DB7093?style=for-the-badge&logo=styled-components&logoColor=white"/>
 
 
-* 서브 기능
-  - (추가 예정)
+### 백엔드 기술스택
 
-## 1. 프로젝트 소개
+<img src="https://img.shields.io/badge/-Flask-black?style=for-the-badge&logo=flask&logoColor=white"/> <img src="https://img.shields.io/badge/-Azure-%230078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white"/> <img src="https://img.shields.io/badge/-MSSQL-%23CC2927?style=for-the-badge&logo=Microsoft-SQL-Server&logoColor=white"/> <img src="https://img.shields.io/badge/-Nginx-%23009639?style=for-the-badge&logo=NGINX&logoColor=white"/>
 
-**엔드유저에게 보이는 웹서비스에 대한 소개 추가 필요**
+## Getting Started
 
-** 팀원분들은 본인이 사용한 기술 스택과 라이브러리를 추가해주세요.**
+### 웹애플리케이션
 
-  - 사용하려는 데이터(제안된 데이터 중 하나 또는 선택한 다른 데이터 세트)를 명시, 이에 대한 설명
-  - 기술 스택 (python, d3, pandas, jupyter, javascript, MySQL 등)
-  - 사용된 라이브러리 (numpy, matplotlib, wordcloud 등)
-  - 웹서비스에 대한 자세한 개요
+```
+cd frontend && yarn start
+```
 
-## 2. 프로젝트 목표
-  COVID-19 이후 쓰레기 배출로 인한 환경 문제는 얼마나 심각할까? 그리고 어떻게 해결할 수 있을까?
-  포스트 코로나 시대의 급증한 쓰레기양과 배달 음식의 상관관계를 분석하고 쓰레기 배출 문제를 유저들로부터 일깨운다. 개개인의 노력을 통해 해당 문제를 얼마나 개선시킬 수 있는지 보여주어 환경보호 캠페인 확산을 유도한다.
+## 디렉토리 구조
+```
+🔥 server 🔥
+├──apis
+│ └─Controller (컨트롤러)
+│ │ ├─analysisController.py (분석 컨트롤러)
+│ │ └─dataAccessController.py (데이터접근 컨트롤러)
+│ └─dto (data transfer object / 데이터 교환)
+│   ├─requestDto.py (요청 전달)
+│   └─responseDto.py (응답 전달)
+├──domain (db / 모델)
+│ ├─dao (data access object / 데이터 접근)
+│ │ ├─articleDao.py (기사 접근)
+│ │ ├─exampleDao.py (문제 접근)
+│ │ ├─quizDao.py (퀴즈 접근)
+│ │ ├─recyclingDao.py (재활용 접근)
+│ │ ├─resultDao.py (결과 접근)
+│ │ └─userDao.py (유저 접근)
+│ └─models (모델생성)
+│   ├─article.py (기사 모델)
+│   ├─example.py (문제 모델)
+│   ├─quiz.py (퀴즈 모델)
+│   ├─recycling.py (재활용 모델)
+│   ├─result.py (결과 모델)
+│   └─user.py (유저 모델)
+├──service (view / 뷰)
+│ ├─analysisService.py (분석 로직)
+│ ├─mainService.py (메인 로직)
+│ ├─quizService.py (퀴즈 로직)
+│ ├─rankService.py (점수랭크 로직)
+│ ├─resultService.py (결과 로직)
+│ ├─userRankService.py (유저랭크 로직)
+│ └─userService.py (유저 로직)
+├──app.py (실행)
+├──config.py (비밀키)
+└──db_connect.py (데이터베이스)
+```
 
-## 3. 프로젝트 설명
+```
+♻️ frontend
+├─public
+│├─images(이미지) 
+│└─favicon.ico (파비콘)
+│└─index.html (기본 HTML)
+├─src
+│├─components(컴포넌트)
+│├─etc(색상, 멤버리스트, 문제, 문제 설명 등)
+│├─fonts (폰트)
+│├─pages(페이지)
+│├─redux_store(redux 모듈)
+│├─resultpage-components(결과페이지 컴포넌트)
+│├─styled_components(스타일)
+│├─types (ts 공통 타입, 인터페이스)
+││ └─tests(등급 사진, 문제)
+│├─App.css
+│├─App.js
+│├─index.css
+│├─index.js
+│└─reportWebVitals.js
+├─config
+│ ├─webpack.common.js
+│ ├─webpack.dev.js
+│ └─webpack.prod.js
+├─.gitignore
+├─README.md
+├─package-lock.json
+└─package.json
+```
 
-**웹서비스의 유용성, 편의성 및 시각화의 실용성에 대한 설명**
-  - 프로젝트만의 차별점, 기대 효과
+## 둘러보기
 
-## 4. 프로젝트 구성도
-  - [와이어프레임](https://whimsical.com/elice-Ba4scYLvFB3ySKtkpj3Abd)
+<details>
+<summary>메인 페이지  </summary>
 
-## 5. 프로젝트 팀원 역할 분담
-| 이름 | 담당 업무 |
-| ------ | ------ |
-| 김태호 | 프론트엔드 개발/데이터 분석 |
-| 남궁은선 | 프론트엔드 개발/데이터 분석 |
-| 문지윤 | 백엔드 개발/데이터 분석 |
-| 서명현 | 팀장/데이터 분석 |
-| 백승욱 | 백엔드 개발/데이터 분석 |
-| 정희재 | 백엔드 개발/데이터 분석 |
+![메인페이지풀샷](https://user-images.githubusercontent.com/75749574/138463425-38cca085-c090-485f-8507-54086a4f4a27.png)
 
 
-**멤버별 responsibility**
+</details>
 
-1. 팀장 
+<details>
+<summary>유저 인포 페이지  </summary>
 
-- 기획 단계: 구체적인 설계와 지표에 따른 프로젝트 제안서 작성, 데이터 수집, 와이어프레임 작성
-- 개발 단계: 팀원간의 일정 등 조율 + 데이터 분석
-- 수정 단계: 기획, 스크럼 진행, 코치님 피드백 반영해서 수정, 발표 준비
+![유저인포페이지](https://user-images.githubusercontent.com/75749574/138461600-9a238e00-e20c-4f9f-bdb4-31389ad14e0d.png)
 
-2. 프론트엔드 
+</details>
 
-- 기획 단계: 큰 주제에서 문제 해결 아이디어 도출, 데이터 수집
-- 개발 단계: 와이어프레임을 기반으로 구현, 데이터 처리 및 시각화 담당, UI 디자인 완성 + 데이터 분석
-- 수정 단계: 피드백 반영해서 프론트 디자인 수정
+<details>
+<summary>테스트 페이지  </summary>
 
- 3. 백엔드 & 데이터 담당  
+![테스트페이지](https://user-images.githubusercontent.com/75749574/138461829-09c52a96-0a1f-45fb-9929-b29cd9593318.png)
 
-- 기획 단계: 데이터 수집, 기획 데이터 분석을 통해 해결하고자 하는 문제를 정의
-- 개발 단계: 웹 서버 유저가 직접 백엔드에 저장할수 있는 기능 구현, 데이터 베이스 구축 및 API 활용, 데이터 분석 개념 총동원하기 + 데이터 분석
-- 수정 단계: 코치님 피드백 반영해서 분석/ 시각화 방식 수정
+</details>
 
-## 6. 버전
-  - ver 0.6
-    - 기획서 초안 작성완료
-    - 서브 기능 및 등급 구간 갱신 필요
-    - 팀원 피드백 & 코치님 컨펌 필요
+<details>
+<summary>로딩 페이지  </summary>
 
-  - ver 0.51
-    - 프로젝트 목표 수정
-    - 프로젝트 팀원 역할 분담 수정
+![로딩페이지GIF](https://user-images.githubusercontent.com/75749574/138461823-7cc39c0a-269a-48a0-bdce-8690cac11c9d.gif)
 
-  - ver 0.5
-    - 서비스 이름 작성
-    - 프로젝트 목표 작성
-    - 와이어프레임 제작
-    - 프로젝트 팀원 역할 분담
-    - 멤버별 responsibility 작성
+</details>
 
-## 7. FAQ
-  - (갱신 예정)
+<details>
+<summary>등급 페이지  </summary>
+
+![등급GIF](https://user-images.githubusercontent.com/75749574/138461834-272b4ef1-557c-4a56-a55e-61376a6eb468.gif)
+
+</details>
+
+<details>
+<summary>랭킹 페이지  </summary>
+
+![랭킹페이지](https://user-images.githubusercontent.com/75749574/138461837-abf77f77-f4ea-44f0-8aeb-6a0b208a78db.png)
+
+</details>
+
+<details>
+<summary>어바웃 페이지  </summary>
+
+![어바웃페이지GIF](https://user-images.githubusercontent.com/75749574/138461827-9817f95a-5529-4716-8e60-75d85656f1be.gif)
+
+</details>
+
+
+## See Also
+- [프로젝트 기획서](https://github.com/SSraeng/SSraeng_Project/wiki/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B8%B0%ED%9A%8D%EC%84%9C)
+- [와이어프레임](https://whimsical.com/elice-Ba4scYLvFB3ySKtkpj3Abd)
+- [Wiki](https://github.com/SSraeng/SSraeng_Project/wiki)
+
+
+## Team
+
+### Development
+
+<table>
+    <tr align="center">
+        <td style="min-width: 175px;">
+            <a href="https://github.com/maeng93">
+              <img src="https://github.com/maeng93.png" width="100">
+              <br />
+              <b>서명현</b>
+            </a>
+        </td>
+        <td style="min-width: 175px;">
+            <a href="https://github.com/tea-hkim">
+              <img src="https://github.com/tea-hkim.png" width="100">
+              <br />
+              <b>김태호</b>
+            </a> 
+        </td>
+        <td style="min-width: 175px;">
+            <a href="https://github.com/Grapefruitgreentealoe">
+              <img src="https://github.com/Grapefruitgreentealoe.png" width="100">
+              <br />
+              <b>남궁은선</b>
+            </a>
+        </td>
+        <td style="min-width: 175px;">
+            <a href="https://github.com/Moon-Ji">
+              <img src="https://github.com/Moon-Ji.png" width="100">
+              <br />
+              <b>문지윤</b>
+            </a> 
+        </td>
+        <td style="min-width: 175px;">
+            <a href="https://github.com/tbvjqkdlcm1">
+              <img src="https://github.com/tbvjqkdlcm1.png" width="100">
+              <br />
+              <b>백승욱</b>
+            </a> 
+        </td>
+        <td style="min-width: 175px;">
+            <a href="https://github.com/Hee-Jae">
+              <img src="https://github.com/Hee-Jae.png" width="100">
+              <br />
+              <b>정희재</b>
+            </a> 
+        </td>
+    </tr>
+    <tr align="center" style="background-color:rgb(245, 245, 245)">
+        <td>
+            사장님 👨‍✈️
+        </td>
+        <td>
+            🏥 환자들이여 저에게 모이세요 🏥
+        </td>
+        <td>
+            자몽그린티가 좋아요🍵💕
+        </td>
+        <td>
+            북끅곰 좋아!! 🐻‍❄️😍
+        </td>
+        <td>
+            하얀 마음을 가진 남자👨‍🦳
+        </td>
+        <td>
+            Try Try ~ Why Not ~?!🤷‍♂️
+        </td>
+    </tr>
+    <tr align="center">
+        <td>
+            PM & Data Analysis
+        </td>
+        <td>
+            Web FE & Data Analysis
+        </td>
+        <td>
+            Web FE
+        </td>
+        <td>
+            Web BE & Data Analysis
+        </td>
+        <td>
+            Web BE & Data Analysis
+        </td>
+        <td>
+            Web BE & Web FE
+        </td>
+    </tr>
+</table>
+
+#### Thanks to
+
+👨🏻‍🎓 [신주형](https://github.com/) : Web Development Coach
+👩‍🎓 [윤현영](https://github.com/) : Data Analysis Coach
