@@ -69,27 +69,27 @@ cd frontend && yarn start
 ```
 ♻️ frontend
 ├─public
-│├─images(이미지) 
-│└─favicon.ico (파비콘)
-│└─index.html (기본 HTML)
+│ ├─images(이미지) 
+│ ├─favicon.ico (파비콘)
+│ └─index.html (기본 HTML)
 ├─src
-│├─components(컴포넌트)
-│├─etc(색상, 멤버리스트, 문제, 문제 설명 등)
-│├─fonts (폰트)
-│├─pages(페이지)
-│├─redux_store(redux 모듈)
-│├─resultpage-components(결과페이지 컴포넌트)
-│├─styled_components(스타일)
-│└─tests(등급 사진, 문제)
-│├─App.css
-│├─App.js
-│├─index.css
-│├─index.js
-│└─reportWebVitals.js
+│ ├─components(컴포넌트)
+│ ├─etc(색상, 멤버리스트, 문제, 문제 설명 등)
+│ ├─fonts (폰트)
+│ ├─pages(페이지)
+│ ├─redux_store(redux 모듈)
+│ ├─resultpage-components(결과페이지 컴포넌트)
+│ ├─styled_components(스타일)
+│ ├─tests(등급 사진, 문제)
+│ ├─App.css
+│ ├─App.js
+│ ├─index.css
+│ ├─index.js
+│ └─reportWebVitals.js
 ├─.gitignore
-├─README.md
-├─package-lock.json
-└─package.json
+├──README.md
+├──package-lock.json
+└──package.json
 ```
 
 ## 둘러보기
@@ -244,5 +244,5 @@ cd frontend && yarn start
 
 #### Thanks to
 
-👨🏻‍🎓 [신주형](https://github.com/) : Web Development Coach
-👩‍🎓 [윤현영](https://github.com/) : Data Analysis Coach
+👨‍💻 [신주형](https://github.com/) : Web Development Coach  
+👩‍💻 [윤현영](https://github.com/) : Data Analysis Coach
